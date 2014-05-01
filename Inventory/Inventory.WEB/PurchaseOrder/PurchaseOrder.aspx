@@ -1,24 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inventory.Master" AutoEventWireup="true" CodeBehind="PurchaseOrder.aspx.cs" Inherits="Inventory.Web.PurchaseOrder.PurchaseOrder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script src="../Scripts/PurchaseOrder/PONew.js"></script>
-    <script type="text/javascript">
-        var jsonpurchseItemobject;
-        $(document).ready(function () {
-            //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SetDatePicker);
-          
-        });
+       <script type="text/javascript">
+           var jsonpurchseItemobject;
+           $(document).ready(function () {
+               //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SetDatePicker);
 
-        function SetDatePicker() {
-            $("#<%=txtPODate.ClientID%>").datepicker({ dateFormat: 'dd/mm/yy' });
+           });
+
+           function SetDatePicker() {
+               $("#<%=txtPODate.ClientID%>").datepicker({ dateFormat: 'dd/mm/yy' });
         }
 
         $(function () {
-          
+
             SetLoadEvent();
-            
+
         });
 
 
@@ -60,7 +57,7 @@
                 var trpobj = $(this);
                 var drpObj = $(trpobj).find(".drp-item");
                 var descObj = $(trpobj).find(".po-desc");
-             //   var quapercerObj = $(trpobj).find(".po-quapercer");
+                //   var quapercerObj = $(trpobj).find(".po-quapercer");
                 var barcodeObj = $(trpobj).find(".po-barcode");
                 var costObj = $(trpobj).find(".po-cost");
                 var currencyObj = $(trpobj).find(".currecy");
@@ -71,7 +68,7 @@
                             $(descObj).html(obj.Description);
                             $(barcodeObj).html(obj.BarCode);
                             $(costObj).html(obj.Cost);
-                       //     $(quapercerObj).html(obj.QtyPerCarton);
+                            //     $(quapercerObj).html(obj.QtyPerCarton);
                             $(currencyObj).html(obj.CurrencyCode);
                         }
                         else {
@@ -92,7 +89,7 @@
             var descObj = $(trpobj).find(".po-desc");
             var barcodeObj = $(trpobj).find(".po-barcode");
             var costObj = $(trpobj).find(".po-cost");
-           // var quapercerObj = $(trpobj).find(".po-quapercer");
+            // var quapercerObj = $(trpobj).find(".po-quapercer");
             var amtObj = $(trpobj).find(".po-amt");
             var costeditObj = $(trpobj).find(".po-costedit");
             var quaObj = $(trpobj).find(".po-qua");
@@ -117,11 +114,11 @@
                     $(descObj).html("");
                     $(barcodeObj).html("");
                     $(costObj).html("");
-                   // $(quapercerObj).html("");
+                    // $(quapercerObj).html("");
                     $(costeditObj).val("0");
                     $(quaObj).val("0");
                     $(amtObj).val("0");
-                   // $(quapercerObj).html("");
+                    // $(quapercerObj).html("");
                     $(currencyObj).html("");
                 }
                 $(quaObj).blur();
@@ -132,11 +129,15 @@
         }
 
         function checkNumenric(obj) {
-          return  $(obj).val() != "";
+            return $(obj).val() != "";
 
         }
 
     </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="../Scripts/PurchaseOrder/PONew.js"></script>
+ 
     <style>
         .po-cost {
             display:inline !important;
