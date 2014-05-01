@@ -5,13 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Inventory.DAL.PurchaseOrders;
+using Inventory.BAL.PurchaseOrdersBO;
 using Inventory.Utility;
 using Inventory.DAL.Supplier;
 using Inventory.Utility;
 using System.Globalization;
 using System.Web.Script.Serialization;
-using Inventory.DAL.PurchaseOrders;
 using balmodel = Inventory.BAL;
 
 namespace Inventory.Web.PurchaseOrder

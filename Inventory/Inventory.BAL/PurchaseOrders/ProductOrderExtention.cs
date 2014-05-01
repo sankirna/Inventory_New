@@ -4,7 +4,7 @@ using System.Linq;
 using Inventory.Utility;
 using entity = Inventory.DAL;
 
-namespace Inventory.DAL.PurchaseOrders
+namespace Inventory.BAL.PurchaseOrdersBO
 {
     public static class ProductOrderExtention
     {
@@ -12,13 +12,13 @@ namespace Inventory.DAL.PurchaseOrders
 
         #region "Product"
 
-        public static ProductMaster ToEntity(this ProductPurchaseOrderModel model)
+        public static entity.ProductMaster ToEntity(this ProductPurchaseOrderModel model)
         {
 
             return null;
         }
 
-        public static ProductPurchaseOrderModel ToModel(this ProductMaster entity)
+        public static ProductPurchaseOrderModel ToModel(this entity.ProductMaster entity)
         {
             using (var db = new DAL.InventoryEntities())
             {
@@ -29,7 +29,7 @@ namespace Inventory.DAL.PurchaseOrders
                 model.Description = entity.Description;
                 model.Cost = entity.BasicPC;
                 model.QtyPerCarton = entity.QPC.ToNullInt();
-                var currency = db.CurrencyMasters.FirstOrDefault(x => x.CurrencyID == entity.CurrencyID) ?? new CurrencyMaster();
+                var currency = db.CurrencyMasters.FirstOrDefault(x => x.CurrencyID == entity.CurrencyID) ?? new entity.CurrencyMaster();
                 model.CurrencyCode = currency.CurrencyCode;
                 return model;
 
@@ -40,9 +40,9 @@ namespace Inventory.DAL.PurchaseOrders
 
         #region "Purchase Order Item"
 
-        public static PurchaseOrderDetail ToEntity(this PurchaseOrderItemModel model)
+        public static entity.PurchaseOrderDetail ToEntity(this PurchaseOrderItemModel model)
         {
-            PurchaseOrderDetail entity = new PurchaseOrderDetail();
+            entity.PurchaseOrderDetail entity = new entity.PurchaseOrderDetail();
             entity.PurchaseOrderDetailID = model.PurchaseOrderDetailID;
             entity.PurchaseOrderID = model.PurchaseOrderID;
             entity.ProductID = model.ProductID;
@@ -53,7 +53,7 @@ namespace Inventory.DAL.PurchaseOrders
             return entity;
         }
 
-        public static PurchaseOrderDetail ToEntity(this PurchaseOrderItemModel model, PurchaseOrderDetail entity)
+        public static entity.PurchaseOrderDetail ToEntity(this PurchaseOrderItemModel model, entity.PurchaseOrderDetail entity)
         {
             entity.PurchaseOrderDetailID = model.PurchaseOrderDetailID;
             entity.PurchaseOrderID = model.PurchaseOrderID;
@@ -65,7 +65,7 @@ namespace Inventory.DAL.PurchaseOrders
             return entity;
         }
 
-        public static PurchaseOrderItemModel ToModel(this PurchaseOrderDetail entity)
+        public static PurchaseOrderItemModel ToModel(this entity.PurchaseOrderDetail entity)
         {
             PurchaseOrderItemModel model = new PurchaseOrderItemModel();
             model.PurchaseOrderDetailID = entity.PurchaseOrderDetailID;

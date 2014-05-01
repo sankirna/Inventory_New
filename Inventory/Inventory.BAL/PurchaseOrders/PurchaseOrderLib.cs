@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using Inventory.DAL;
 using Inventory.Utility;
 
-namespace Inventory.DAL.PurchaseOrders
+namespace Inventory.BAL.PurchaseOrdersBO
 {
     public class PurchaseOrderLib
     {

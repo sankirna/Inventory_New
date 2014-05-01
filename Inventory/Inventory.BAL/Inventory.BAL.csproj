@@ -45,6 +45,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
@@ -100,6 +104,15 @@
     <Compile Include="PickingList.cs" />
     <Compile Include="Masters\ProductBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrders\ProductOrderExtention.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrders\PurchaseOrderLib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrders\PurchaseOrderModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PurchaseOrders\PurchaseOrdersBO.cs" />
     <Compile Include="PurchaseSupplierOrder.cs" />
     <Compile Include="ReceiveOrder.cs" />

@@ -140,9 +140,6 @@
     <Compile Include="PurchaseOrderDetail.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PurchaseOrders\ProductOrderExtention.cs" />
-    <Compile Include="PurchaseOrders\PurchaseOrderLib.cs" />
-    <Compile Include="PurchaseOrders\PurchaseOrderModel.cs" />
     <Compile Include="Masters\SupplierDAL.cs" />
     <Compile Include="Masters\UOMMasterDAL.cs" />
     <Compile Include="ReceiveMainDetail.cs">

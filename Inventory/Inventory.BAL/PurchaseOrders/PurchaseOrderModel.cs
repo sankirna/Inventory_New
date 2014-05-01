@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Inventory.DAL.PurchaseOrders
+namespace Inventory.BAL.PurchaseOrdersBO
 {
     public class PurchaseOrderModel
     {
