@@ -167,7 +167,6 @@ E:\Repository Project\inventory\Inventory\Inventory.Web\bin\log4net.xml
 E:\Repository Project\inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
 E:\Repository Project\inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.dll
 E:\Repository Project\inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.pdb
-E:\Repository Projects\New Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\bin\Inventory.Web.dll
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\bin\Inventory.Web.pdb
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\bin\AjaxControlToolkit.dll
@@ -198,5 +197,6 @@ E:\Repository Projects\New Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\bin\EntityFramework.xml
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\bin\EntityFramework.SqlServer.xml
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\bin\log4net.xml
+E:\Repository Projects\New Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.dll
 E:\Repository Projects\New Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.pdb

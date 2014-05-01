@@ -79,7 +79,7 @@ namespace Inventory.Web.PurchaseOrder
             PurchaseOrderModel purchaseOrderModel = new PurchaseOrderModel();
             if (Request.QueryString["POID"] != null)
             {
-                purchaseOrderModel.PurchaseOrderID = Request.QueryString["POID"].ToString().ToIntFromString();
+                purchaseOrderModel.PurchaseOrderID = Request.QueryString["POID"].ToIntFromString();
             }
             purchaseOrderModel.SupplierID = ddSupplier.SelectedValue.ToIntFromString();
             purchaseOrderModel.PODate = Convert.ToDateTime(txtPODate.Text.Trim());
@@ -98,7 +98,7 @@ namespace Inventory.Web.PurchaseOrder
                 if (Request.QueryString["POID"] != null)
                 {
                     ddSupplier.SelectedValue = PurchaseOrderModel.SupplierID.ToStringFromInt();
-                    txtPODate.Text = PurchaseOrderModel.PODate.ToString("dd-MMM-yy");
+                    txtPODate.Text = PurchaseOrderModel.PODate.GetForamttedDate();
                     txtTermcondition.Text = PurchaseOrderModel.TermCondition;
                 }
                 grdPurchaseOrder.DataSource = PurchaseOrderModel.PurchaseOrderItems;

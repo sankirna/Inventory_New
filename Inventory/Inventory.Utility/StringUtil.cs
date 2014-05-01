@@ -135,5 +135,17 @@ namespace Inventory.Utility
             }
             return string.Empty;
         }
+
+
+        public static int ToNullInt(this int? obj)
+        {
+            return Convert.ToInt16(obj);
+
+        }
+
+        public static decimal ToNullDecimal(this decimal? obj)
+        {
+            return Convert.ToDecimal(obj);
+        }
     }
 }

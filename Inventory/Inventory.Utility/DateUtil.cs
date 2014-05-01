@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing.Printing;
+using System.Globalization;
 
 namespace Inventory.Utility
 {
@@ -20,5 +22,16 @@ namespace Inventory.Utility
             }
             return new DateTime();
         }
+
+        public static DateTime GetStringToFormatedDate(this string str)
+        {
+            return Convert.ToDateTime(DateTime.Parse(str).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+        }
+
+        public static string GetForamttedDate(this DateTime dt)
+        {
+            return dt.ToString("dd-MMM-yy");
+        }
+
     }
 }

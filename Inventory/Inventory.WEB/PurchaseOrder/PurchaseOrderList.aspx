@@ -68,7 +68,7 @@
                  </asp:TemplateField>
                <asp:TemplateField HeaderText="Edit" HeaderStyle-Width="20px" ControlStyle-Width="20px">
                          <ItemTemplate>
-                             <a href='<%# string.Format( "/PurchaseOrder/PurchaseOrder.aspx?POID={0}",Eval("PurchaseOrderID"))%>'><img src="../Images/edit.png" /> </a>
+                             <a href='<%# string.Format( "PurchaseOrder.aspx?POID={0}",Eval("PurchaseOrderID"))%>'><img src="../Images/edit.png" /> </a>
                        
                              
                           </ItemTemplate>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using Inventory.Utility;
 
 namespace Inventory.DAL.PurchaseOrders
 {
@@ -12,8 +13,8 @@ namespace Inventory.DAL.PurchaseOrders
         {
             DAL.InventoryEntities db = new DAL.InventoryEntities();
 
-            DateTime dtStartDate = Convert.ToDateTime(DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/1901").ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
-            DateTime dtEndDate = Convert.ToDateTime(DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/2101").ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+            DateTime dtStartDate = (!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/1901").GetStringToFormatedDate();
+            DateTime dtEndDate = (!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/2101").GetStringToFormatedDate();
             var objPurchaseOrderList = db.PurchaseOrders.Where(x => x.Status == 1
                 && (supplierId == 0 | x.SupplierID == supplierId)
                 && (string.IsNullOrEmpty(pOnumber) || x.PONumber == pOnumber)

@@ -43,7 +43,7 @@
             });
 
             $(".drp-item").change(function (e) {
-                SetGridItem($(this))
+                SetGridItem($(this));
             });
 
             $(".number").blur(function (e) {
