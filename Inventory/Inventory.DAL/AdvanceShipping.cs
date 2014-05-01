@@ -14,6 +14,11 @@ namespace Inventory.DAL
     
     public partial class AdvanceShipping
     {
+        public AdvanceShipping()
+        {
+            this.AdvanceShippingProductDetails = new HashSet<AdvanceShippingProductDetail>();
+        }
+    
         public int ASNID { get; set; }
         public string PONumber { get; set; }
         public Nullable<int> SupplierID { get; set; }
@@ -24,5 +29,8 @@ namespace Inventory.DAL
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<int> Status { get; set; }
+    
+        public virtual SupplierMaster SupplierMaster { get; set; }
+        public virtual ICollection<AdvanceShippingProductDetail> AdvanceShippingProductDetails { get; set; }
     }
 }

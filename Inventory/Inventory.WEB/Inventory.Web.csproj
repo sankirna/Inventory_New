@@ -267,6 +267,7 @@
     <Content Include="Scripts\jquery-migrate-1.2.1.js" />
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\notifIt.js" />
+    <Content Include="Scripts\Purchase\ASN.js" />
     <Content Include="Scripts\Validation.js" />
     <Content Include="Scripts\jquery.form-validator.min.js" />
     <Content Include="Scripts\jquery.min.js" />

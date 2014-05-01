@@ -2,16 +2,8 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-      <script type="text/javascript">
-          $(document).ready(function () {
-              Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SetDatePicker);
-              SetDatePicker();
-          });
-
-          function SetDatePicker() {
-              $("#<%=txtETD.ClientID%>").datepicker({ dateFormat: 'dd-M-yy' });
-        }
-    </script>
+    <script src="../Scripts/Purchase/ASN.js"></script>
+     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false"></asp:ToolkitScriptManager>
@@ -56,7 +48,7 @@
             
 
                      <td >
-        <asp:TextBox ID="txtETD"  CssClass="NonEntry" runat="server" ></asp:TextBox>
+        <asp:TextBox ID="txtETD"  CssClass="NonEntry calender" runat="server" ></asp:TextBox>
                         </td>
 
          </tr>
@@ -76,7 +68,7 @@
      <asp:Label ID="Label1" runat="server" >From:</asp:Label><span class="mandatory">*</span>
      </td>
              <td >
-        <asp:TextBox ID="txtCountryFrom"  runat="server" ></asp:TextBox>
+        <asp:TextBox ID="txtCountryFrom"  runat="server"  CssClass="calender"></asp:TextBox>
                         </td>
 
          </tr>
@@ -85,7 +77,7 @@
      <asp:Label ID="Label2" runat="server" >To:</asp:Label><span class="mandatory">*</span>
      </td>
              <td >
-        <asp:TextBox ID="txtCountryTo"  runat="server" ></asp:TextBox>
+        <asp:TextBox ID="txtCountryTo"  runat="server" CssClass="calender"></asp:TextBox>
                         </td>
 
          </tr>
@@ -165,7 +157,7 @@
 
                                 <asp:TemplateField HeaderText="MF Date">
                                         <ItemTemplate>
-                                            <asp:TextBox runat="server" Width="50px" ID="txtMFDate"></asp:TextBox>
+                                            <asp:TextBox runat="server" Width="50px" ID="txtMFDate" CssClass="calender"></asp:TextBox>
                                             </ItemTemplate>
                                             </asp:TemplateField>  
 

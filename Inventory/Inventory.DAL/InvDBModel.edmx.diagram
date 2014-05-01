@@ -29,6 +29,10 @@
         <EntityTypeShape EntityType="InventoryModel.UOMMaster" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" ManuallyRouted="false" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrder_SupplierMaster" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShipping_SupplierMaster" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" />
+        <EntityTypeShape EntityType="InventoryModel.ExceptionLog1" Width="1.5" PointX="9.3301879918809" PointY="1.5748909570159815" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

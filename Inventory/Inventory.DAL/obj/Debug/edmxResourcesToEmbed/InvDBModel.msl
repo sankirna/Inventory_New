@@ -149,18 +149,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ExceptionLogs">
-      <EntityTypeMapping TypeName="InventoryModel.ExceptionLog">
-        <MappingFragment StoreEntitySet="ExceptionLog">
-          <ScalarProperty Name="ExceptionLogID" ColumnName="ExceptionLogID" />
-          <ScalarProperty Name="ExMessage" ColumnName="ExMessage" />
-          <ScalarProperty Name="ExInnerException" ColumnName="ExInnerException" />
-          <ScalarProperty Name="ExCreatedBy" ColumnName="ExCreatedBy" />
-          <ScalarProperty Name="ExCreatedDate" ColumnName="ExCreatedDate" />
-          <ScalarProperty Name="ExOrigin" ColumnName="ExOrigin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PickingLists">
       <EntityTypeMapping TypeName="InventoryModel.PickingList">
         <MappingFragment StoreEntitySet="PickingList">
@@ -362,6 +350,18 @@
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
           <ScalarProperty Name="DateModified" ColumnName="DateModified" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExceptionLog1">
+      <EntityTypeMapping TypeName="InventoryModel.ExceptionLog1">
+        <MappingFragment StoreEntitySet="ExceptionLog">
+          <ScalarProperty Name="ExOrigin" ColumnName="ExOrigin" />
+          <ScalarProperty Name="ExCreatedDate" ColumnName="ExCreatedDate" />
+          <ScalarProperty Name="ExCreatedBy" ColumnName="ExCreatedBy" />
+          <ScalarProperty Name="ExInnerException" ColumnName="ExInnerException" />
+          <ScalarProperty Name="ExMessage" ColumnName="ExMessage" />
+          <ScalarProperty Name="ExceptionLogID" ColumnName="ExceptionLogID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

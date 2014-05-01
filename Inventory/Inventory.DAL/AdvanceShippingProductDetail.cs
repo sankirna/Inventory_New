@@ -29,5 +29,8 @@ namespace Inventory.DAL
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> Status { get; set; }
+    
+        public virtual AdvanceShipping AdvanceShipping { get; set; }
+        public virtual ProductMaster ProductMaster { get; set; }
     }
 }

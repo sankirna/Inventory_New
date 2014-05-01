@@ -28,13 +28,25 @@
           <EntitySet Name="SupplierBrand" EntityType="InventoryModel.Store.SupplierBrand" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SupplierMaster" EntityType="InventoryModel.Store.SupplierMaster" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UOMMaster" EntityType="InventoryModel.Store.UOMMaster" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AdvanceShipping_SupplierMaster" Association="InventoryModel.Store.FK_AdvanceShipping_SupplierMaster">
+            <End Role="SupplierMaster" EntitySet="SupplierMaster" />
+            <End Role="AdvanceShipping" EntitySet="AdvanceShipping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvanceShippingProductDetails_AdvanceShipping" Association="InventoryModel.Store.FK_AdvanceShippingProductDetails_AdvanceShipping">
+            <End Role="AdvanceShipping" EntitySet="AdvanceShipping" />
+            <End Role="AdvanceShippingProductDetails" EntitySet="AdvanceShippingProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvanceShippingProductDetails_ProductMaster" Association="InventoryModel.Store.FK_AdvanceShippingProductDetails_ProductMaster">
+            <End Role="ProductMaster" EntitySet="ProductMaster" />
+            <End Role="AdvanceShippingProductDetails" EntitySet="AdvanceShippingProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_PurchaseOrder" Association="InventoryModel.Store.FK_PurchaseOrder_PurchaseOrder">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
+            <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_SupplierMaster" Association="InventoryModel.Store.FK_PurchaseOrder_SupplierMaster">
             <End Role="SupplierMaster" EntitySet="SupplierMaster" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchaseOrderDetails_PurchaseOrder" Association="InventoryModel.Store.FK_PurchaseOrderDetails_PurchaseOrder">
-            <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
-            <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AdvanceShipping">
@@ -181,11 +193,11 @@
             <PropertyRef Name="ExceptionLogID" />
           </Key>
           <Property Name="ExceptionLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ExMessage" Type="nvarchar" MaxLength="500" />
+          <Property Name="ExMessage" Type="nvarchar(max)" />
           <Property Name="ExInnerException" Type="nvarchar(max)" />
           <Property Name="ExCreatedBy" Type="int" />
           <Property Name="ExCreatedDate" Type="datetime" />
-          <Property Name="ExOrigin" Type="varchar" MaxLength="500" />
+          <Property Name="ExOrigin" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PickingList">
           <Key>
@@ -379,6 +391,54 @@
           <Property Name="DateModified" Type="datetime" />
           <Property Name="Status" Type="int" />
         </EntityType>
+        <Association Name="FK_AdvanceShipping_SupplierMaster">
+          <End Role="SupplierMaster" Type="InventoryModel.Store.SupplierMaster" Multiplicity="0..1" />
+          <End Role="AdvanceShipping" Type="InventoryModel.Store.AdvanceShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplierMaster">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="AdvanceShipping">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvanceShippingProductDetails_AdvanceShipping">
+          <End Role="AdvanceShipping" Type="InventoryModel.Store.AdvanceShipping" Multiplicity="0..1" />
+          <End Role="AdvanceShippingProductDetails" Type="InventoryModel.Store.AdvanceShippingProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvanceShipping">
+              <PropertyRef Name="ASNID" />
+            </Principal>
+            <Dependent Role="AdvanceShippingProductDetails">
+              <PropertyRef Name="ASNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvanceShippingProductDetails_ProductMaster">
+          <End Role="ProductMaster" Type="InventoryModel.Store.ProductMaster" Multiplicity="0..1" />
+          <End Role="AdvanceShippingProductDetails" Type="InventoryModel.Store.AdvanceShippingProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductMaster">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="AdvanceShippingProductDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_PurchaseOrder">
+          <End Role="PurchaseOrder" Type="InventoryModel.Store.PurchaseOrder" Multiplicity="0..1" />
+          <End Role="PurchaseOrderDetails" Type="InventoryModel.Store.PurchaseOrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="PurchaseOrderDetails">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PurchaseOrder_SupplierMaster">
           <End Role="SupplierMaster" Type="InventoryModel.Store.SupplierMaster" Multiplicity="0..1" />
           <End Role="PurchaseOrder" Type="InventoryModel.Store.PurchaseOrder" Multiplicity="*" />
@@ -388,18 +448,6 @@
             </Principal>
             <Dependent Role="PurchaseOrder">
               <PropertyRef Name="SupplierID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchaseOrderDetails_PurchaseOrder">
-          <End Role="PurchaseOrder" Type="InventoryModel.Store.PurchaseOrder" Multiplicity="0..1" />
-          <End Role="PurchaseOrderDetails" Type="InventoryModel.Store.PurchaseOrderDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PurchaseOrder">
-              <PropertyRef Name="PurchaseOrderID" />
-            </Principal>
-            <Dependent Role="PurchaseOrderDetails">
-              <PropertyRef Name="PurchaseOrderID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -438,6 +486,19 @@
             <End Role="SupplierMaster" EntitySet="SupplierMasters" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
+          <AssociationSet Name="FK_AdvanceShipping_SupplierMaster" Association="InventoryModel.FK_AdvanceShipping_SupplierMaster">
+            <End Role="SupplierMaster" EntitySet="SupplierMasters" />
+            <End Role="AdvanceShipping" EntitySet="AdvanceShippings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvanceShippingProductDetails_AdvanceShipping" Association="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping">
+            <End Role="AdvanceShipping" EntitySet="AdvanceShippings" />
+            <End Role="AdvanceShippingProductDetail" EntitySet="AdvanceShippingProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdvanceShippingProductDetails_ProductMaster" Association="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster">
+            <End Role="ProductMaster" EntitySet="ProductMasters" />
+            <End Role="AdvanceShippingProductDetail" EntitySet="AdvanceShippingProductDetails" />
+          </AssociationSet>
+          <EntitySet Name="ExceptionLog1" EntityType="InventoryModel.ExceptionLog1" />
         </EntityContainer>
         <EntityType Name="AdvanceShipping">
           <Key>
@@ -453,6 +514,8 @@
           <Property Name="DateModified" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_AdvanceShipping_SupplierMaster" FromRole="AdvanceShipping" ToRole="SupplierMaster" />
+          <NavigationProperty Name="AdvanceShippingProductDetails" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" FromRole="AdvanceShipping" ToRole="AdvanceShippingProductDetail" />
         </EntityType>
         <EntityType Name="AdvanceShippingProductDetail">
           <Key>
@@ -473,6 +536,8 @@
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="DateModified" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="AdvanceShipping" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" FromRole="AdvanceShippingProductDetail" ToRole="AdvanceShipping" />
+          <NavigationProperty Name="ProductMaster" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" FromRole="AdvanceShippingProductDetail" ToRole="ProductMaster" />
         </EntityType>
         <EntityType Name="BrandMaster">
           <Key>
@@ -633,6 +698,7 @@
           <Property Name="DateModified" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="AdvanceShippingProductDetails" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" FromRole="ProductMaster" ToRole="AdvanceShippingProductDetail" />
         </EntityType>
         <EntityType Name="PurchaseOrder">
           <Key>
@@ -771,6 +837,7 @@
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="PurchaseOrders" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="SupplierMaster" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="AdvanceShippings" Relationship="InventoryModel.FK_AdvanceShipping_SupplierMaster" FromRole="SupplierMaster" ToRole="AdvanceShipping" />
         </EntityType>
         <EntityType Name="UOMMaster">
           <Key>
@@ -809,6 +876,53 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AdvanceShipping_SupplierMaster">
+          <End Type="InventoryModel.SupplierMaster" Role="SupplierMaster" Multiplicity="0..1" />
+          <End Type="InventoryModel.AdvanceShipping" Role="AdvanceShipping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplierMaster">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="AdvanceShipping">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvanceShippingProductDetails_AdvanceShipping">
+          <End Type="InventoryModel.AdvanceShipping" Role="AdvanceShipping" Multiplicity="0..1" />
+          <End Type="InventoryModel.AdvanceShippingProductDetail" Role="AdvanceShippingProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvanceShipping">
+              <PropertyRef Name="ASNID" />
+            </Principal>
+            <Dependent Role="AdvanceShippingProductDetail">
+              <PropertyRef Name="ASNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdvanceShippingProductDetails_ProductMaster">
+          <End Type="InventoryModel.ProductMaster" Role="ProductMaster" Multiplicity="0..1" />
+          <End Type="InventoryModel.AdvanceShippingProductDetail" Role="AdvanceShippingProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductMaster">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="AdvanceShippingProductDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ExceptionLog1">
+          <Key>
+            <PropertyRef Name="ExceptionLogID" />
+          </Key>
+          <Property Type="Int32" Name="ExceptionLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ExMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExInnerException" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ExCreatedBy" />
+          <Property Type="DateTime" Name="ExCreatedDate" Precision="3" />
+          <Property Type="String" Name="ExOrigin" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -960,18 +1074,6 @@
                 <ScalarProperty Name="DateModified" ColumnName="DateModified" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExceptionLogs">
-            <EntityTypeMapping TypeName="InventoryModel.ExceptionLog">
-              <MappingFragment StoreEntitySet="ExceptionLog">
-                <ScalarProperty Name="ExceptionLogID" ColumnName="ExceptionLogID" />
-                <ScalarProperty Name="ExMessage" ColumnName="ExMessage" />
-                <ScalarProperty Name="ExInnerException" ColumnName="ExInnerException" />
-                <ScalarProperty Name="ExCreatedBy" ColumnName="ExCreatedBy" />
-                <ScalarProperty Name="ExCreatedDate" ColumnName="ExCreatedDate" />
-                <ScalarProperty Name="ExOrigin" ColumnName="ExOrigin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1176,6 +1278,18 @@
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="DateModified" ColumnName="DateModified" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExceptionLog1">
+            <EntityTypeMapping TypeName="InventoryModel.ExceptionLog1">
+              <MappingFragment StoreEntitySet="ExceptionLog">
+                <ScalarProperty Name="ExOrigin" ColumnName="ExOrigin" />
+                <ScalarProperty Name="ExCreatedDate" ColumnName="ExCreatedDate" />
+                <ScalarProperty Name="ExCreatedBy" ColumnName="ExCreatedBy" />
+                <ScalarProperty Name="ExInnerException" ColumnName="ExInnerException" />
+                <ScalarProperty Name="ExMessage" ColumnName="ExMessage" />
+                <ScalarProperty Name="ExceptionLogID" ColumnName="ExceptionLogID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
