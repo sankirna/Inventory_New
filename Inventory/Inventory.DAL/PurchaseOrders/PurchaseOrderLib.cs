@@ -8,20 +8,20 @@ namespace Inventory.DAL.PurchaseOrders
 {
     public class PurchaseOrderLib
     {
-        public List<PurchaseOrder> GetListForDDL(int supplierId, string POnumber, string startDate, string endDate)
+        public List<PurchaseOrder> GetListForDDL(int supplierId, string pOnumber, string startDate, string endDate)
         {
             DAL.InventoryEntities db = new DAL.InventoryEntities();
 
             DateTime dtStartDate = Convert.ToDateTime(DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/1901").ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
             DateTime dtEndDate = Convert.ToDateTime(DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/2101").ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
-            var ObjPurchaseOrderList = db.PurchaseOrders.Where(x => x.Status == 1
+            var objPurchaseOrderList = db.PurchaseOrders.Where(x => x.Status == 1
                 && (supplierId == 0 | x.SupplierID == supplierId)
-                && (string.IsNullOrEmpty(POnumber) || x.PONumber == POnumber)
+                && (string.IsNullOrEmpty(pOnumber) || x.PONumber == pOnumber)
                 && ((string.IsNullOrEmpty(startDate) || x.PODate >= dtStartDate)
                 && (string.IsNullOrEmpty(endDate) || x.PODate <= dtEndDate)
                 )
                 ).ToList();
-            return ObjPurchaseOrderList;
+            return objPurchaseOrderList;
 
         }
 
