@@ -20,3 +20,10 @@ E:\Repository Project\inventory\Inventory\Inventory.Utility\bin\log4net.xml
 E:\Repository Project\inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.csprojResolveAssemblyReference.cache
 E:\Repository Project\inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.dll
 E:\Repository Project\inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.Utility\bin\Inventory.Utility.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.Utility\bin\Inventory.Utility.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.Utility\bin\log4net.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.Utility\bin\log4net.xml
+E:\Repository Projects\New Inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.csprojResolveAssemblyReference.cache
+E:\Repository Projects\New Inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.pdb

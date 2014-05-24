@@ -51,3 +51,16 @@ E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\EntityFramework.xml
 E:\Repository Project\inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
 E:\Repository Project\inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.dll
 E:\Repository Project\inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.BAL.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.BAL.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\log4net.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\EntityFramework.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\log4net.xml
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\EntityFramework.xml
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.pdb

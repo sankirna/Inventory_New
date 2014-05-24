@@ -1,1 +1,8 @@
 Inventory/Inventory.BAL/bin/
+Inventory/Inventory.BAL/obj/
+Inventory/Inventory.DAL/bin/
+Inventory/Inventory.Utility/bin/
+Inventory/Inventory.DAL/obj/
+Inventory/Inventory.Utility/obj/
+Inventory/Inventory.WEB/bin/
+Inventory/Inventory.WEB/obj/

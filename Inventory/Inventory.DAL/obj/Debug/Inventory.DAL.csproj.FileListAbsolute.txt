@@ -34,3 +34,14 @@ E:\Repository Project\inventory\Inventory\Inventory.DAL\bin\log4net.xml
 E:\Repository Project\inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.csprojResolveAssemblyReference.cache
 E:\Repository Project\inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.dll
 E:\Repository Project\inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\Inventory.DAL.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\Inventory.DAL.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\EntityFramework.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\Inventory.Utility.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\log4net.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\Inventory.Utility.pdb
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\EntityFramework.xml
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\log4net.xml
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.csprojResolveAssemblyReference.cache
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.pdb
