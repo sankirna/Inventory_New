@@ -38,3 +38,16 @@ E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\log4net.xml
 E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
 E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.dll
 E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.pdb
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\Inventory.BAL.dll
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\Inventory.BAL.pdb
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.dll
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.dll
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\log4net.dll
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\EntityFramework.dll
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.pdb
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.pdb
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\log4net.xml
+E:\Repository Project\inventory\Inventory\Inventory.BAL\bin\EntityFramework.xml
+E:\Repository Project\inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
+E:\Repository Project\inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.dll
+E:\Repository Project\inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.pdb

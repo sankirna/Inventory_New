@@ -9,4 +9,4 @@ namespace Inventory.DAL
     {
 
     }
-}
+} 

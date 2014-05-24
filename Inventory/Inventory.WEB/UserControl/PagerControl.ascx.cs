@@ -16,7 +16,7 @@ namespace Inventory.Web.UserControl
 
         }
 
-        /// <summary>
+        /// <summary> 
         /// OnPageButtonClick - Event to be captured in the parent page where this pager control is used
         /// </summary>
         /// <param name="sender"></param>

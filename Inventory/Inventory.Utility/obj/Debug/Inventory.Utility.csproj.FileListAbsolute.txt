@@ -13,3 +13,10 @@ E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\bin\log4net.dll
 E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\bin\log4net.xml
 E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.dll
 E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.pdb
+E:\Repository Project\inventory\Inventory\Inventory.Utility\bin\Inventory.Utility.dll
+E:\Repository Project\inventory\Inventory\Inventory.Utility\bin\Inventory.Utility.pdb
+E:\Repository Project\inventory\Inventory\Inventory.Utility\bin\log4net.dll
+E:\Repository Project\inventory\Inventory\Inventory.Utility\bin\log4net.xml
+E:\Repository Project\inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.csprojResolveAssemblyReference.cache
+E:\Repository Project\inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.dll
+E:\Repository Project\inventory\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.pdb

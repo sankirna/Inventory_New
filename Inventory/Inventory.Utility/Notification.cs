@@ -9,7 +9,7 @@ namespace Inventory.Utility
     public class Notification
     {
         public static void ShowNotification(Page Page, String messaage, NotifyMessge type)
-        {
+        { 
             //string Function = string.Format( "notif({  msg: '{0}',  type: '{1}',width: 'all',  height: 100,  position: 'center'});", "h", "success");
            // Function = string.Format(Function, messaage, type.ToString());
 
