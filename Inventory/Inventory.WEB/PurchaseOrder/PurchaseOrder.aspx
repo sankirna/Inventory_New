@@ -58,7 +58,7 @@
                 var trpobj = $(this);
                 var drpObj = $(trpobj).find(".drp-item");
                 var descObj = $(trpobj).find(".po-desc");
-                var quapercerObj = $(trpobj).find(".po-quapercer");
+             //   var quapercerObj = $(trpobj).find(".po-quapercer");
                 var barcodeObj = $(trpobj).find(".po-barcode");
                 var costObj = $(trpobj).find(".po-cost");
                 var currencyObj = $(trpobj).find(".currecy");
@@ -69,7 +69,7 @@
                             $(descObj).html(obj.Description);
                             $(barcodeObj).html(obj.BarCode);
                             $(costObj).html(obj.Cost);
-                            $(quapercerObj).html(obj.QtyPerCarton);
+                       //     $(quapercerObj).html(obj.QtyPerCarton);
                             $(currencyObj).html(obj.CurrencyCode);
                         }
                         else {
@@ -90,7 +90,7 @@
             var descObj = $(trpobj).find(".po-desc");
             var barcodeObj = $(trpobj).find(".po-barcode");
             var costObj = $(trpobj).find(".po-cost");
-            var quapercerObj = $(trpobj).find(".po-quapercer");
+           // var quapercerObj = $(trpobj).find(".po-quapercer");
             var amtObj = $(trpobj).find(".po-amt");
             var costeditObj = $(trpobj).find(".po-costedit");
             var quaObj = $(trpobj).find(".po-qua");
@@ -103,7 +103,7 @@
                     $(descObj).html(obj.Description);
                     $(barcodeObj).html(obj.BarCode);
                     $(costObj).html(obj.Cost);
-                    $(quapercerObj).html(obj.QtyPerCarton);
+                    //$(quapercerObj).html(obj.QtyPerCarton);
                     $(costeditObj).val(obj.Cost);
                     $(quaObj).val("0");
                     $(amtObj).val("0");
@@ -115,11 +115,11 @@
                     $(descObj).html("");
                     $(barcodeObj).html("");
                     $(costObj).html("");
-                    $(quapercerObj).html("");
+                   // $(quapercerObj).html("");
                     $(costeditObj).val("0");
                     $(quaObj).val("0");
                     $(amtObj).val("0");
-                    $(quapercerObj).html("");
+                   // $(quapercerObj).html("");
                     $(currencyObj).html("");
                 }
                 $(quaObj).blur();
@@ -168,7 +168,7 @@
                 <asp:Label ID="lblTermcondition" runat="server">Term Condition:</asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtTermcondition" CssClass="NonEntry" runat="server" ></asp:TextBox>
+                <asp:TextBox ID="txtTermcondition" CssClass="NonEntry" runat="server" TextMode="MultiLine"></asp:TextBox>
             </td>
 
         </tr>
@@ -220,11 +220,11 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Qty per Carton">
+                <%--<asp:TemplateField HeaderText="Qty per Carton" >
                     <ItemTemplate>
                         <asp:Label runat="server" Width="50px" ID="lblQuaPerCer" CssClass="po-quapercer"></asp:Label>
                     </ItemTemplate>
-                </asp:TemplateField>
+                </asp:TemplateField>--%>
                 <asp:TemplateField HeaderText="Actual Cost">
                     <ItemTemplate>
                        <span class="currecy" style="display:inline"></span> <asp:TextBox runat="server" Width="75px" ID="txtCost" CssClass="po-costedit number" Text='<%# Eval("Cost") %>'></asp:TextBox>

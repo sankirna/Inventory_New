@@ -211,6 +211,7 @@
     <EntitySetMapping Name="PurchaseOrders">
       <EntityTypeMapping TypeName="InventoryModel.PurchaseOrder">
         <MappingFragment StoreEntitySet="PurchaseOrder">
+          <ScalarProperty Name="TermCondition" ColumnName="TermCondition" />
           <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
           <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
           <ScalarProperty Name="PONumber" ColumnName="PONumber" />

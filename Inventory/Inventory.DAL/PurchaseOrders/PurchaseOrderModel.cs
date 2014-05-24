@@ -17,7 +17,7 @@ namespace Inventory.DAL.PurchaseOrders
         public string PONumber { get; set; }
         public int Status { get; set; }
         public System.DateTime PODate { get; set; }
-
+        public string TermCondition { get; set; }
         public List<PurchaseOrderItemModel> PurchaseOrderItems { get; set; }
     }
 
@@ -30,9 +30,9 @@ namespace Inventory.DAL.PurchaseOrders
         public int PurchaseOrderDetailID { get; set; }
         public int PurchaseOrderID { get; set; }
         public int ProductID { get; set; }
-        public decimal Cost { get; set; }
-        public int Quantity { get; set; }
-        public decimal Amount { get; set; }
+        public decimal? Cost { get; set; }
+        public int? Quantity { get; set; }
+        public decimal? Amount { get; set; }
 
         public List<ProductPurchaseOrderModel> Products { get; set; }
     }
@@ -43,7 +43,7 @@ namespace Inventory.DAL.PurchaseOrders
         public string Code { get; set; }
         public string BarCode { get; set; }
         public string Description { get; set; }
-        public decimal Cost { get; set; }
+        public decimal? Cost { get; set; }
         public string CurrencyCode { get; set; }
         public int QtyPerCarton { get; set; }
     }

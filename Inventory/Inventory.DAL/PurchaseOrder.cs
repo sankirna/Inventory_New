@@ -28,6 +28,7 @@ namespace Inventory.DAL
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<int> Status { get; set; }
+        public string TermCondition { get; set; }
     
         public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
         public virtual SupplierMaster SupplierMaster { get; set; }

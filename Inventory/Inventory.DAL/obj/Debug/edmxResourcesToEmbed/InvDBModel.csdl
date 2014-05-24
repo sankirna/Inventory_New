@@ -242,6 +242,7 @@
     <Property Name="Status" Type="Int32" />
     <NavigationProperty Name="PurchaseOrderDetails" Relationship="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetails" />
     <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="PurchaseOrder" ToRole="SupplierMaster" />
+    <Property Type="String" Name="TermCondition" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PurchaseOrderDetail">
     <Key>

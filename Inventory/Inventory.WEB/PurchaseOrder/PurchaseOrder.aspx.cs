@@ -84,6 +84,7 @@ namespace Inventory.Web.PurchaseOrder
             purchaseOrderModel.SupplierID = ddSupplier.SelectedValue.ToIntFromString();
             purchaseOrderModel.PODate = Convert.ToDateTime(txtPODate.Text.Trim());
             purchaseOrderModel.PurchaseOrderItems = SetListItemModel();
+            purchaseOrderModel.TermCondition = txtTermcondition.Text;
             return purchaseOrderModel;
         }
 
@@ -98,6 +99,7 @@ namespace Inventory.Web.PurchaseOrder
                 {
                     ddSupplier.SelectedValue = PurchaseOrderModel.SupplierID.ToStringFromInt();
                     txtPODate.Text = PurchaseOrderModel.PODate.ToString("dd-MMM-yy");
+                    txtTermcondition.Text = PurchaseOrderModel.TermCondition;
                 }
                 grdPurchaseOrder.DataSource = PurchaseOrderModel.PurchaseOrderItems;
                 grdPurchaseOrder.DataBind();

@@ -240,6 +240,7 @@
     <Property Name="DateModified" Type="datetime" />
     <Property Name="ModifiedBy" Type="int" />
     <Property Name="Status" Type="int" />
+    <Property Name="TermCondition" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="PurchaseOrderDetails">
     <Key>

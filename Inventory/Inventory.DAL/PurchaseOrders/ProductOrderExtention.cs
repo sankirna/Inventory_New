@@ -35,7 +35,7 @@ namespace Inventory.DAL.PurchaseOrders
                 model.BarCode = entity.MFBarcode;
                 model.ProductID = entity.ProductID;
                 model.Description = entity.Description;
-                model.Cost = entity.BasicPC.ToNullDecimal();
+                model.Cost = entity.BasicPC;
                 model.QtyPerCarton = entity.QPC.ToNullInt();
                 var currency = db.CurrencyMasters.FirstOrDefault(x => x.CurrencyID == entity.CurrencyID) ?? new CurrencyMaster();
                 model.CurrencyCode = currency.CurrencyCode;
@@ -98,6 +98,7 @@ namespace Inventory.DAL.PurchaseOrders
             entity.PONumber = model.PONumber;
             entity.PODate = model.PODate;
             entity.Status = model.Status;
+            entity.TermCondition = model.TermCondition;
             return entity;
         }
 
@@ -107,6 +108,7 @@ namespace Inventory.DAL.PurchaseOrders
             entity.SupplierID = model.SupplierID;
             // entity.PONumber = model.PONumber;
             entity.PODate = model.PODate;
+            entity.TermCondition = model.TermCondition;
             return entity;
         }
 
@@ -116,6 +118,7 @@ namespace Inventory.DAL.PurchaseOrders
             model.PurchaseOrderID = entity.PurchaseOrderID;
             model.SupplierID = entity.SupplierID.ToNullInt();
             // model.PONumber = entity.PONumber;
+            model.TermCondition = entity.TermCondition;
             model.PODate = Convert.ToDateTime(entity.PODate);
 
 

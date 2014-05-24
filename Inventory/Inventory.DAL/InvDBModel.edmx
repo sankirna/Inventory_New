@@ -245,6 +245,7 @@
           <Property Name="DateModified" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="Status" Type="int" />
+          <Property Name="TermCondition" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PurchaseOrderDetails">
           <Key>
@@ -648,6 +649,7 @@
           <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="PurchaseOrderDetails" Relationship="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetails" />
           <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="PurchaseOrder" ToRole="SupplierMaster" />
+          <Property Type="String" Name="TermCondition" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PurchaseOrderDetail">
           <Key>
@@ -1023,6 +1025,7 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="InventoryModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrder">
+                <ScalarProperty Name="TermCondition" ColumnName="TermCondition" />
                 <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
                 <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
                 <ScalarProperty Name="PONumber" ColumnName="PONumber" />
