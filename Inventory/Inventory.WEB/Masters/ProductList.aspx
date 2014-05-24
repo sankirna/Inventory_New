@@ -9,7 +9,7 @@
     <div class="searchBox br6">
         <label>
             Supplier Code</label>
-        <asp:DropDownList ID="drpSupplier" runat="server" CssClass="combobox" AppendDataBoundItems="True">
+        <asp:DropDownList ID="drpSupplier" runat="server"  AppendDataBoundItems="True">
         </asp:DropDownList>
         
         

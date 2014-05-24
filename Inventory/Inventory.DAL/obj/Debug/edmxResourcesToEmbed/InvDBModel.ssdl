@@ -177,7 +177,7 @@
     </Key>
     <Property Name="ExceptionLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ExMessage" Type="nvarchar" MaxLength="500" />
-    <Property Name="ExInnerException" Type="varchar" MaxLength="1000" />
+    <Property Name="ExInnerException" Type="nvarchar(max)" />
     <Property Name="ExCreatedBy" Type="int" />
     <Property Name="ExCreatedDate" Type="datetime" />
     <Property Name="ExOrigin" Type="varchar" MaxLength="500" />
@@ -222,7 +222,7 @@
     <Property Name="SRP" Type="decimal" />
     <Property Name="ShelfLife" Type="int" />
     <Property Name="CreatedBy" Type="int" />
-    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
     <Property Name="DateModified" Type="datetime" />
     <Property Name="ModifiedBy" Type="int" />
     <Property Name="Status" Type="int" />

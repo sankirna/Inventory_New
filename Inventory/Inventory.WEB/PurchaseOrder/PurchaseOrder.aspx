@@ -51,7 +51,9 @@
                 var costeditObj = $(trpobj).find(".po-costedit");
                 var quaObj = $(trpobj).find(".po-qua");
                 var amtObj = $(trpobj).find(".po-amt");
-                $(amtObj).val(parseFloat($(costeditObj).val()) * parseFloat($(quaObj).val()));
+                if (checkNumenric(costeditObj) && checkNumenric(quaObj)) {
+                    $(amtObj).val(parseFloat($(costeditObj).val()) * parseFloat($(quaObj).val()));
+                }
             });
 
             $('.dataGrid > tbody  > tr').each(function (j, e) {
@@ -124,7 +126,14 @@
                 }
                 $(quaObj).blur();
             }
-            $(amtObj).val(parseFloat($(costeditObj).val()) * parseFloat($(quaObj).val()));
+            if (checkNumenric(costeditObj) && checkNumenric(quaObj)) {
+                $(amtObj).val(parseFloat($(costeditObj).val()) * parseFloat($(quaObj).val()));
+            }
+        }
+
+        function checkNumenric(obj) {
+          return  $(obj).val() != "";
+
         }
 
     </script>
