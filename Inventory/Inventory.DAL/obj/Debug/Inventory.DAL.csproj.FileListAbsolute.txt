@@ -1,0 +1,25 @@
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.DAL\bin\Inventory.DAL.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.DAL\bin\Inventory.DAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.DAL\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.DAL\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.DAL\obj\Debug\Inventory.DAL.csprojResolveAssemblyReference.cache
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.DAL\obj\Debug\Inventory.DAL.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.DAL\obj\Debug\Inventory.DAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.DAL\bin\Inventory.DAL.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.DAL\bin\Inventory.DAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.DAL\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.DAL\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.csprojResolveAssemblyReference.cache
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\Inventory.DAL.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\Inventory.DAL.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\EntityFramework.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\Inventory.Utility.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\log4net.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\Inventory.Utility.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\EntityFramework.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\bin\log4net.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.csprojResolveAssemblyReference.cache
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.pdb

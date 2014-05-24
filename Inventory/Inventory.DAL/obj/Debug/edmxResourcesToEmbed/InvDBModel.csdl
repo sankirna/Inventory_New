@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="InventoryEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="AdvanceShippings" EntityType="InventoryModel.AdvanceShipping" />
+    <EntitySet Name="AdvanceShippingProductDetails" EntityType="InventoryModel.AdvanceShippingProductDetail" />
+    <EntitySet Name="BrandMasters" EntityType="InventoryModel.BrandMaster" />
+    <EntitySet Name="Cartons" EntityType="InventoryModel.Carton" />
+    <EntitySet Name="CategoryMasters" EntityType="InventoryModel.CategoryMaster" />
+    <EntitySet Name="CountryMasters" EntityType="InventoryModel.CountryMaster" />
+    <EntitySet Name="CurrencyMasters" EntityType="InventoryModel.CurrencyMaster" />
+    <EntitySet Name="CustomerMasters" EntityType="InventoryModel.CustomerMaster" />
+    <EntitySet Name="CustomerSKUs" EntityType="InventoryModel.CustomerSKU" />
+    <EntitySet Name="ExceptionLogs" EntityType="InventoryModel.ExceptionLog" />
+    <EntitySet Name="PickingLists" EntityType="InventoryModel.PickingList" />
+    <EntitySet Name="ProductMasters" EntityType="InventoryModel.ProductMaster" />
+    <EntitySet Name="PurchaseOrders" EntityType="InventoryModel.PurchaseOrder" />
+    <EntitySet Name="PurchaseOrderDetails" EntityType="InventoryModel.PurchaseOrderDetail" />
+    <EntitySet Name="ReceiveMainDetails" EntityType="InventoryModel.ReceiveMainDetail" />
+    <EntitySet Name="ReceiveProductDetails" EntityType="InventoryModel.ReceiveProductDetail" />
+    <EntitySet Name="SalesOrders" EntityType="InventoryModel.SalesOrder" />
+    <EntitySet Name="StockMasters" EntityType="InventoryModel.StockMaster" />
+    <EntitySet Name="StoreMasters" EntityType="InventoryModel.StoreMaster" />
+    <EntitySet Name="SupplierBrands" EntityType="InventoryModel.SupplierBrand" />
+    <EntitySet Name="SupplierMasters" EntityType="InventoryModel.SupplierMaster" />
+    <EntitySet Name="UOMMasters" EntityType="InventoryModel.UOMMaster" />
+    <AssociationSet Name="FK_PurchaseOrderDetails_PurchaseOrder" Association="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_SupplierMaster" Association="InventoryModel.FK_PurchaseOrder_SupplierMaster">
+      <End Role="SupplierMaster" EntitySet="SupplierMasters" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AdvanceShipping">
+    <Key>
+      <PropertyRef Name="ASNID" />
+    </Key>
+    <Property Name="ASNID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PONumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="DateOfShipment" Type="DateTime" Precision="3" />
+    <Property Name="ASNNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AdvanceShippingProductDetail">
+    <Key>
+      <PropertyRef Name="ASNProductDetailsID" />
+    </Key>
+    <Property Name="ASNProductDetailsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ASNID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CurrencyID" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="MFDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="NoofCartons" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BrandMaster">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Carton">
+    <Key>
+      <PropertyRef Name="CartonID" />
+    </Key>
+    <Property Name="CartonID" Type="Int32" Nullable="false" />
+    <Property Name="ASNNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BarCodeNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ItemCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="PreviousPlace" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="RecentPlace" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CratedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CategoryMaster">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CurrencyMaster">
+    <Key>
+      <PropertyRef Name="CurrencyID" />
+    </Key>
+    <Property Name="CurrencyID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CurrencyName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerMaster">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Street" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="TelePhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="StoreID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerSKU">
+    <Key>
+      <PropertyRef Name="CustomerSKUID" />
+    </Key>
+    <Property Name="CustomerSKUID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="StoreID" Type="Int32" />
+    <Property Name="SKUCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ExceptionLog">
+    <Key>
+      <PropertyRef Name="ExceptionLogID" />
+    </Key>
+    <Property Name="ExceptionLogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ExMessage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="ExInnerException" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Name="ExCreatedBy" Type="Int32" />
+    <Property Name="ExCreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ExOrigin" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="PickingList">
+    <Key>
+      <PropertyRef Name="PLID" />
+    </Key>
+    <Property Name="PLID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="ItemCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BarCodeID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProductMaster">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="MFBarcode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="UOMID" Type="Int32" />
+    <Property Name="DiLength" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DiBreadth" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DiHeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DiWeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SpLength" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SpBreadth" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SpHeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SpWeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="QPC" Type="Int32" />
+    <Property Name="BasicPC" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CurrencyID" Type="Int32" />
+    <Property Name="SRP" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ShelfLife" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PurchaseOrder">
+    <Key>
+      <PropertyRef Name="PurchaseOrderID" />
+    </Key>
+    <Property Name="PurchaseOrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="PONumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PODate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetails" />
+    <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="PurchaseOrder" ToRole="SupplierMaster" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderDetail">
+    <Key>
+      <PropertyRef Name="PurchaseOrderDetailID" />
+    </Key>
+    <Property Name="PurchaseOrderDetailID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseOrderID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" FromRole="PurchaseOrderDetails" ToRole="PurchaseOrder" />
+  </EntityType>
+  <EntityType Name="ReceiveMainDetail">
+    <Key>
+      <PropertyRef Name="ReceiveMainDetailsID" />
+    </Key>
+    <Property Name="ReceiveMainDetailsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PONumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="DateOfShipment" Type="DateTime" Precision="3" />
+    <Property Name="ASNNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ReceiveProductDetail">
+    <Key>
+      <PropertyRef Name="ReceiveProductDetailsID" />
+    </Key>
+    <Property Name="ReceiveProductDetailsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ReceiveMainDetailsID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CurrencyID" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="MFDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="NoofCartons" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SalesOrder">
+    <Key>
+      <PropertyRef Name="SalesOrderID" />
+    </Key>
+    <Property Name="SalesOrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StockMaster">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="LastQty" Type="Int32" />
+    <Property Name="CurrentQty" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StoreMaster">
+    <Key>
+      <PropertyRef Name="StoreID" />
+    </Key>
+    <Property Name="StoreID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="StoreName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SupplierBrand">
+    <Key>
+      <PropertyRef Name="SupplierBrandID" />
+    </Key>
+    <Property Name="SupplierBrandID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="BrandID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierMaster">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ContactNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address1" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="BuildingName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Street" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="SupplierMaster" ToRole="PurchaseOrder" />
+  </EntityType>
+  <EntityType Name="UOMMaster">
+    <Key>
+      <PropertyRef Name="UOMID" />
+    </Key>
+    <Property Name="UOMID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UomName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UomCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_PurchaseOrderDetails_PurchaseOrder">
+    <End Role="PurchaseOrder" Type="InventoryModel.PurchaseOrder" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetails" Type="InventoryModel.PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetails">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_SupplierMaster">
+    <End Type="InventoryModel.SupplierMaster" Role="SupplierMaster" Multiplicity="0..1" />
+    <End Type="InventoryModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierMaster">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

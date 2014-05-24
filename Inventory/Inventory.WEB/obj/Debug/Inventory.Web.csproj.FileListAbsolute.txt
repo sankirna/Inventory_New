@@ -1,0 +1,137 @@
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Inventory.Web.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Inventory.Web.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.Core.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\EntityFramework.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\System.Web.Providers.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\EntityFramework.xml
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.Core.xml
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\obj\Debug\Inventory.Web.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\obj\Debug\Inventory.Web.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Inventory.BAL.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Inventory.BAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Web\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Inventory.Web.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Inventory.Web.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\EntityFramework.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Inventory.BAL.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\System.Web.Providers.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Inventory.BAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\EntityFramework.xml
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.xml
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\obj\Debug\Inventory.Web.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Web\obj\Debug\Inventory.Web.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\Inventory.Web.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\Inventory.Web.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\Inventory.BAL.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\Inventory.Utility.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\log4net.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\Inventory.BAL.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\Inventory.Utility.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\bin\log4net.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.pdb
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\Inventory.Web.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\Inventory.Web.pdb
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\AjaxMin.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\Inventory.BAL.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\Inventory.Utility.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\log4net.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\Inventory.BAL.pdb
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\Inventory.Utility.pdb
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.xml
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\bin\log4net.xml
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.dll
+C:\Users\Hardik\Downloads\Inventory (1)\Inventory\Inventory\Inventory.Web\obj\Debug\Inventory.Web.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.Web.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.Web.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\AjaxMin.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\EntityFramework.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\EntityFramework.SqlServer.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.BAL.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.DAL.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.Utility.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\log4net.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.BAL.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.DAL.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\Inventory.Utility.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.AspNet.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.Core.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\EntityFramework.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\EntityFramework.SqlServer.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\bin\log4net.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\obj\Debug\Inventory.Web.csprojResolveAssemblyReference.cache
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\obj\Debug\Inventory.Web.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Web\obj\Debug\Inventory.Web.pdb

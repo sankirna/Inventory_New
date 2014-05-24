@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5EF3C9E5-C557-43CE-B0F2-A698AEC36ABC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Inventory.DAL</RootNamespace>
+    <AssemblyName>Inventory.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\DBInventory.mdf" />
+    <Content Include="App_Data\DBInventory_log.ldf">
+      <DependentUpon>DBInventory.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvanceShipping.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdvanceShippingProductDetail.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BrandMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Carton.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="CountryMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CurrencyMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSKU.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionLog.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\BrandMasterDAL.cs" />
+    <Compile Include="Masters\CountryMasterDAL.cs" />
+    <Compile Include="Masters\CurrencyDAL.cs" />
+    <Compile Include="Masters\ExceptionLogDAL.cs" />
+    <Compile Include="Masters\ProductDAL.cs" />
+    <Compile Include="PickingList.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrder.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderDetail.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrders\ProductOrderExtention.cs" />
+    <Compile Include="PurchaseOrders\PurchaseOrderLib.cs" />
+    <Compile Include="PurchaseOrders\PurchaseOrderModel.cs" />
+    <Compile Include="Masters\SupplierDAL.cs" />
+    <Compile Include="Masters\UOMMasterDAL.cs" />
+    <Compile Include="ReceiveMainDetail.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveProductDetail.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOrder.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoreMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierBrand.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UOMMaster.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Inventory.Utility\Inventory.Utility.csproj">
+      <Project>{7ba48058-5e9b-44c4-a9d9-37ae0957d7dd}</Project>
+      <Name>Inventory.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Web.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="InvDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InvDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="InvDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InvDBModel.edmx</DependentUpon>
+      <LastGenOutput>InvDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="InvDBModel.edmx.diagram">
+      <DependentUpon>InvDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="InvDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InvDBModel.edmx</DependentUpon>
+      <LastGenOutput>InvDBModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Web.Debug.Config">
+      <DependentUpon>Web.Config</DependentUpon>
+    </None>
+    <None Include="Web.Release.Config">
+      <DependentUpon>Web.Config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Country\" />
+    <Folder Include="Currency\" />
+    <Folder Include="Supplier\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:35785/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

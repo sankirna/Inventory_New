@@ -1,0 +1,139 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Inventory.Master.cs" Inherits="Inventory.Web.InventoryMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <title>Inventory Management System</title>
+     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/bootstrap/css/chosen.min.css" media="screen" rel="stylesheet">
+    <link href="/Styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/jquery-ui-datapicker.css" rel="stylesheet" type="text/css" />
+    
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+   
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+     <script src="/Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="/Scripts/notifIt.js"></script>
+     <link href="/Styles/notifIt.css" rel="stylesheet" />
+    <script>
+        function not1(typ,msg) {
+            notif({
+                msg: msg,
+                type: typ,
+                position: "center",
+                width: 700,
+                height: 70
+               
+            });
+        }
+    </script>
+</head>
+<body>
+    <input id="hdnMenu" type="hidden" name="hdnMenu" runat="server" />
+
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <div class="header-container">
+                <div class="header">
+                    <h1>
+                        <img src="../Images/logo.jpg" height="50px" alt="The Company Logo" />
+                    </h1>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2>Inventory Management System</h2>
+                    <div class="top-right">
+                        <span class="username">Welcome <b>
+                            <asp:Label runat="server" ID="lblusername"></asp:Label></b></span>
+                        <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="button" />
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+            <div class="nav-menu br6 bs">
+                <ul name="menu" class="nav">
+
+                    <li id="Li8" runat="server" class="sub"><a id="A9" href="#"><span class="arrow">Purchase Order</span></a>
+                        <ul>
+                            <li id="Li9"><a id="a10" runat="server" href="~/PurchaseOrder/PurchaseOrderList.aspx"><span>Purchase Order</span></a></li>                          
+                        </ul>
+                    </li>
+
+                      <li id="Li19" runat="server" class="sub"><a id="A20" href="#"><span class="arrow">Receive</span></a>
+                        <ul>                            
+
+                            <li id="Li22"><a id="a23" runat="server" href="~/Purchase/AdvanceShippingList.aspx"><span>ASN</span></a></li>
+
+                            <li id="Li23"><a id="a24" runat="server" href="~/PurchaseOrder/ReceiveOrderList.aspx"><span>Receive</span></a></li>
+                        </ul>
+                    </li>
+                    <li id="Li4" runat="server" class="sub"><a id="A4" href="#"><span class="arrow">Sales Order</span></a>
+                        <ul>
+                            <li id="Li6"><a id="a6" runat="server" href="~/Sales/SalesOrder.aspx"><span>Sales Order</span></a></li>
+                            <li id="Li10"><a id="a8" runat="server" href="~/Sales/PickingList.aspx"><span>Picking List</span></a></li>
+                            <li id="Li14"><a id="a11" runat="server" href="~/Sales/PickingListForOperator.aspx"><span>Picking List for Operator</span></a></li>
+                            <li id="Li21"><a id="a21" runat="server" href="~/Sales/InventoryAdjustment.aspx"><span>Inventory Adjustments</span></a></li>
+                            <li id="Li16"><a id="a16" runat="server" href="~/Sales/LocationTransfer.aspx"><span>Location Transfer</span></a></li>
+                            <li id="Li17"><a id="a17" runat="server" href="~/Sales/ReturnNotesList.aspx"><span>Return Notes</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li id="PurchaseOrder" runat="server" class="sub"><a id="rec" href="#"><span class="arrow">Master Setup</span></a>
+                        <ul>
+                            <li id="Li13"><a id="a14" runat="server" href="~/Masters/ProductList.aspx"><span>Product</span></a></li>
+                            <li id="Li7"><a id="a7" runat="server" href="~/Supplier/SupplierList.aspx"><span>Supplier</span></a></li>
+                            <li id="Li15"><a id="a15" runat="server" href="~/Supplier/SupplierBrandList.aspx"><span>Supplier Brand</span></a></li>
+                            <li id="Li11"><a id="a12" runat="server" href="~/Customer/CustomerList.aspx"><span>Customer </span></a></li>
+                            <li id="Li5"><a id="a5" runat="server" href="~/Customer/CustomerSkuList.aspx"><span>Customer SKU</span></a></li>
+                            <li id="ASN"><a id="a30" runat="server" href="~/Masters/BrandList.aspx"><span>Brands</span></a></li>
+                            <li id="Li1"><a id="a1" runat="server" href="~/Masters/CategoryList.aspx"><span>Category</span></a></li>
+                            <li id="Li2"><a id="a2" runat="server" href="~/Masters/CountryList.aspx"><span>Country</span></a></li>
+                            <li id="Li3"><a id="a3" runat="server" href="~/Masters/StoreList.aspx"><span>Store</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li id="PutAway" runat="server" class="sub">
+                        <a id="a18" runat="server" href="~/PutAway/PutAwayItems.aspx"><span>PutAway</span></a>
+                    </li>
+
+
+
+
+
+
+
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="breadcrum">
+               
+                <%--  <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>   --%>
+                <div class="mainContainer br6 bs">
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                Copyright &copy; 2014. Site Management System. All Rights Reserved. Designed and Developed by Fusionova Technologies Pte Ltd
+            </div>
+        </div>
+    </form>
+  
+    <script src="/Scripts/jquery-ui-1.8.20.js" type="text/javascript"></script>  
+     <script src="/bootstrap/js/bootstrap.min.js"></script>
+  
+    <script src="/bootstrap/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(document).ready(function () {
+            $('.combobox').chosen()
+        });
+        //]]>
+    </script>
+</body>
+</html>

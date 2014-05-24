@@ -1,0 +1,15 @@
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Utility\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Utility\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Utility\obj\Debug\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.Utility\obj\Debug\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Utility\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Utility\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.csprojResolveAssemblyReference.cache
+E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\bin\Inventory.Utility.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\bin\Inventory.Utility.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\bin\log4net.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\bin\log4net.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.Utility\obj\Debug\Inventory.Utility.pdb

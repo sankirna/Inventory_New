@@ -1,0 +1,40 @@
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\bin\Inventory.BAL.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\bin\Inventory.BAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\bin\Inventory.DAL.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\bin\Inventory.DAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\obj\Debug\Inventory.BAL.dll
+E:\Project Work\Inventory Management\Source\Inventory.Web\Inventory.BAL\obj\Debug\Inventory.BAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\bin\Inventory.BAL.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\bin\Inventory.BAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\bin\Inventory.DAL.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\bin\Inventory.Utility.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\bin\Inventory.DAL.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\bin\Inventory.Utility.pdb
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.dll
+E:\Project Work\Inventory Management\Source\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\Inventory.BAL.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\Inventory.BAL.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\log4net.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.pdb
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\bin\log4net.xml
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.dll
+C:\Users\Sudha Ravi\Downloads\Inventory\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\Inventory.BAL.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\Inventory.BAL.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\Inventory.DAL.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\Inventory.Utility.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\log4net.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\Inventory.DAL.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\Inventory.Utility.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\bin\log4net.xml
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.csprojResolveAssemblyReference.cache
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.BAL\obj\Debug\Inventory.BAL.pdb

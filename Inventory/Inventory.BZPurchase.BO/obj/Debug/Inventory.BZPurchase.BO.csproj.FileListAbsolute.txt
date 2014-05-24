@@ -1,0 +1,4 @@
+E:\Sudha work\New folder (2)\Inventory\Inventory.BZPurchase.BO\bin\Debug\Inventory.BZPurchase.BO.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.BZPurchase.BO\bin\Debug\Inventory.BZPurchase.BO.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.BZPurchase.BO\obj\Debug\Inventory.BZPurchase.BO.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.BZPurchase.BO\obj\Debug\Inventory.BZPurchase.BO.pdb

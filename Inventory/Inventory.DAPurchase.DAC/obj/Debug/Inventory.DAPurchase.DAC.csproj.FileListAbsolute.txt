@@ -1,0 +1,5 @@
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAPurchase.DAC\bin\Debug\Inventory.DAPurchase.DAC.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAPurchase.DAC\bin\Debug\Inventory.DAPurchase.DAC.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAPurchase.DAC\obj\Debug\Inventory.DAPurchase.DAC.dll
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAPurchase.DAC\obj\Debug\Inventory.DAPurchase.DAC.pdb
+E:\Sudha work\New folder (2)\Inventory\Inventory.DAPurchase.DAC\obj\Debug\Inventory.DAPurchase.DAC.csprojResolveAssemblyReference.cache

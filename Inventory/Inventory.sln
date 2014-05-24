@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Web", "Inventory.Web\Inventory.Web.csproj", "{AD45643A-14C4-4C5E-8637-6C2B8EA1C69A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Utility", "Inventory.Utility\Inventory.Utility.csproj", "{7BA48058-5E9B-44C4-A9D9-37AE0957D7DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.BAL", "Inventory.BAL\Inventory.BAL.csproj", "{CC1838F1-0462-457E-8B34-ADB3F9474279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.DAL", "Inventory.DAL\Inventory.DAL.csproj", "{5EF3C9E5-C557-43CE-B0F2-A698AEC36ABC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd Party Dlls", "3rd Party Dlls", "{AD4EA4F4-25BA-401E-A971-21408F878172}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{DE29CA62-E9DA-4468-B6E7-DECA2E9BA462}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hardikmehta.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Inventory.BAL\\Inventory.BAL.csproj
+		SccProjectName1 = Inventory.BAL
+		SccLocalPath1 = Inventory.BAL
+		SccProjectUniqueName2 = Inventory.DAL\\Inventory.DAL.csproj
+		SccProjectName2 = Inventory.DAL
+		SccLocalPath2 = Inventory.DAL
+		SccProjectUniqueName3 = Inventory.Utility\\Inventory.Utility.csproj
+		SccProjectName3 = Inventory.Utility
+		SccLocalPath3 = Inventory.Utility
+		SccProjectUniqueName4 = Inventory.Web\\Inventory.Web.csproj
+		SccProjectName4 = Inventory.Web
+		SccLocalPath4 = Inventory.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD45643A-14C4-4C5E-8637-6C2B8EA1C69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD45643A-14C4-4C5E-8637-6C2B8EA1C69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD45643A-14C4-4C5E-8637-6C2B8EA1C69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD45643A-14C4-4C5E-8637-6C2B8EA1C69A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA48058-5E9B-44C4-A9D9-37AE0957D7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA48058-5E9B-44C4-A9D9-37AE0957D7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA48058-5E9B-44C4-A9D9-37AE0957D7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA48058-5E9B-44C4-A9D9-37AE0957D7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC1838F1-0462-457E-8B34-ADB3F9474279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC1838F1-0462-457E-8B34-ADB3F9474279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC1838F1-0462-457E-8B34-ADB3F9474279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC1838F1-0462-457E-8B34-ADB3F9474279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EF3C9E5-C557-43CE-B0F2-A698AEC36ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EF3C9E5-C557-43CE-B0F2-A698AEC36ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EF3C9E5-C557-43CE-B0F2-A698AEC36ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EF3C9E5-C557-43CE-B0F2-A698AEC36ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
