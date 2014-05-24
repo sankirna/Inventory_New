@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
-      <HintPath>C:\Users\Nayan\Desktop\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\packages\ajaxtoolkit\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="AjaxMin">
-      <HintPath>C:\Users\Hardik\Downloads\AjaxControlToolkit.Binary.NET40 (2)\AjaxMin.dll</HintPath>
+      <HintPath>..\packages\ajaxtoolkit\AjaxMin.dll</HintPath>
     </Reference>
     <Reference Include="AspNet.ScriptManager.jQuery">
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.9.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
@@ -84,9 +84,6 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Membership.OpenAuth">
-      <HintPath>C:\Users\Nayan\Downloads\bin\bin\Microsoft.AspNet.Membership.OpenAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

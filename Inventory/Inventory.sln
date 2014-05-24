@@ -10,28 +10,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.DAL", "Inventory.DAL\Inventory.DAL.csproj", "{5EF3C9E5-C557-43CE-B0F2-A698AEC36ABC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd Party Dlls", "3rd Party Dlls", "{AD4EA4F4-25BA-401E-A971-21408F878172}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Projects\New Invtory\Inventory.WEB\bin\AjaxControlToolkit.dll = ..\..\..\Projects\New Invtory\Inventory.WEB\bin\AjaxControlToolkit.dll
+		..\..\..\Projects\New Invtory\Inventory.WEB\bin\AjaxMin.dll = ..\..\..\Projects\New Invtory\Inventory.WEB\bin\AjaxMin.dll
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{DE29CA62-E9DA-4468-B6E7-DECA2E9BA462}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://hardikmehta.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Inventory.BAL\\Inventory.BAL.csproj
-		SccProjectName1 = Inventory.BAL
-		SccLocalPath1 = Inventory.BAL
-		SccProjectUniqueName2 = Inventory.DAL\\Inventory.DAL.csproj
-		SccProjectName2 = Inventory.DAL
-		SccLocalPath2 = Inventory.DAL
-		SccProjectUniqueName3 = Inventory.Utility\\Inventory.Utility.csproj
-		SccProjectName3 = Inventory.Utility
-		SccLocalPath3 = Inventory.Utility
-		SccProjectUniqueName4 = Inventory.Web\\Inventory.Web.csproj
-		SccProjectName4 = Inventory.Web
-		SccLocalPath4 = Inventory.Web
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
