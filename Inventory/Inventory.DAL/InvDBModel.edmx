@@ -182,7 +182,7 @@
           </Key>
           <Property Name="ExceptionLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ExMessage" Type="nvarchar" MaxLength="500" />
-          <Property Name="ExInnerException" Type="varchar" MaxLength="1000" />
+          <Property Name="ExInnerException" Type="nvarchar(max)" />
           <Property Name="ExCreatedBy" Type="int" />
           <Property Name="ExCreatedDate" Type="datetime" />
           <Property Name="ExOrigin" Type="varchar" MaxLength="500" />
@@ -227,7 +227,7 @@
           <Property Name="SRP" Type="decimal" />
           <Property Name="ShelfLife" Type="int" />
           <Property Name="CreatedBy" Type="int" />
-          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="DateModified" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="Status" Type="int" />
@@ -584,7 +584,7 @@
           </Key>
           <Property Name="ExceptionLogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="ExMessage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-          <Property Name="ExInnerException" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ExInnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ExCreatedBy" Type="Int32" />
           <Property Name="ExCreatedDate" Type="DateTime" Precision="3" />
           <Property Name="ExOrigin" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
@@ -629,7 +629,7 @@
           <Property Name="SRP" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ShelfLife" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="DateModified" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="Status" Type="Int32" />

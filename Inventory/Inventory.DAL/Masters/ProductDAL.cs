@@ -50,7 +50,7 @@ namespace Inventory.DAL.Masters
                 {
                     if (SupplierID==0)
                     {
-                        var LstProducts = (from td in db.ProductMasters where td.Status == 1 select td).OrderBy(d => d.DateCreated).Skip(skip).Take(take).ToList();
+                        var LstProducts = (from td in db.ProductMasters where td.Status == 1  select td).OrderBy(d => d.DateCreated).Skip(skip).Take(take).ToList();
                         return LstProducts;
                     }
                     else

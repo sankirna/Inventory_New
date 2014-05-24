@@ -39,7 +39,7 @@
  <asp:Label ID="lblSupplier" runat="server" AssociatedControlID="drpSupplier"> Supplier</asp:Label>
         </td>
         <td>
-  <asp:DropDownList runat="server" ID="drpSupplier" data-validation="required" AppendDataBoundItems="True" data-placeholder="Select the Supplier" CssClass="combobox input-large">
+  <asp:DropDownList runat="server" ID="drpSupplier" data-validation="required" AppendDataBoundItems="True" data-placeholder="Select the Supplier" CssClass="input-large">
       <asp:ListItem>--Select--</asp:ListItem>
                 </asp:DropDownList>
         </td>
@@ -49,7 +49,7 @@
  <asp:Label Text="UOM" runat="server" ID="lblUOM" AssociatedControlID="drpUOM"  />
         </td>
         <td>
- <asp:DropDownList runat="server" ID="drpUOM" data-validation="required" CssClass="combobox" AppendDataBoundItems="true">
+ <asp:DropDownList runat="server" ID="drpUOM" data-validation="required"  AppendDataBoundItems="true">
      <asp:ListItem Value="" Text="--select**">
 
      </asp:ListItem>                    <asp:ListItem Text="text1" />
@@ -142,7 +142,7 @@
   <asp:Label Text="Currerncy" ID="lblCurncy" runat="server"  AssociatedControlID="drpCurncy"/>
         </td>
         <td>
- <asp:DropDownList runat="server" ID="drpCurncy" data-validation="required" CssClass="combobox" AppendDataBoundItems="True">
+ <asp:DropDownList runat="server" ID="drpCurncy" data-validation="required" CssClass="" AppendDataBoundItems="True">
                     <asp:ListItem Text="text1" />
                     <asp:ListItem Text="text2" />
                 </asp:DropDownList>

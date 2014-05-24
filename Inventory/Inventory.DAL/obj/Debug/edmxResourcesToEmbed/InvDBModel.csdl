@@ -177,7 +177,7 @@
     </Key>
     <Property Name="ExceptionLogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="ExMessage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-    <Property Name="ExInnerException" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Name="ExInnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ExCreatedBy" Type="Int32" />
     <Property Name="ExCreatedDate" Type="DateTime" Precision="3" />
     <Property Name="ExOrigin" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
@@ -222,7 +222,7 @@
     <Property Name="SRP" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="ShelfLife" Type="Int32" />
     <Property Name="CreatedBy" Type="Int32" />
-    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="DateModified" Type="DateTime" Precision="3" />
     <Property Name="ModifiedBy" Type="Int32" />
     <Property Name="Status" Type="Int32" />
