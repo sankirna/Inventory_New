@@ -25,5 +25,6 @@ namespace Inventory.BAL
             }
            
         }
+        
     }
 }

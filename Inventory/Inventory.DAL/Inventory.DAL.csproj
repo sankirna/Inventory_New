@@ -93,6 +93,7 @@
     <Compile Include="CategoryMaster.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Masters\CategoryMasterDAL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CountryMaster.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>

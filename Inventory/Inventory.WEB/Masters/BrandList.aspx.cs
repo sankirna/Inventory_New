@@ -79,14 +79,14 @@ namespace Inventory.Web
         protected void BindGrid(int PageIndex)
         {
 
-            List<objdal.BrandMaster> lstProductDTO = objbal.Masters.Brand.GetBrandList( PageIndex, Convert.ToInt32(hdnPageSize.Value));
-            if (lstProductDTO != null && lstProductDTO.Count > 0)
+            List<objdal.BrandMaster> lstBrandMasters = objbal.Masters.Brand.GetBrandList( PageIndex, Convert.ToInt32(hdnPageSize.Value));
+            if (lstBrandMasters != null && lstBrandMasters.Count > 0)
             {
                 int totalrecords = objbal.Masters.Brand.GetBrandCount();
                 hdnTotalRecords.Value = totalrecords.ToString();
                 lblNoRecords.Text = "Total Records : " + hdnTotalRecords.Value;
                 GrdBrand.PageSize = Convert.ToInt32(hdnPageSize.Value);
-                GrdBrand.DataSource = lstProductDTO;
+                GrdBrand.DataSource = lstBrandMasters;
                 GrdBrand.DataBind();
                 GrdBrand.PageIndex = Convert.ToInt32(hdnCurrentPageIndex.Value);
                 GrdBrand.PagerSettings.PageButtonCount = Convert.ToInt32(hdnPageButtonCount.Value);
@@ -105,6 +105,7 @@ namespace Inventory.Web
             }
             else
             {
+                divPager.Visible = false;
 
             }
 

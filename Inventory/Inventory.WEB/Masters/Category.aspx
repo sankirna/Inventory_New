@@ -14,8 +14,7 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="txtCategoryName" />
-                        <asp:RequiredFieldValidator ID="rfvCategoryName" runat="server" ControlToValidate="txtCategoryName"
-                            CssClass="field-validation-error" ErrorMessage="Category Name field is required." />
+                     
                     </td>
                
                 </tr>
@@ -29,6 +28,8 @@
                 </tr>
             </table>
 
-
+    <script src="../Scripts/jquery.min.js"></script>
+<script src="../Scripts/jquery.form-validator.min.js"></script>
+<script src="../Scripts/Validation.js"></script>
       
 </asp:Content>
