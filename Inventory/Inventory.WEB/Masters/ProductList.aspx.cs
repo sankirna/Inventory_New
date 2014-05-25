@@ -116,7 +116,8 @@ namespace Inventory.Web
             }
             else
             {
-               
+                divPager.Visible = false;
+
             }
             
 

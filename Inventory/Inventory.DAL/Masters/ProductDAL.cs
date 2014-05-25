@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Objects;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
+using Inventory.Utility;
 
 namespace Inventory.DAL.Masters
 {
@@ -42,7 +44,7 @@ namespace Inventory.DAL.Masters
               
                 if (isOnPageLoad) 
                 {
-                    var LstProducts = (from td in db.ProductMasters where td.Status == 1 && EntityFunctions.TruncateTime(td.DateCreated) == EntityFunctions.TruncateTime(System.DateTime.Now) select td).OrderBy(d => d.DateCreated).Skip(skip).Take(take).ToList();
+                    var LstProducts = (from td in db.ProductMasters where td.Status == 1 && DbFunctions.TruncateTime( td.DateCreated)== DbFunctions.TruncateTime(System.DateTime.Now) select td).OrderBy(d => d.DateCreated).Skip(skip).Take(take).ToList();
 
                     return LstProducts;
                 }
@@ -70,10 +72,10 @@ namespace Inventory.DAL.Masters
               
                 if (isOnPageLoad) 
                 {
-                    
 
-                   
-                   return db.ProductMasters.Where(d=> EntityFunctions.TruncateTime(d.DateCreated) == EntityFunctions.TruncateTime(System.DateTime.Now) && d.Status==1 ).Count();
+
+
+                    return db.ProductMasters.Where(d => DbFunctions.TruncateTime(d.DateCreated) == DbFunctions.TruncateTime(System.DateTime.Now) && d.Status == 1).Count();
                 }
                 else
                 {
