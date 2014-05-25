@@ -478,14 +478,6 @@
           <EntitySet Name="SupplierBrands" EntityType="InventoryModel.SupplierBrand" />
           <EntitySet Name="SupplierMasters" EntityType="InventoryModel.SupplierMaster" />
           <EntitySet Name="UOMMasters" EntityType="InventoryModel.UOMMaster" />
-          <AssociationSet Name="FK_PurchaseOrderDetails_PurchaseOrder" Association="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder">
-            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
-            <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchaseOrder_SupplierMaster" Association="InventoryModel.FK_PurchaseOrder_SupplierMaster">
-            <End Role="SupplierMaster" EntitySet="SupplierMasters" />
-            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
-          </AssociationSet>
           <AssociationSet Name="FK_AdvanceShipping_SupplierMaster" Association="InventoryModel.FK_AdvanceShipping_SupplierMaster">
             <End Role="SupplierMaster" EntitySet="SupplierMasters" />
             <End Role="AdvanceShipping" EntitySet="AdvanceShippings" />
@@ -498,22 +490,29 @@
             <End Role="ProductMaster" EntitySet="ProductMasters" />
             <End Role="AdvanceShippingProductDetail" EntitySet="AdvanceShippingProductDetails" />
           </AssociationSet>
-          <EntitySet Name="ExceptionLog1" EntityType="InventoryModel.ExceptionLog1" />
+          <AssociationSet Name="FK_PurchaseOrder_PurchaseOrder" Association="InventoryModel.FK_PurchaseOrder_PurchaseOrder">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+            <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_SupplierMaster" Association="InventoryModel.FK_PurchaseOrder_SupplierMaster">
+            <End Role="SupplierMaster" EntitySet="SupplierMasters" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AdvanceShipping">
           <Key>
             <PropertyRef Name="ASNID" />
           </Key>
-          <Property Name="ASNID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="PONumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SupplierID" Type="Int32" />
-          <Property Name="DateOfShipment" Type="DateTime" Precision="3" />
-          <Property Name="ASNNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="ASNID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PONumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SupplierID" />
+          <Property Type="DateTime" Name="DateOfShipment" Precision="3" />
+          <Property Type="String" Name="ASNNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
           <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_AdvanceShipping_SupplierMaster" FromRole="AdvanceShipping" ToRole="SupplierMaster" />
           <NavigationProperty Name="AdvanceShippingProductDetails" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" FromRole="AdvanceShipping" ToRole="AdvanceShippingProductDetail" />
         </EntityType>
@@ -521,21 +520,21 @@
           <Key>
             <PropertyRef Name="ASNProductDetailsID" />
           </Key>
-          <Property Name="ASNProductDetailsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ASNID" Type="Int32" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CurrencyID" Type="Int32" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="MFDate" Type="DateTime" Precision="3" />
-          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="NoofCartons" Type="Int32" />
-          <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="ASNProductDetailsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ASNID" />
+          <Property Type="Int32" Name="ProductID" />
+          <Property Type="Decimal" Name="UnitPrice" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CurrencyID" />
+          <Property Type="Int32" Name="Qty" />
+          <Property Type="DateTime" Name="MFDate" Precision="3" />
+          <Property Type="DateTime" Name="ExpiryDate" Precision="3" />
+          <Property Type="Int32" Name="NoofCartons" />
+          <Property Type="Decimal" Name="Rate" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="Status" />
           <NavigationProperty Name="AdvanceShipping" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" FromRole="AdvanceShippingProductDetail" ToRole="AdvanceShipping" />
           <NavigationProperty Name="ProductMaster" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" FromRole="AdvanceShippingProductDetail" ToRole="ProductMaster" />
         </EntityType>
@@ -543,339 +542,315 @@
           <Key>
             <PropertyRef Name="BrandID" />
           </Key>
-          <Property Name="BrandID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="BrandName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="BrandID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BrandName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="Carton">
           <Key>
             <PropertyRef Name="CartonID" />
           </Key>
-          <Property Name="CartonID" Type="Int32" Nullable="false" />
-          <Property Name="ASNNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="BarCodeNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ItemCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="PreviousPlace" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="RecentPlace" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Type" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="CratedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifyBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="CartonID" Nullable="false" />
+          <Property Type="String" Name="ASNNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BarCodeNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ItemCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="UnitPrice" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Qty" />
+          <Property Type="String" Name="PreviousPlace" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RecentPlace" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Type" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CratedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifyDate" Precision="3" />
+          <Property Type="Int32" Name="ModifyBy" />
+          <Property Type="Int32" Name="IsDeleted" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="CategoryMaster">
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CategoryName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="CountryMaster">
           <Key>
             <PropertyRef Name="CountryID" />
           </Key>
-          <Property Name="CountryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CountryName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="CountryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CountryName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="CurrencyMaster">
           <Key>
             <PropertyRef Name="CurrencyID" />
           </Key>
-          <Property Name="CurrencyID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CurrencyCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CurrencyName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="CurrencyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CurrencyCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CurrencyName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="CustomerMaster">
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Address1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Address2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Street" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CountryID" Type="Int32" />
-          <Property Name="TelePhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="StoreID" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="CustomerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CustomerName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Street" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="String" Name="TelePhone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="StoreID" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="CustomerSKU">
           <Key>
             <PropertyRef Name="CustomerSKUID" />
           </Key>
-          <Property Name="CustomerSKUID" Type="Int32" Nullable="false" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="StoreID" Type="Int32" />
-          <Property Name="SKUCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="CustomerSKUID" Nullable="false" />
+          <Property Type="Int32" Name="ProductID" />
+          <Property Type="Int32" Name="CustomerID" />
+          <Property Type="Int32" Name="StoreID" />
+          <Property Type="String" Name="SKUCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="ExceptionLog">
           <Key>
             <PropertyRef Name="ExceptionLogID" />
           </Key>
-          <Property Name="ExceptionLogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ExMessage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-          <Property Name="ExInnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ExCreatedBy" Type="Int32" />
-          <Property Name="ExCreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="ExOrigin" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Type="Int32" Name="ExceptionLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ExMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExInnerException" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ExCreatedBy" />
+          <Property Type="DateTime" Name="ExCreatedDate" Precision="3" />
+          <Property Type="String" Name="ExOrigin" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PickingList">
           <Key>
             <PropertyRef Name="PLID" />
           </Key>
-          <Property Name="PLID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="StoreId" Type="Int32" />
-          <Property Name="ItemCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="BarCodeID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="PLID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CustomerID" />
+          <Property Type="Int32" Name="StoreId" />
+          <Property Type="String" Name="ItemCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BarCodeID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Qty" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="ProductMaster">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ItemCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="MFBarcode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SupplierID" Type="Int32" />
-          <Property Name="UOMID" Type="Int32" />
-          <Property Name="DiLength" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="DiBreadth" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="DiHeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="DiWeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SpLength" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SpBreadth" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SpHeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SpWeight" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="QPC" Type="Int32" />
-          <Property Name="BasicPC" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CurrencyID" Type="Int32" />
-          <Property Name="SRP" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="ShelfLife" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="ProductID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ItemCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MFBarcode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SupplierID" />
+          <Property Type="Int32" Name="UOMID" />
+          <Property Type="String" Name="DiLength" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiBreadth" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiHeight" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiWeight" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SpLength" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SpBreadth" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SpHeight" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SpWeight" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="QPC" />
+          <Property Type="Decimal" Name="BasicPC" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CurrencyID" />
+          <Property Type="Decimal" Name="SRP" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="ShelfLife" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
           <NavigationProperty Name="AdvanceShippingProductDetails" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" FromRole="ProductMaster" ToRole="AdvanceShippingProductDetail" />
         </EntityType>
         <EntityType Name="PurchaseOrder">
           <Key>
             <PropertyRef Name="PurchaseOrderID" />
           </Key>
-          <Property Name="PurchaseOrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="SupplierID" Type="Int32" />
-          <Property Name="PONumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="PODate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
-          <NavigationProperty Name="PurchaseOrderDetails" Relationship="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetails" />
-          <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="PurchaseOrder" ToRole="SupplierMaster" />
+          <Property Type="Int32" Name="PurchaseOrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SupplierID" />
+          <Property Type="String" Name="PONumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PODate" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
           <Property Type="String" Name="TermCondition" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PurchaseOrderDetails" Relationship="InventoryModel.FK_PurchaseOrder_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetail" />
+          <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="PurchaseOrder" ToRole="SupplierMaster" />
         </EntityType>
         <EntityType Name="PurchaseOrderDetail">
           <Key>
             <PropertyRef Name="PurchaseOrderDetailID" />
           </Key>
-          <Property Name="PurchaseOrderDetailID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="PurchaseOrderID" Type="Int32" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="PurchaseOrder" Relationship="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" FromRole="PurchaseOrderDetails" ToRole="PurchaseOrder" />
+          <Property Type="Int32" Name="PurchaseOrderDetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PurchaseOrderID" />
+          <Property Type="Int32" Name="ProductID" />
+          <Property Type="Decimal" Name="Cost" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Quantity" />
+          <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="InventoryModel.FK_PurchaseOrder_PurchaseOrder" FromRole="PurchaseOrderDetail" ToRole="PurchaseOrder" />
         </EntityType>
         <EntityType Name="ReceiveMainDetail">
           <Key>
             <PropertyRef Name="ReceiveMainDetailsID" />
           </Key>
-          <Property Name="ReceiveMainDetailsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="PONumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="SupplierID" Type="Int32" />
-          <Property Name="DateOfShipment" Type="DateTime" Precision="3" />
-          <Property Name="ASNNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="ReceiveMainDetailsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PONumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SupplierID" />
+          <Property Type="DateTime" Name="DateOfShipment" Precision="3" />
+          <Property Type="String" Name="ASNNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="ReceiveProductDetail">
           <Key>
             <PropertyRef Name="ReceiveProductDetailsID" />
           </Key>
-          <Property Name="ReceiveProductDetailsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ReceiveMainDetailsID" Type="Int32" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CurrencyID" Type="Int32" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="MFDate" Type="DateTime" Precision="3" />
-          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="NoofCartons" Type="Int32" />
-          <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="ReceiveProductDetailsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ReceiveMainDetailsID" />
+          <Property Type="Int32" Name="ProductID" />
+          <Property Type="Decimal" Name="UnitPrice" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CurrencyID" />
+          <Property Type="Int32" Name="Qty" />
+          <Property Type="DateTime" Name="MFDate" Precision="3" />
+          <Property Type="DateTime" Name="ExpiryDate" Precision="3" />
+          <Property Type="Int32" Name="NoofCartons" />
+          <Property Type="Decimal" Name="Rate" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="SalesOrder">
           <Key>
             <PropertyRef Name="SalesOrderID" />
           </Key>
-          <Property Name="SalesOrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="StoreId" Type="Int32" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="SalesOrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CustomerID" />
+          <Property Type="Int32" Name="StoreId" />
+          <Property Type="Int32" Name="ProductID" />
+          <Property Type="Int32" Name="Qty" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="StockMaster">
           <Key>
             <PropertyRef Name="StockID" />
           </Key>
-          <Property Name="StockID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="LastQty" Type="Int32" />
-          <Property Name="CurrentQty" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="StockID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProductID" />
+          <Property Type="Int32" Name="LastQty" />
+          <Property Type="Int32" Name="CurrentQty" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="StoreMaster">
           <Key>
             <PropertyRef Name="StoreID" />
           </Key>
-          <Property Name="StoreID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="StoreName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Address1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Address2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Address3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ContactNo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="StoreID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="StoreName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address3" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
         <EntityType Name="SupplierBrand">
           <Key>
             <PropertyRef Name="SupplierBrandID" />
           </Key>
-          <Property Name="SupplierBrandID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="SupplierID" Type="Int32" Nullable="false" />
-          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="SupplierBrandID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SupplierID" Nullable="false" />
+          <Property Type="Int32" Name="BrandID" Nullable="false" />
         </EntityType>
         <EntityType Name="SupplierMaster">
           <Key>
             <PropertyRef Name="SupplierID" />
           </Key>
-          <Property Name="SupplierID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="SupplierName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ContactNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Address1" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
-          <Property Name="BuildingName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Street" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="State" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CountryID" Type="Int32" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Status" Type="Int32" />
-          <NavigationProperty Name="PurchaseOrders" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="SupplierMaster" ToRole="PurchaseOrder" />
+          <Property Type="Int32" Name="SupplierID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SupplierName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address1" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuildingName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Street" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="Int32" Name="Status" />
           <NavigationProperty Name="AdvanceShippings" Relationship="InventoryModel.FK_AdvanceShipping_SupplierMaster" FromRole="SupplierMaster" ToRole="AdvanceShipping" />
+          <NavigationProperty Name="PurchaseOrders" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="SupplierMaster" ToRole="PurchaseOrder" />
         </EntityType>
         <EntityType Name="UOMMaster">
           <Key>
             <PropertyRef Name="UOMID" />
           </Key>
-          <Property Name="UOMID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="UomName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="UomCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="DateModified" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" />
+          <Property Type="Int32" Name="UOMID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UomName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UomCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="DateModified" Precision="3" />
+          <Property Type="Int32" Name="Status" />
         </EntityType>
-        <Association Name="FK_PurchaseOrderDetails_PurchaseOrder">
-          <End Role="PurchaseOrder" Type="InventoryModel.PurchaseOrder" Multiplicity="0..1" />
-          <End Role="PurchaseOrderDetails" Type="InventoryModel.PurchaseOrderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PurchaseOrder">
-              <PropertyRef Name="PurchaseOrderID" />
-            </Principal>
-            <Dependent Role="PurchaseOrderDetails">
-              <PropertyRef Name="PurchaseOrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchaseOrder_SupplierMaster">
-          <End Type="InventoryModel.SupplierMaster" Role="SupplierMaster" Multiplicity="0..1" />
-          <End Type="InventoryModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SupplierMaster">
-              <PropertyRef Name="SupplierID" />
-            </Principal>
-            <Dependent Role="PurchaseOrder">
-              <PropertyRef Name="SupplierID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_AdvanceShipping_SupplierMaster">
           <End Type="InventoryModel.SupplierMaster" Role="SupplierMaster" Multiplicity="0..1" />
           <End Type="InventoryModel.AdvanceShipping" Role="AdvanceShipping" Multiplicity="*" />
@@ -912,18 +887,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ExceptionLog1">
-          <Key>
-            <PropertyRef Name="ExceptionLogID" />
-          </Key>
-          <Property Type="Int32" Name="ExceptionLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="ExMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ExInnerException" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ExCreatedBy" />
-          <Property Type="DateTime" Name="ExCreatedDate" Precision="3" />
-          <Property Type="String" Name="ExOrigin" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-      </Schema>
+        <Association Name="FK_PurchaseOrder_PurchaseOrder">
+          <End Type="InventoryModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="0..1" />
+          <End Type="InventoryModel.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Principal>
+            <Dependent Role="PurchaseOrderDetail">
+              <PropertyRef Name="PurchaseOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_SupplierMaster">
+          <End Type="InventoryModel.SupplierMaster" Role="SupplierMaster" Multiplicity="0..1" />
+          <End Type="InventoryModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplierMaster">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -932,357 +920,153 @@
           <EntitySetMapping Name="AdvanceShippings">
             <EntityTypeMapping TypeName="InventoryModel.AdvanceShipping">
               <MappingFragment StoreEntitySet="AdvanceShipping">
-                <ScalarProperty Name="ASNID" ColumnName="ASNID" />
-                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="DateOfShipment" ColumnName="DateOfShipment" />
-                <ScalarProperty Name="ASNNo" ColumnName="ASNNo" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ASNNo" ColumnName="ASNNo" />
+                <ScalarProperty Name="DateOfShipment" ColumnName="DateOfShipment" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="ASNID" ColumnName="ASNID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AdvanceShippingProductDetails">
             <EntityTypeMapping TypeName="InventoryModel.AdvanceShippingProductDetail">
               <MappingFragment StoreEntitySet="AdvanceShippingProductDetails">
-                <ScalarProperty Name="ASNProductDetailsID" ColumnName="ASNProductDetailsID" />
-                <ScalarProperty Name="ASNID" ColumnName="ASNID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="MFDate" ColumnName="MFDate" />
-                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="NoofCartons" ColumnName="NoofCartons" />
-                <ScalarProperty Name="Rate" ColumnName="Rate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="NoofCartons" ColumnName="NoofCartons" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="MFDate" ColumnName="MFDate" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ASNID" ColumnName="ASNID" />
+                <ScalarProperty Name="ASNProductDetailsID" ColumnName="ASNProductDetailsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BrandMasters">
             <EntityTypeMapping TypeName="InventoryModel.BrandMaster">
               <MappingFragment StoreEntitySet="BrandMaster">
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cartons">
             <EntityTypeMapping TypeName="InventoryModel.Carton">
               <MappingFragment StoreEntitySet="Cartons">
-                <ScalarProperty Name="CartonID" ColumnName="CartonID" />
-                <ScalarProperty Name="ASNNo" ColumnName="ASNNo" />
-                <ScalarProperty Name="BarCodeNumber" ColumnName="BarCodeNumber" />
-                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="PreviousPlace" ColumnName="PreviousPlace" />
-                <ScalarProperty Name="RecentPlace" ColumnName="RecentPlace" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CratedDate" ColumnName="CratedDate" />
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CratedDate" ColumnName="CratedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="RecentPlace" ColumnName="RecentPlace" />
+                <ScalarProperty Name="PreviousPlace" ColumnName="PreviousPlace" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="BarCodeNumber" ColumnName="BarCodeNumber" />
+                <ScalarProperty Name="ASNNo" ColumnName="ASNNo" />
+                <ScalarProperty Name="CartonID" ColumnName="CartonID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CategoryMasters">
             <EntityTypeMapping TypeName="InventoryModel.CategoryMaster">
               <MappingFragment StoreEntitySet="CategoryMaster">
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CountryMasters">
             <EntityTypeMapping TypeName="InventoryModel.CountryMaster">
               <MappingFragment StoreEntitySet="CountryMaster">
-                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
-                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CurrencyMasters">
             <EntityTypeMapping TypeName="InventoryModel.CurrencyMaster">
               <MappingFragment StoreEntitySet="CurrencyMaster">
-                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
-                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
-                <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerMasters">
             <EntityTypeMapping TypeName="InventoryModel.CustomerMaster">
               <MappingFragment StoreEntitySet="CustomerMaster">
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="Address1" ColumnName="Address1" />
-                <ScalarProperty Name="Address2" ColumnName="Address2" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
-                <ScalarProperty Name="TelePhone" ColumnName="TelePhone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TelePhone" ColumnName="TelePhone" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerSKUs">
             <EntityTypeMapping TypeName="InventoryModel.CustomerSKU">
               <MappingFragment StoreEntitySet="CustomerSKU">
-                <ScalarProperty Name="CustomerSKUID" ColumnName="CustomerSKUID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PickingLists">
-            <EntityTypeMapping TypeName="InventoryModel.PickingList">
-              <MappingFragment StoreEntitySet="PickingList">
-                <ScalarProperty Name="PLID" ColumnName="PLID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
-                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
-                <ScalarProperty Name="BarCodeID" ColumnName="BarCodeID" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductMasters">
-            <EntityTypeMapping TypeName="InventoryModel.ProductMaster">
-              <MappingFragment StoreEntitySet="ProductMaster">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="MFBarcode" ColumnName="MFBarcode" />
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
-                <ScalarProperty Name="DiLength" ColumnName="DiLength" />
-                <ScalarProperty Name="DiBreadth" ColumnName="DiBreadth" />
-                <ScalarProperty Name="DiHeight" ColumnName="DiHeight" />
-                <ScalarProperty Name="DiWeight" ColumnName="DiWeight" />
-                <ScalarProperty Name="SpLength" ColumnName="SpLength" />
-                <ScalarProperty Name="SpBreadth" ColumnName="SpBreadth" />
-                <ScalarProperty Name="SpHeight" ColumnName="SpHeight" />
-                <ScalarProperty Name="SpWeight" ColumnName="SpWeight" />
-                <ScalarProperty Name="QPC" ColumnName="QPC" />
-                <ScalarProperty Name="BasicPC" ColumnName="BasicPC" />
-                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
-                <ScalarProperty Name="SRP" ColumnName="SRP" />
-                <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PurchaseOrders">
-            <EntityTypeMapping TypeName="InventoryModel.PurchaseOrder">
-              <MappingFragment StoreEntitySet="PurchaseOrder">
-                <ScalarProperty Name="TermCondition" ColumnName="TermCondition" />
-                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
-                <ScalarProperty Name="PODate" ColumnName="PODate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PurchaseOrderDetails">
-            <EntityTypeMapping TypeName="InventoryModel.PurchaseOrderDetail">
-              <MappingFragment StoreEntitySet="PurchaseOrderDetails">
-                <ScalarProperty Name="PurchaseOrderDetailID" ColumnName="PurchaseOrderDetailID" />
-                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReceiveMainDetails">
-            <EntityTypeMapping TypeName="InventoryModel.ReceiveMainDetail">
-              <MappingFragment StoreEntitySet="ReceiveMainDetails">
-                <ScalarProperty Name="ReceiveMainDetailsID" ColumnName="ReceiveMainDetailsID" />
-                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="DateOfShipment" ColumnName="DateOfShipment" />
-                <ScalarProperty Name="ASNNo" ColumnName="ASNNo" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReceiveProductDetails">
-            <EntityTypeMapping TypeName="InventoryModel.ReceiveProductDetail">
-              <MappingFragment StoreEntitySet="ReceiveProductDetails">
-                <ScalarProperty Name="ReceiveProductDetailsID" ColumnName="ReceiveProductDetailsID" />
-                <ScalarProperty Name="ReceiveMainDetailsID" ColumnName="ReceiveMainDetailsID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="MFDate" ColumnName="MFDate" />
-                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="NoofCartons" ColumnName="NoofCartons" />
-                <ScalarProperty Name="Rate" ColumnName="Rate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SalesOrders">
-            <EntityTypeMapping TypeName="InventoryModel.SalesOrder">
-              <MappingFragment StoreEntitySet="SalesOrder">
-                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="StockMasters">
-            <EntityTypeMapping TypeName="InventoryModel.StockMaster">
-              <MappingFragment StoreEntitySet="StockMaster">
-                <ScalarProperty Name="StockID" ColumnName="StockID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="LastQty" ColumnName="LastQty" />
-                <ScalarProperty Name="CurrentQty" ColumnName="CurrentQty" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="StoreMasters">
-            <EntityTypeMapping TypeName="InventoryModel.StoreMaster">
-              <MappingFragment StoreEntitySet="StoreMaster">
                 <ScalarProperty Name="StoreID" ColumnName="StoreID" />
-                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
-                <ScalarProperty Name="Address1" ColumnName="Address1" />
-                <ScalarProperty Name="Address2" ColumnName="Address2" />
-                <ScalarProperty Name="Address3" ColumnName="Address3" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CustomerSKUID" ColumnName="CustomerSKUID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SupplierBrands">
-            <EntityTypeMapping TypeName="InventoryModel.SupplierBrand">
-              <MappingFragment StoreEntitySet="SupplierBrand">
-                <ScalarProperty Name="SupplierBrandID" ColumnName="SupplierBrandID" />
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SupplierMasters">
-            <EntityTypeMapping TypeName="InventoryModel.SupplierMaster">
-              <MappingFragment StoreEntitySet="SupplierMaster">
-                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Address1" ColumnName="Address1" />
-                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UOMMasters">
-            <EntityTypeMapping TypeName="InventoryModel.UOMMaster">
-              <MappingFragment StoreEntitySet="UOMMaster">
-                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
-                <ScalarProperty Name="UomName" ColumnName="UomName" />
-                <ScalarProperty Name="UomCode" ColumnName="UomCode" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExceptionLog1">
-            <EntityTypeMapping TypeName="InventoryModel.ExceptionLog1">
+          <EntitySetMapping Name="ExceptionLogs">
+            <EntityTypeMapping TypeName="InventoryModel.ExceptionLog">
               <MappingFragment StoreEntitySet="ExceptionLog">
                 <ScalarProperty Name="ExOrigin" ColumnName="ExOrigin" />
                 <ScalarProperty Name="ExCreatedDate" ColumnName="ExCreatedDate" />
@@ -1290,6 +1074,210 @@
                 <ScalarProperty Name="ExInnerException" ColumnName="ExInnerException" />
                 <ScalarProperty Name="ExMessage" ColumnName="ExMessage" />
                 <ScalarProperty Name="ExceptionLogID" ColumnName="ExceptionLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PickingLists">
+            <EntityTypeMapping TypeName="InventoryModel.PickingList">
+              <MappingFragment StoreEntitySet="PickingList">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="BarCodeID" ColumnName="BarCodeID" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="PLID" ColumnName="PLID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductMasters">
+            <EntityTypeMapping TypeName="InventoryModel.ProductMaster">
+              <MappingFragment StoreEntitySet="ProductMaster">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
+                <ScalarProperty Name="SRP" ColumnName="SRP" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="BasicPC" ColumnName="BasicPC" />
+                <ScalarProperty Name="QPC" ColumnName="QPC" />
+                <ScalarProperty Name="SpWeight" ColumnName="SpWeight" />
+                <ScalarProperty Name="SpHeight" ColumnName="SpHeight" />
+                <ScalarProperty Name="SpBreadth" ColumnName="SpBreadth" />
+                <ScalarProperty Name="SpLength" ColumnName="SpLength" />
+                <ScalarProperty Name="DiWeight" ColumnName="DiWeight" />
+                <ScalarProperty Name="DiHeight" ColumnName="DiHeight" />
+                <ScalarProperty Name="DiBreadth" ColumnName="DiBreadth" />
+                <ScalarProperty Name="DiLength" ColumnName="DiLength" />
+                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="MFBarcode" ColumnName="MFBarcode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseOrders">
+            <EntityTypeMapping TypeName="InventoryModel.PurchaseOrder">
+              <MappingFragment StoreEntitySet="PurchaseOrder">
+                <ScalarProperty Name="TermCondition" ColumnName="TermCondition" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PODate" ColumnName="PODate" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseOrderDetails">
+            <EntityTypeMapping TypeName="InventoryModel.PurchaseOrderDetail">
+              <MappingFragment StoreEntitySet="PurchaseOrderDetails">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+                <ScalarProperty Name="PurchaseOrderDetailID" ColumnName="PurchaseOrderDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceiveMainDetails">
+            <EntityTypeMapping TypeName="InventoryModel.ReceiveMainDetail">
+              <MappingFragment StoreEntitySet="ReceiveMainDetails">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ASNNo" ColumnName="ASNNo" />
+                <ScalarProperty Name="DateOfShipment" ColumnName="DateOfShipment" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="ReceiveMainDetailsID" ColumnName="ReceiveMainDetailsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceiveProductDetails">
+            <EntityTypeMapping TypeName="InventoryModel.ReceiveProductDetail">
+              <MappingFragment StoreEntitySet="ReceiveProductDetails">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="NoofCartons" ColumnName="NoofCartons" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="MFDate" ColumnName="MFDate" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ReceiveMainDetailsID" ColumnName="ReceiveMainDetailsID" />
+                <ScalarProperty Name="ReceiveProductDetailsID" ColumnName="ReceiveProductDetailsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrders">
+            <EntityTypeMapping TypeName="InventoryModel.SalesOrder">
+              <MappingFragment StoreEntitySet="SalesOrder">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockMasters">
+            <EntityTypeMapping TypeName="InventoryModel.StockMaster">
+              <MappingFragment StoreEntitySet="StockMaster">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CurrentQty" ColumnName="CurrentQty" />
+                <ScalarProperty Name="LastQty" ColumnName="LastQty" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreMasters">
+            <EntityTypeMapping TypeName="InventoryModel.StoreMaster">
+              <MappingFragment StoreEntitySet="StoreMaster">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierBrands">
+            <EntityTypeMapping TypeName="InventoryModel.SupplierBrand">
+              <MappingFragment StoreEntitySet="SupplierBrand">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="SupplierBrandID" ColumnName="SupplierBrandID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierMasters">
+            <EntityTypeMapping TypeName="InventoryModel.SupplierMaster">
+              <MappingFragment StoreEntitySet="SupplierMaster">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UOMMasters">
+            <EntityTypeMapping TypeName="InventoryModel.UOMMaster">
+              <MappingFragment StoreEntitySet="UOMMaster">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UomCode" ColumnName="UomCode" />
+                <ScalarProperty Name="UomName" ColumnName="UomName" />
+                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

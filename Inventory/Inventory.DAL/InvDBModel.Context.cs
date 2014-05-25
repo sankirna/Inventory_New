@@ -47,6 +47,5 @@ namespace Inventory.DAL
         public DbSet<SupplierBrand> SupplierBrands { get; set; }
         public DbSet<SupplierMaster> SupplierMasters { get; set; }
         public DbSet<UOMMaster> UOMMasters { get; set; }
-        public DbSet<ExceptionLog1> ExceptionLog1 { get; set; }
     }
 }

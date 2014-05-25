@@ -107,9 +107,6 @@
     <Compile Include="ExceptionLog.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ExceptionLog1.cs">
-      <DependentUpon>InvDBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="InvDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
