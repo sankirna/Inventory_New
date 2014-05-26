@@ -1,0 +1,580 @@
+From 1d14187680b7390e6e9f5ed0d507c34ac4358628 Mon Sep 17 00:00:00 2001
+From: sankirna <sankirnarana@gmail.com>
+Date: Sun, 25 May 2014 16:45:18 +0530
+Subject: [PATCH] no message
+
+---
+ Inventory/Inventory.BAL/Masters/CategoryBO.cs      | 89 ++++++++++++++++++--
+ Inventory/Inventory.BAL/Masters/CountryBO.cs       |  1 +
+ Inventory/Inventory.DAL/Inventory.DAL.csproj       |  1 +
+ .../Inventory.DAL/Masters/CategoryMasterDAL.cs     | 95 ++++++++++++++++++++++
+ Inventory/Inventory.WEB/Masters/BrandList.aspx.cs  |  7 +-
+ Inventory/Inventory.WEB/Masters/Category.aspx      |  7 +-
+ Inventory/Inventory.WEB/Masters/Category.aspx.cs   | 43 ++++++++++
+ .../Masters/Category.aspx.designer.cs              |  9 --
+ Inventory/Inventory.WEB/Masters/CategoryList.aspx  | 29 +++++--
+ .../Inventory.WEB/Masters/CategoryList.aspx.cs     | 66 ++++++++++++++-
+ .../Masters/CategoryList.aspx.designer.cs          | 36 ++++++++
+ 11 files changed, 354 insertions(+), 29 deletions(-)
+ create mode 100644 Inventory/Inventory.DAL/Masters/CategoryMasterDAL.cs
+
+diff --git a/Inventory/Inventory.BAL/Masters/CategoryBO.cs b/Inventory/Inventory.BAL/Masters/CategoryBO.cs
+index 08c02bf..2dd6daa 100644
+--- a/Inventory/Inventory.BAL/Masters/CategoryBO.cs
++++ b/Inventory/Inventory.BAL/Masters/CategoryBO.cs
+@@ -3,18 +3,93 @@ using System;
+ using System.Collections.Generic;
+ using System.Linq;
+ using System.Web;
++using Inventory.Utility;
++using objdal=Inventory.DAL;
++
++namespace Inventory.BAL.Masters
+ 
+-namespace Inventory.BAL
+ {
+     public class Category
+     {
+-        public List<CategoryModel> GetList()
++        public static List<objdal.CategoryMaster> GetList(int? pageIndex,int? maxRows)
++        {
++            try
++            {
++                return new objdal.Masters.CategoryMasterDAL().GetList( pageIndex, maxRows);
++            }
++            catch (Exception ex)
++            {
++                  Helpers.ExceptionHandlerBO.LogException(ex,SessionManager.UserId,"Get List Category BO");
++                return null;
++            }
++        }
++
++        public static int GetCategoryCount()
++        {
++            try
++            {
++                return new objdal.Masters.CategoryMasterDAL().GetCategoryCount();
++            }
++            catch (Exception ex)
++            {
++                    
++                Helpers.ExceptionHandlerBO.LogException(ex,SessionManager.UserId,"Get Category Count BO");
++                return 0;
++            }
++        }
++        public static string Insert(objdal.CategoryMaster insCategoryMaster)
++        {
++            try
++            {
++                return new objdal.Masters.CategoryMasterDAL().Insert(insCategoryMaster);
++            }
++            catch (Exception ex)
++            {
++                Helpers.ExceptionHandlerBO.LogException(ex,SessionManager.UserId,"Category Insert BO");
++                return null;
++
++            }
++        }
++
++        public static objdal.CategoryMaster SelectSingleMaster(int categoryId)
++        {
++            try
++            {
++                return new objdal.Masters.CategoryMasterDAL().SelectSingleMaster(categoryId);
++            }
++            catch (Exception ex)
++            {
++                    
++               Helpers.ExceptionHandlerBO.LogException(ex,SessionManager.UserId,"Select Single Category BO");
++                return null;
++            }
++        }
++
++        public static string Delete(int categoryId)
++        {
++            try
++            {
++                return new objdal.Masters.CategoryMasterDAL().Delete(categoryId);
++            }
++            catch (Exception ex)
++            {
++                Helpers.ExceptionHandlerBO.LogException(ex,SessionManager.UserId,"Delete Category BO");
++                return null;
++            }
++        }
++
++        public static string Update(objdal.CategoryMaster updateCategoryMaster)
+         {
+-            List<CategoryModel> lstCategory = new List<CategoryModel>();
+-            lstCategory.Add(new CategoryModel() { Id = 1, Name = "Hair Care" });
+-            lstCategory.Add(new CategoryModel() { Id = 2, Name = "Body Care" });
+-            lstCategory.Add(new CategoryModel() { Id = 3, Name = "Skin Care" });
+-            return lstCategory;
++            try
++            {
++                return new objdal.Masters.CategoryMasterDAL().Update(updateCategoryMaster);
++            }
++            catch (Exception ex)
++            {
++                    
++              Helpers.ExceptionHandlerBO.LogException(ex,SessionManager.UserId,"Update Category BO");
++                return null;
++            }
+         }
+     }
+ }
+\ No newline at end of file
+diff --git a/Inventory/Inventory.BAL/Masters/CountryBO.cs b/Inventory/Inventory.BAL/Masters/CountryBO.cs
+index f2173df..be2835e 100644
+--- a/Inventory/Inventory.BAL/Masters/CountryBO.cs
++++ b/Inventory/Inventory.BAL/Masters/CountryBO.cs
+@@ -25,5 +25,6 @@ namespace Inventory.BAL
+             }
+            
+         }
++        
+     }
+ }
+\ No newline at end of file
+diff --git a/Inventory/Inventory.DAL/Inventory.DAL.csproj b/Inventory/Inventory.DAL/Inventory.DAL.csproj
+index 24b12ae..314fbc5 100644
+--- a/Inventory/Inventory.DAL/Inventory.DAL.csproj
++++ b/Inventory/Inventory.DAL/Inventory.DAL.csproj
+@@ -93,6 +93,7 @@
+     <Compile Include="CategoryMaster.cs">
+       <DependentUpon>InvDBModel.tt</DependentUpon>
+     </Compile>
++    <Compile Include="Masters\CategoryMasterDAL.cs" />
+     <Compile Include="Class1.cs" />
+     <Compile Include="CountryMaster.cs">
+       <DependentUpon>InvDBModel.tt</DependentUpon>
+diff --git a/Inventory/Inventory.DAL/Masters/CategoryMasterDAL.cs b/Inventory/Inventory.DAL/Masters/CategoryMasterDAL.cs
+new file mode 100644
+index 0000000..6f8848e
+--- /dev/null
++++ b/Inventory/Inventory.DAL/Masters/CategoryMasterDAL.cs
+@@ -0,0 +1,95 @@
++﻿using System;
++using System.Collections.Generic;
++using System.Data.Entity;
++using System.Linq;
++using System.Text;
++using Inventory.Utility;
++
++namespace Inventory.DAL.Masters
++{
++    public class CategoryMasterDAL
++    {
++        public string Insert(CategoryMaster insCategoryMaster)
++        {
++            using (var db = new InventoryEntities())
++            {
++                db.CategoryMasters.Add(insCategoryMaster);
++                db.SaveChanges();
++                return "suc";
++            }
++        }
++
++        public CategoryMaster SelectSingleMaster(int categoryId)
++        {
++            using (var db = new InventoryEntities())
++            {
++                return db.CategoryMasters.SingleOrDefault(d => d.CategoryID == categoryId);
++            }
++        }
++
++        public string Delete(int categoryId)
++        {
++            using (var db = new InventoryEntities())
++            {
++                CategoryMaster categoryMaster = db.CategoryMasters.SingleOrDefault(d => d.CategoryID == categoryId);
++                categoryMaster.DateModified = System.DateTime.Now;
++                categoryMaster.ModifiedBy = SessionManager.UserId;
++                categoryMaster.Status = 0;
++                db.SaveChanges();
++                return "suc";
++
++
++            }
++        }
++
++        public string Update(CategoryMaster updateCategoryMaster)
++        {
++            using (var db = new InventoryEntities())
++            {
++                db.CategoryMasters.Attach(updateCategoryMaster);
++                var objentry = db.Entry(updateCategoryMaster);
++                objentry.Property(e => e.CategoryName).IsModified = true;
++                objentry.Property(e => e.DateModified).IsModified = true;
++                objentry.Property(e => e.ModifiedBy).IsModified = true;
++                db.SaveChanges();
++                return "suc";
++            }
++        }
++
++        public List<CategoryMaster> GetList( int? pageIndex, int? maxRows)
++        {
++             int skip = pageIndex == null ? 0 : pageIndex.Value;
++            int take = maxRows == null ? 0 : maxRows.Value;
++            skip = skip * take;
++            using (var db = new InventoryEntities())
++            {
++               
++               
++                    return
++                        db.CategoryMasters.Where(
++                            d =>
++                                d.Status == 1)
++                            .OrderBy(d => d.DateCreated)
++                            .Skip(skip)
++                            .Take(take)
++                            .ToList();
++                
++            }
++        }
++
++        public int GetCategoryCount()
++        {
++            using (var db = new InventoryEntities())
++            {
++                
++                    return
++                       db.CategoryMasters.Count(
++                           d =>
++                               d.Status == 1 
++                          );
++                        
++                
++            }
++        }
++    }
++}
+diff --git a/Inventory/Inventory.WEB/Masters/BrandList.aspx.cs b/Inventory/Inventory.WEB/Masters/BrandList.aspx.cs
+index 1fa6764..ff1380c 100644
+--- a/Inventory/Inventory.WEB/Masters/BrandList.aspx.cs
++++ b/Inventory/Inventory.WEB/Masters/BrandList.aspx.cs
+@@ -79,14 +79,14 @@ namespace Inventory.Web
+         protected void BindGrid(int PageIndex)
+         {
+ 
+-            List<objdal.BrandMaster> lstProductDTO = objbal.Masters.Brand.GetBrandList( PageIndex, Convert.ToInt32(hdnPageSize.Value));
+-            if (lstProductDTO != null && lstProductDTO.Count > 0)
++            List<objdal.BrandMaster> lstBrandMasters = objbal.Masters.Brand.GetBrandList( PageIndex, Convert.ToInt32(hdnPageSize.Value));
++            if (lstBrandMasters != null && lstBrandMasters.Count > 0)
+             {
+                 int totalrecords = objbal.Masters.Brand.GetBrandCount();
+                 hdnTotalRecords.Value = totalrecords.ToString();
+                 lblNoRecords.Text = "Total Records : " + hdnTotalRecords.Value;
+                 GrdBrand.PageSize = Convert.ToInt32(hdnPageSize.Value);
+-                GrdBrand.DataSource = lstProductDTO;
++                GrdBrand.DataSource = lstBrandMasters;
+                 GrdBrand.DataBind();
+                 GrdBrand.PageIndex = Convert.ToInt32(hdnCurrentPageIndex.Value);
+                 GrdBrand.PagerSettings.PageButtonCount = Convert.ToInt32(hdnPageButtonCount.Value);
+@@ -105,6 +105,7 @@ namespace Inventory.Web
+             }
+             else
+             {
++                divPager.Visible = false;
+ 
+             }
+ 
+diff --git a/Inventory/Inventory.WEB/Masters/Category.aspx b/Inventory/Inventory.WEB/Masters/Category.aspx
+index d8a17a9..316fde3 100644
+--- a/Inventory/Inventory.WEB/Masters/Category.aspx
++++ b/Inventory/Inventory.WEB/Masters/Category.aspx
+@@ -14,8 +14,7 @@
+                     </td>
+                     <td>
+                         <asp:TextBox runat="server" ID="txtCategoryName" />
+-                        <asp:RequiredFieldValidator ID="rfvCategoryName" runat="server" ControlToValidate="txtCategoryName"
+-                            CssClass="field-validation-error" ErrorMessage="Category Name field is required." />
++                     
+                     </td>
+                
+                 </tr>
+@@ -29,6 +28,8 @@
+                 </tr>
+             </table>
+ 
+-
++    <script src="../Scripts/jquery.min.js"></script>
++<script src="../Scripts/jquery.form-validator.min.js"></script>
++<script src="../Scripts/Validation.js"></script>
+       
+ </asp:Content>
+diff --git a/Inventory/Inventory.WEB/Masters/Category.aspx.cs b/Inventory/Inventory.WEB/Masters/Category.aspx.cs
+index 891a82b..0fd50cb 100644
+--- a/Inventory/Inventory.WEB/Masters/Category.aspx.cs
++++ b/Inventory/Inventory.WEB/Masters/Category.aspx.cs
+@@ -4,6 +4,9 @@ using System.Linq;
+ using System.Web;
+ using System.Web.UI;
+ using System.Web.UI.WebControls;
++using Inventory.Utility;
++using objdal= Inventory.DAL;
++using objbal= Inventory.BAL;
+ 
+ namespace Inventory.Web
+ {
+@@ -11,12 +14,52 @@ namespace Inventory.Web
+     {
+         protected void Page_Load(object sender, EventArgs e)
+         {
++            if (!IsPostBack)
++            {
++                if(Request.QueryString["CatID"]!=null)
++                {
++                    objdal.CategoryMaster objCategoryMaster =
++                        objbal.Masters.Category.SelectSingleMaster(Request.QueryString["CatID"].ToIntFromString());
++                    txtCategoryName.Text = objCategoryMaster.CategoryName;
++                    btnSave.Text = "Update";
++                }
++            }
+ 
+         }
+ 
+         protected void btnSave_Click(object sender, EventArgs e)
+         {
++            if (IsValid)
++            {
++                objdal.CategoryMaster objCategoryMaster = new objdal.CategoryMaster();
++                objCategoryMaster.CategoryName = txtCategoryName.Text;
++                if (Request.QueryString["CatID"]!=null)
++                {
++                    objCategoryMaster.DateModified = System.DateTime.Now;
++                    objCategoryMaster.ModifiedBy = SessionManager.UserId;
++                    objCategoryMaster.CategoryID = Request.QueryString["CatID"].ToIntFromString();
++                    string result = objbal.Masters.Category.Update(objCategoryMaster);
++                    if (result=="suc")
++                        
++                    {
++                        Response.Redirect("CategoryList.aspx");
++                    }
+ 
++                }
++                else
++                {
++                    objCategoryMaster.CreatedBy = SessionManager.UserId;
++                    objCategoryMaster.DateCreated = System.DateTime.Now;
++                    objCategoryMaster.Status = 1;
++                    string result = objbal.Masters.Category.Insert(objCategoryMaster);
++                    if (result == "suc")
++                    {
++                        Response.Redirect("CategoryList.aspx");
++                    }    
++                }
++                
++
++            }
+         }
+     }
+ }
+\ No newline at end of file
+diff --git a/Inventory/Inventory.WEB/Masters/Category.aspx.designer.cs b/Inventory/Inventory.WEB/Masters/Category.aspx.designer.cs
+index 847349c..aabd3d3 100644
+--- a/Inventory/Inventory.WEB/Masters/Category.aspx.designer.cs
++++ b/Inventory/Inventory.WEB/Masters/Category.aspx.designer.cs
+@@ -31,15 +31,6 @@ namespace Inventory.Web {
+         protected global::System.Web.UI.WebControls.TextBox txtCategoryName;
+         
+         /// <summary>
+-        /// rfvCategoryName control.
+-        /// </summary>
+-        /// <remarks>
+-        /// Auto-generated field.
+-        /// To modify move field declaration from designer file to code-behind file.
+-        /// </remarks>
+-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCategoryName;
+-        
+-        /// <summary>
+         /// btnSave control.
+         /// </summary>
+         /// <remarks>
+diff --git a/Inventory/Inventory.WEB/Masters/CategoryList.aspx b/Inventory/Inventory.WEB/Masters/CategoryList.aspx
+index 3f7980c..c946e62 100644
+--- a/Inventory/Inventory.WEB/Masters/CategoryList.aspx
++++ b/Inventory/Inventory.WEB/Masters/CategoryList.aspx
+@@ -9,15 +9,30 @@
+           Category List
+       </h1>
+    <div id="divGridView">
+-    <asp:GridView ID="GrdCategory" runat="server" AutoGenerateColumns="false" class="dataGrid">
++    <asp:GridView ID="GrdCategory" runat="server" AutoGenerateColumns="False" class="dataGrid" Width="100%" OnRowCommand="GrdCategory_RowCommand">
+         <Columns>
+-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+-            <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="Category.aspx?id={0}" Text="Edit" />
+-            <asp:CommandField ShowDeleteButton="True" />
++            <asp:BoundField DataField="CategoryName" HeaderText="Category Name" SortExpression="Name" />
++            <asp:BoundField DataField="DateCreated" HeaderText="Created Date" SortExpression="Name" />
++
++           
++            <asp:TemplateField>
++         
++                <ItemTemplate>
++                 <a href='<%# "Category.aspx?CatID=" + Eval("CategoryID") %>'> <img src="../Images/edit.png"/></a>
++                </ItemTemplate>
++         
++            </asp:TemplateField>
++            <asp:TemplateField>
++                <ItemTemplate>
++                    <asp:ImageButton ID="ImageButton1" runat="server" OnClientClick="return confirm('Are you sure to delete Category?');" ImageUrl="../Images/delete.png"  CommandName="del" CommandArgument='<%# Eval("CategoryID") %>'/>
++                </ItemTemplate>
++            </asp:TemplateField>
++
++           
+         </Columns>
+     </asp:GridView>
+        </div>
+-    <div id="divPager" class="pagerbox" runat="server">
++     <div id="divPager" class="pagerbox" runat="server">
+                 <span class="pbleft">
+                     <asp:Label ID="lblNoRecords" runat="server" Text="" SkinID="Warningred"></asp:Label>
+                 </span>
+@@ -30,5 +45,9 @@
+                 <div class="clear">
+                 </div>
+             </div>
++    <asp:HiddenField ID="hdnPageSize" runat="server" Value="" />
++    <asp:HiddenField ID="hdnPageButtonCount" runat="server" Value="" />
++    <asp:HiddenField ID="hdnTotalRecords" runat="server" Value="" />
++    <asp:HiddenField ID="hdnCurrentPageIndex" runat="server" Value="" />
+ 
+ </asp:Content>
+diff --git a/Inventory/Inventory.WEB/Masters/CategoryList.aspx.cs b/Inventory/Inventory.WEB/Masters/CategoryList.aspx.cs
+index e7f5077..ce583ca 100644
+--- a/Inventory/Inventory.WEB/Masters/CategoryList.aspx.cs
++++ b/Inventory/Inventory.WEB/Masters/CategoryList.aspx.cs
+@@ -5,19 +5,81 @@ using System.Web;
+ using System.Web.UI;
+ using System.Web.UI.WebControls;
+ using balModel = Inventory.BAL;
++using objdal = Inventory.DAL;
++using Inventory.Utility;
+ 
+ namespace Inventory.Web
+ {
+     public partial class CategoryList : System.Web.UI.Page
+     {
+-        balModel.Category contry = new balModel.Category();
++       
+ 
+         protected void Page_Load(object sender, EventArgs e)
+         {
++            int Pagesize = 0;
++            int pageButtonCount = 0;
++            Pager.OnPageIndexChanging += Pager_OnPageIndexChanging;
++            Pagesize = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["PAGESIZE"]);
++            pageButtonCount = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["PAGEBUTTONCOUNT"]);
++            hdnPageSize.Value = Pagesize.ToString();
++            hdnPageButtonCount.Value = pageButtonCount.ToString();
+             if (!Page.IsPostBack)
+             {
+-                GrdCategory.DataSource = contry.GetList();
++                hdnTotalRecords.Value = string.Empty;
++                hdnCurrentPageIndex.Value = "0";
++                BindGrid(0);
++             
++            }
++        }
++
++        private void Pager_OnPageIndexChanging(object sender, EventArgs e)
++        {
++            int index = Convert.ToInt32(((LinkButton)sender).CommandArgument);
++            hdnCurrentPageIndex.Value = index.ToString();
++
++            BindGrid(index);
++        }
++
++        void BindGrid( int index)
++        {
++
++            List<objdal.CategoryMaster> lstCategoryMasters = balModel.Masters.Category.GetList(index, Convert.ToInt32(hdnPageSize.Value));
++            if (lstCategoryMasters != null && lstCategoryMasters.Count > 0)
++            {
++                int totalrecords = balModel.Masters.Category.GetCategoryCount();
++                hdnTotalRecords.Value = totalrecords.ToString();
++                lblNoRecords.Text = "Total Records : " + hdnTotalRecords.Value;
++                GrdCategory.PageSize = Convert.ToInt32(hdnPageSize.Value);
++                GrdCategory.DataSource = lstCategoryMasters;
+                 GrdCategory.DataBind();
++                GrdCategory.PageIndex = Convert.ToInt32(hdnCurrentPageIndex.Value);
++                GrdCategory.PagerSettings.PageButtonCount = Convert.ToInt32(hdnPageButtonCount.Value);
++                int totalpages = totalrecords / Convert.ToInt32(hdnPageSize.Value);
++                if (totalrecords % Convert.ToInt32(hdnPageSize.Value.ToString()) > 0)
++                {
++                    totalrecords += 1;
++                }
++                if (totalrecords < 1)
++                    CurrentPageNo.Text = "Page : 0/0";
++                else
++                    CurrentPageNo.Text = "Page : " + (GrdCategory.PageIndex + 1).ToString(System.Globalization.CultureInfo.InstalledUICulture) + "/" + totalpages.ToString(System.Globalization.CultureInfo.InstalledUICulture);
++                //Recreating the pager as per page index
++                Pager.LoadPager(Convert.ToInt32(hdnCurrentPageIndex.Value), totalrecords, Convert.ToInt32(hdnPageSize.Value));
++                divPager.Visible = true;
++            }
++            else
++            {
++                divPager.Visible = false;
++
++            }
++        }
++
++        protected void GrdCategory_RowCommand(object sender, GridViewCommandEventArgs e)
++        {
++            if (e.CommandName=="del")
++            {
++                balModel.Masters.Category.Delete(e.CommandArgument.ToString().ToIntFromString());
++                BindGrid(0);
+             }
+         }
+     }
+diff --git a/Inventory/Inventory.WEB/Masters/CategoryList.aspx.designer.cs b/Inventory/Inventory.WEB/Masters/CategoryList.aspx.designer.cs
+index d5c1aab..57e9c10 100644
+--- a/Inventory/Inventory.WEB/Masters/CategoryList.aspx.designer.cs
++++ b/Inventory/Inventory.WEB/Masters/CategoryList.aspx.designer.cs
+@@ -56,5 +56,41 @@ namespace Inventory.Web {
+         /// To modify move field declaration from designer file to code-behind file.
+         /// </remarks>
+         protected global::Inventory.Web.UserControl.PagerControl Pager;
++        
++        /// <summary>
++        /// hdnPageSize control.
++        /// </summary>
++        /// <remarks>
++        /// Auto-generated field.
++        /// To modify move field declaration from designer file to code-behind file.
++        /// </remarks>
++        protected global::System.Web.UI.WebControls.HiddenField hdnPageSize;
++        
++        /// <summary>
++        /// hdnPageButtonCount control.
++        /// </summary>
++        /// <remarks>
++        /// Auto-generated field.
++        /// To modify move field declaration from designer file to code-behind file.
++        /// </remarks>
++        protected global::System.Web.UI.WebControls.HiddenField hdnPageButtonCount;
++        
++        /// <summary>
++        /// hdnTotalRecords control.
++        /// </summary>
++        /// <remarks>
++        /// Auto-generated field.
++        /// To modify move field declaration from designer file to code-behind file.
++        /// </remarks>
++        protected global::System.Web.UI.WebControls.HiddenField hdnTotalRecords;
++        
++        /// <summary>
++        /// hdnCurrentPageIndex control.
++        /// </summary>
++        /// <remarks>
++        /// Auto-generated field.
++        /// To modify move field declaration from designer file to code-behind file.
++        /// </remarks>
++        protected global::System.Web.UI.WebControls.HiddenField hdnCurrentPageIndex;
+     }
+ }
+-- 
+1.8.3.msysgit.0
+
