@@ -6,3 +6,4 @@ Inventory/Inventory.DAL/obj/
 Inventory/Inventory.Utility/obj/
 Inventory/Inventory.WEB/bin/
 Inventory/Inventory.WEB/obj/
+Inventory/packages/EntityFramework.5.0.0/lib/net45/EntityFramework.xml
