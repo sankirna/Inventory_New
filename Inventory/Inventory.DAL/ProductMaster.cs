@@ -17,6 +17,7 @@ namespace Inventory.DAL
         public ProductMaster()
         {
             this.AdvanceShippingProductDetails = new HashSet<AdvanceShippingProductDetail>();
+            this.PurchaseOrderDetails = new HashSet<PurchaseOrderDetail>();
         }
     
         public int ProductID { get; set; }
@@ -45,5 +46,6 @@ namespace Inventory.DAL
         public Nullable<int> Status { get; set; }
     
         public virtual ICollection<AdvanceShippingProductDetail> AdvanceShippingProductDetails { get; set; }
+        public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
     }
 }

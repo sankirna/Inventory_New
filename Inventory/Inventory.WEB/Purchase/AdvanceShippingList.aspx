@@ -70,5 +70,7 @@
                 </Columns>
         </asp:GridView>
     </div>
-   
+     <div class="btn-set">
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click" />
+    </div>
 </asp:Content>

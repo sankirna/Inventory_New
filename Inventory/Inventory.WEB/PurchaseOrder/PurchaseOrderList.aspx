@@ -49,7 +49,7 @@
                   <asp:TemplateField HeaderText="Export Packing List">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnPacking1" CommandName="PackingList" runat="server" Text="Export Packing List" Style="width: 50px" CssClass="button" 
-                                    PostBackUrl='<%# "~/Purchase/AdvanceShippingNotify.aspx?POID=PO0001 "%>' > </asp:LinkButton>
+                                    PostBackUrl='<%#  string.Format( "~/Purchase/AdvanceShippingNotify.aspx?POID={0}",Eval("PurchaseOrderID"))%>'  > </asp:LinkButton>
                                 
                             </ItemTemplate>
                         </asp:TemplateField> 

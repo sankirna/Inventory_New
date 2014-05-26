@@ -32,6 +32,8 @@
         <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrder_PurchaseOrder" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrder_SupplierMaster" />
+        <AssociationConnector Association="InventoryModel.FK_PurchaseOrderDetails_ProductMaster" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShipping_PurchaseOrder" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

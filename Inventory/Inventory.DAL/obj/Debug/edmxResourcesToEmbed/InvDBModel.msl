@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AdvanceShippings">
       <EntityTypeMapping TypeName="InventoryModel.AdvanceShipping">
         <MappingFragment StoreEntitySet="AdvanceShipping">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
           <ScalarProperty Name="DateModified" ColumnName="DateModified" />

@@ -23,6 +23,10 @@
     <EntitySet Name="SupplierBrand" EntityType="InventoryModel.Store.SupplierBrand" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SupplierMaster" EntityType="InventoryModel.Store.SupplierMaster" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UOMMaster" EntityType="InventoryModel.Store.UOMMaster" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AdvanceShipping_PurchaseOrder" Association="InventoryModel.Store.FK_AdvanceShipping_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
+      <End Role="AdvanceShipping" EntitySet="AdvanceShipping" />
+    </AssociationSet>
     <AssociationSet Name="FK_AdvanceShipping_SupplierMaster" Association="InventoryModel.Store.FK_AdvanceShipping_SupplierMaster">
       <End Role="SupplierMaster" EntitySet="SupplierMaster" />
       <End Role="AdvanceShipping" EntitySet="AdvanceShipping" />
@@ -43,6 +47,10 @@
       <End Role="SupplierMaster" EntitySet="SupplierMaster" />
       <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
     </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetails_ProductMaster" Association="InventoryModel.Store.FK_PurchaseOrderDetails_ProductMaster">
+      <End Role="ProductMaster" EntitySet="ProductMaster" />
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdvanceShipping">
     <Key>
@@ -58,6 +66,7 @@
     <Property Name="DateModified" Type="datetime" />
     <Property Name="ModifiedBy" Type="int" />
     <Property Name="Status" Type="int" />
+    <Property Name="PurchaseOrderID" Type="int" />
   </EntityType>
   <EntityType Name="AdvanceShippingProductDetails">
     <Key>
@@ -386,6 +395,18 @@
     <Property Name="DateModified" Type="datetime" />
     <Property Name="Status" Type="int" />
   </EntityType>
+  <Association Name="FK_AdvanceShipping_PurchaseOrder">
+    <End Role="PurchaseOrder" Type="InventoryModel.Store.PurchaseOrder" Multiplicity="0..1" />
+    <End Role="AdvanceShipping" Type="InventoryModel.Store.AdvanceShipping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Principal>
+      <Dependent Role="AdvanceShipping">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_AdvanceShipping_SupplierMaster">
     <End Role="SupplierMaster" Type="InventoryModel.Store.SupplierMaster" Multiplicity="0..1" />
     <End Role="AdvanceShipping" Type="InventoryModel.Store.AdvanceShipping" Multiplicity="*" />
@@ -443,6 +464,18 @@
       </Principal>
       <Dependent Role="PurchaseOrder">
         <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetails_ProductMaster">
+    <End Role="ProductMaster" Type="InventoryModel.Store.ProductMaster" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetails" Type="InventoryModel.Store.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMaster">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetails">
+        <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

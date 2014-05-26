@@ -43,6 +43,14 @@
       <End Role="SupplierMaster" EntitySet="SupplierMasters" />
       <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
     </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetails_ProductMaster" Association="InventoryModel.FK_PurchaseOrderDetails_ProductMaster">
+      <End Role="ProductMaster" EntitySet="ProductMasters" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdvanceShipping_PurchaseOrder" Association="InventoryModel.FK_AdvanceShipping_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="AdvanceShipping" EntitySet="AdvanceShippings" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdvanceShipping">
     <Key>
@@ -60,6 +68,8 @@
     <Property Type="Int32" Name="Status" />
     <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_AdvanceShipping_SupplierMaster" FromRole="AdvanceShipping" ToRole="SupplierMaster" />
     <NavigationProperty Name="AdvanceShippingProductDetails" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" FromRole="AdvanceShipping" ToRole="AdvanceShippingProductDetail" />
+    <Property Type="Int32" Name="PurchaseOrderID" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="InventoryModel.FK_AdvanceShipping_PurchaseOrder" FromRole="AdvanceShipping" ToRole="PurchaseOrder" />
   </EntityType>
   <EntityType Name="AdvanceShippingProductDetail">
     <Key>
@@ -243,6 +253,7 @@
     <Property Type="Int32" Name="ModifiedBy" />
     <Property Type="Int32" Name="Status" />
     <NavigationProperty Name="AdvanceShippingProductDetails" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" FromRole="ProductMaster" ToRole="AdvanceShippingProductDetail" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="InventoryModel.FK_PurchaseOrderDetails_ProductMaster" FromRole="ProductMaster" ToRole="PurchaseOrderDetail" />
   </EntityType>
   <EntityType Name="PurchaseOrder">
     <Key>
@@ -260,6 +271,7 @@
     <Property Type="String" Name="TermCondition" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PurchaseOrderDetails" Relationship="InventoryModel.FK_PurchaseOrder_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetail" />
     <NavigationProperty Name="SupplierMaster" Relationship="InventoryModel.FK_PurchaseOrder_SupplierMaster" FromRole="PurchaseOrder" ToRole="SupplierMaster" />
+    <NavigationProperty Name="AdvanceShippings" Relationship="InventoryModel.FK_AdvanceShipping_PurchaseOrder" FromRole="PurchaseOrder" ToRole="AdvanceShipping" />
   </EntityType>
   <EntityType Name="PurchaseOrderDetail">
     <Key>
@@ -272,6 +284,7 @@
     <Property Type="Int32" Name="Quantity" />
     <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
     <NavigationProperty Name="PurchaseOrder" Relationship="InventoryModel.FK_PurchaseOrder_PurchaseOrder" FromRole="PurchaseOrderDetail" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="ProductMaster" Relationship="InventoryModel.FK_PurchaseOrderDetails_ProductMaster" FromRole="PurchaseOrderDetail" ToRole="ProductMaster" />
   </EntityType>
   <EntityType Name="ReceiveMainDetail">
     <Key>
@@ -453,6 +466,30 @@
       </Principal>
       <Dependent Role="PurchaseOrder">
         <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetails_ProductMaster">
+    <End Type="InventoryModel.ProductMaster" Role="ProductMaster" Multiplicity="0..1" />
+    <End Type="InventoryModel.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMaster">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdvanceShipping_PurchaseOrder">
+    <End Type="InventoryModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="0..1" />
+    <End Type="InventoryModel.AdvanceShipping" Role="AdvanceShipping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Principal>
+      <Dependent Role="AdvanceShipping">
+        <PropertyRef Name="PurchaseOrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
