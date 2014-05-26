@@ -56,5 +56,41 @@ namespace Inventory.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Inventory.Web.UserControl.PagerControl Pager;
+        
+        /// <summary>
+        /// hdnPageSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPageSize;
+        
+        /// <summary>
+        /// hdnPageButtonCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPageButtonCount;
+        
+        /// <summary>
+        /// hdnTotalRecords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnTotalRecords;
+        
+        /// <summary>
+        /// hdnCurrentPageIndex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnCurrentPageIndex;
     }
 }

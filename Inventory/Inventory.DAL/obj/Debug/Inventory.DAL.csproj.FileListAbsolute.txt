@@ -45,3 +45,5 @@ E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\log4net.xml
 E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.csprojResolveAssemblyReference.cache
 E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.dll
 E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.pdb
+E:\Repository Project\inventory\Inventory\Inventory.DAL\bin\EntityFramework.SqlServer.dll
+E:\Repository Project\inventory\Inventory\Inventory.DAL\bin\EntityFramework.SqlServer.xml

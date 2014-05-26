@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inventory.Master" AutoEventWireup="true" CodeBehind="PurchaseOrderList.aspx.cs" Inherits="Inventory.Web.PurchaseOrder.PurchaseOrderList" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register TagPrefix="uc1" TagName="PagerControls" Src="~/UserControl/PagerControl.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -81,5 +82,22 @@
                
             </Columns>
         </asp:GridView>
+        <div id="divPager" class="pagerbox" runat="server">
+                <span class="pbleft">
+                    <asp:Label ID="lblNoRecords" runat="server" Text="" SkinID="Warningred"></asp:Label>
+                </span>
+                <span class="pbcenter">
+                    <asp:Label ID="CurrentPageNo" runat="server"></asp:Label>
+                </span>
+                <span class="pbright">
+                    <uc1:PagerControls ID="Pager" runat="server" />
+                </span>
+                <div class="clear">
+                </div>
+            </div>
+    <asp:HiddenField ID="hdnPageSize" runat="server" Value="" />
+    <asp:HiddenField ID="hdnPageButtonCount" runat="server" Value="" />
+    <asp:HiddenField ID="hdnTotalRecords" runat="server" Value="" />
+    <asp:HiddenField ID="hdnCurrentPageIndex" runat="server" Value="" />
     </div>
 </asp:Content>
