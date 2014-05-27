@@ -47,3 +47,5 @@ E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory
 E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\obj\Debug\Inventory.DAL.pdb
 E:\Repository Project\inventory\Inventory\Inventory.DAL\bin\EntityFramework.SqlServer.dll
 E:\Repository Project\inventory\Inventory\Inventory.DAL\bin\EntityFramework.SqlServer.xml
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\EntityFramework.SqlServer.dll
+E:\Repository Projects\New Inventory\Inventory\Inventory.DAL\bin\EntityFramework.SqlServer.xml

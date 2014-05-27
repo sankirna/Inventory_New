@@ -77,6 +77,7 @@ namespace Inventory.Web.Purchase
         private AdvanceShippingNotifyModels SetadvanceShippingNotifyModel()
         {
             AdvanceShippingNotifyModels advanceShippingNotifyModels = new AdvanceShippingNotifyModels();
+            advanceShippingNotifyModels.PurchaseOrderID = _purchaseOrderId;
             advanceShippingNotifyModels.SupplierID = hdSupplierId.Value.ToIntFromString();
             advanceShippingNotifyModels.DateOfShipment = txtCountryFrom.Text.GetStringToFormatedDate();
             advanceShippingNotifyModels.AdvanceShippingProductDetails = SetListItemModel();
@@ -94,6 +95,8 @@ namespace Inventory.Web.Purchase
                 hdSupplierId.Value = AdvanceShippingNotifyModels.SupplierID.ToStringFromObject();
                 txtCountryFrom.Text = AdvanceShippingNotifyModels.DateOfShipment.ToStringFromObject();
                 txtSupplier.Text = AdvanceShippingNotifyModels.SupplierName;
+                txtPODate.Text = AdvanceShippingNotifyModels.PODate;
+                txtPONo.Text = AdvanceShippingNotifyModels.PONumber;
                 grdPackingList.DataSource = AdvanceShippingNotifyModels.AdvanceShippingProductDetails;
                 grdPackingList.DataBind();
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "purchseItem", "jsonpurchseItemobject=" + serializer.Serialize(AdvanceShippingNotifyModels.AdvanceShippingProductDetails.FirstOrDefault().Products), true);

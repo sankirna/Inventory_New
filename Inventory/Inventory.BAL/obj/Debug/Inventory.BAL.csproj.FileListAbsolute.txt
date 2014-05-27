@@ -56,7 +56,6 @@ E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.BAL.p
 E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.dll
 E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.dll
 E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\log4net.dll
-E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\EntityFramework.dll
 E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.DAL.pdb
 E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\Inventory.Utility.pdb
 E:\Repository Projects\New Inventory\Inventory\Inventory.BAL\bin\log4net.xml

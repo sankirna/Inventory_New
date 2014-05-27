@@ -25,19 +25,20 @@ namespace Inventory.BAL.AdvanceShippingNotify
             using (var db = new DAL.InventoryEntities())
             {
                 DAL.AdvanceShipping advanceShipping = db.AdvanceShippings.FirstOrDefault(x => x.PurchaseOrderID == purchaseOrderId) ?? new DAL.AdvanceShipping();
-                AdvanceShippingNotifyModels advanceShippingProductDetailModel = advanceShipping.ToModel();
+                AdvanceShippingNotifyModels advanceShippingProductDetailModel = advanceShipping.ToModel(purchaseOrderId);
 
                 advanceShippingProductDetailModel.AdvanceShippingProductDetails = advanceShipping.AdvanceShippingProductDetails.ToList().Select(x => x.ToModel()).ToList();
 
                 List<ProductAdvanceShipping> Products = GetProductAdvance(purchaseOrderId);
 
-                int productItemCount = Products.Count;
+                int productItemCount = Products.Count-1;
+                int advCount = advanceShippingProductDetailModel.AdvanceShippingProductDetails.Count;
 
-                for (int i = 0; i < productItemCount - advanceShippingProductDetailModel.AdvanceShippingProductDetails.Count; i++)
+                for (int i = 0; i < productItemCount - advCount; i++)
                 {
                     advanceShippingProductDetailModel.AdvanceShippingProductDetails.Add(new AdvanceShippingProductDetailModel());
                 }
-
+                advanceShippingProductDetailModel.PurchaseOrderID = purchaseOrderId;
                 advanceShippingProductDetailModel.AdvanceShippingProductDetails.ForEach(x => x.Products = Products);
                 return advanceShippingProductDetailModel;
 
@@ -58,7 +59,6 @@ namespace Inventory.BAL.AdvanceShippingNotify
                         advanceShipping.ASNNo = "123";
                         advanceShipping.DateCreated = DateTime.Now;
                         advanceShipping.Status = 1;
-                        advanceShipping.SupplierID = 1;
                         db.AdvanceShippings.Add(advanceShipping);
                         db.SaveChanges();
                         result = "Insert";

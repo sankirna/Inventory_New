@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using Inventory.Utility;
 using entity = Inventory.DAL;
 
@@ -43,9 +44,10 @@ namespace Inventory.BAL.AdvanceShippingNotify
         public static entity.AdvanceShipping ToEntity(this AdvanceShippingNotifyModels model)
         {
             entity.AdvanceShipping entity = new entity.AdvanceShipping();
+            entity.PurchaseOrderID = model.PurchaseOrderID;
             entity.ASNID = model.ASNID;
             entity.PONumber = model.PONumber;
-            entity.SupplierID = model.SupplierID;
+            //entity.SupplierID = model.SupplierID;
             entity.DateOfShipment = model.DateOfShipment;
             entity.ASNNo = model.ASNNo;
             return entity;
@@ -53,25 +55,32 @@ namespace Inventory.BAL.AdvanceShippingNotify
 
         public static entity.AdvanceShipping ToEntity(this AdvanceShippingNotifyModels model, entity.AdvanceShipping entity)
         {
+            model.PurchaseOrderID = entity.PurchaseOrderID.ToNullInt();
             model.ASNID = entity.ASNID;
             model.PONumber = entity.PONumber;
-            model.SupplierID = entity.SupplierID;
+            // model.SupplierID = entity.SupplierID;
             model.DateOfShipment = entity.DateOfShipment;
 
             return entity;
         }
 
-        public static AdvanceShippingNotifyModels ToModel(this entity.AdvanceShipping entity)
+        public static AdvanceShippingNotifyModels ToModel(this entity.AdvanceShipping entity,int purchaseOrderID)
         {
-            AdvanceShippingNotifyModels model = new AdvanceShippingNotifyModels();
-            entity.SupplierMaster supplier = entity.SupplierMaster ?? new entity.SupplierMaster();
-            model.ASNID = entity.ASNID;
-            model.PONumber = entity.PONumber;
-            model.SupplierID = entity.SupplierID;
-            model.SupplierName = supplier.SupplierName;
-            model.DateOfShipment = entity.DateOfShipment;
-
-            return model;
+            using (var db = new DAL.InventoryEntities())
+            {
+                AdvanceShippingNotifyModels model = new AdvanceShippingNotifyModels();
+                entity.PurchaseOrder purchaseOrder = db.PurchaseOrders.FirstOrDefault(x => x.PurchaseOrderID == purchaseOrderID);
+                entity.SupplierMaster supplier = purchaseOrder.SupplierMaster;
+                model.PurchaseOrderID = entity.PurchaseOrderID.ToNullInt();
+                model.ASNID = entity.ASNID;
+                model.PONumber = purchaseOrder.PONumber;
+                model.PODate = Convert.ToDateTime(purchaseOrder.PODate).GetForamttedDate();
+                //model.p
+                // model.SupplierID = entity.SupplierID;
+                model.SupplierName = supplier.SupplierName;
+                model.DateOfShipment = entity.DateOfShipment;
+                return model;
+            }
         }
 
         #endregion

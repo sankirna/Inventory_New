@@ -13,6 +13,8 @@ namespace Inventory.BAL.AdvanceShippingNotify
         }
         public int ASNID { get; set; }
         public string PONumber { get; set; }
+        public string PODate { get; set; }
+        public  int PurchaseOrderID { get; set; }
         public Nullable<int> SupplierID { get; set; }
         public string SupplierName { get; set; }
         public Nullable<System.DateTime> DateOfShipment { get; set; }

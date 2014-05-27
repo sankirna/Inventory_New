@@ -10,7 +10,6 @@
     <h1 class="title">INVOICE /PACKING LIST</h1>
 
     <div class="hidden">
-
         <asp:HiddenField ID="hdSupplierId" runat="server" />
     </div>
     <table class="formGrid" width="100%" cellpadding="0" cellspacing="0">
@@ -19,7 +18,7 @@
                 <asp:Label ID="lblSupplier" runat="server">Supplier</asp:Label><span class="mandatory">*</span>
             </td>
             <td>
-                <asp:TextBox runat="server" ID="txtSupplier"  >
+                <asp:TextBox runat="server" ReadOnly="true" ID="txtSupplier"  >
            
                 </asp:TextBox>
 
@@ -49,7 +48,7 @@
             <td>
                 <asp:Label ID="lblETD" runat="server">ETA:</asp:Label><span class="mandatory">*</span>
             </td>
-
+ 
 
             <td>
                 <asp:TextBox ID="txtETD" CssClass="NonEntry calender" runat="server"></asp:TextBox>
@@ -139,19 +138,19 @@
                             <asp:TemplateField HeaderText="Unit Price">
                     <ItemTemplate>
                         <span style="display:inline" class="currecy"></span>
-                        <asp:TextBox runat="server" Width="50px" ID="txtCost" CssClass="number" Text='<%# Eval("UnitPrice") %>'></asp:TextBox>
+                        <asp:TextBox runat="server" Width="50px" ID="txtCost" CssClass="po-costedit number" Text='<%# Eval("UnitPrice") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Quantity">
                     <ItemTemplate>
                         <span style="display:inline" class="currecy"></span>
-                        <asp:TextBox runat="server" Width="50px" ID="txtQty" CssClass="number" Text='<%# Eval("Qty") %>'></asp:TextBox>
+                        <asp:TextBox runat="server" Width="50px" ID="txtQty" CssClass="po-qua number" Text='<%# Eval("Qty") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Amount (S$)">
                     <ItemTemplate>
                        <span style="display:inline" class="currecy"></span>
-                         <asp:TextBox runat="server" Width="80px" ID="txtAmount" CssClass="number" Text='<%# Eval("Rate") %>'></asp:TextBox>
+                         <asp:TextBox runat="server" Width="80px" ID="txtAmount" CssClass="po-amt number" Text='<%# Eval("Rate") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="No of Cartons">
