@@ -15,7 +15,7 @@ namespace Inventory.DAL.PurchaseOrders
             int skip = startIndex == null ? 0 : startIndex.Value;
             int take = maxRows == null ? 0 : maxRows.Value;
             skip = skip * take;
-            using (var db = new InventoryEntities())
+            var db = new InventoryEntities();
             {
 
                 DateTime dtStartDate = Convert.ToDateTime(
