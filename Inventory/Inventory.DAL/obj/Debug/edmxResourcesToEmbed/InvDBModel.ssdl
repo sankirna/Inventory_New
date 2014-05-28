@@ -56,7 +56,7 @@
     <Property Name="ASNID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="PONumber" Type="varchar" MaxLength="100" />
     <Property Name="PurchaseOrderID" Type="int" />
-    <Property Name="SupplierID" Type="int" />
+    <Property Name="SupplierID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ETA" Type="datetime" />
     <Property Name="ASNNo" Type="varchar" MaxLength="100" />
     <Property Name="PINo" Type="varchar" MaxLength="200" />
@@ -272,7 +272,7 @@
     <Key>
       <PropertyRef Name="PurchaseOrderID" />
     </Key>
-    <Property Name="PurchaseOrderID" Type="int" Nullable="false" />
+    <Property Name="PurchaseOrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="SupplierID" Type="int" />
     <Property Name="PONumber" Type="nvarchar" MaxLength="50" />
     <Property Name="PODate" Type="datetime" />
@@ -422,7 +422,7 @@
     <Property Name="Status" Type="int" />
   </EntityType>
   <Association Name="FK_AdvanceShipping_SupplierMaster">
-    <End Role="SupplierMaster" Type="InventoryModel.Store.SupplierMaster" Multiplicity="0..1" />
+    <End Role="SupplierMaster" Type="InventoryModel.Store.SupplierMaster" Multiplicity="1" />
     <End Role="AdvanceShipping" Type="InventoryModel.Store.AdvanceShipping" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SupplierMaster">

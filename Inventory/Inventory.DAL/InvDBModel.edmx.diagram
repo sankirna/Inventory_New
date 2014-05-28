@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a3aa37e9bc4f42099c7257e09923bf6b" Name="Diagram1">
+      <Diagram DiagramId="a3aa37e9bc4f42099c7257e09923bf6b" Name="Diagram1" ZoomLevel="46">
         <EntityTypeShape EntityType="InventoryModel.AdvanceShipping" Width="1.5" PointX="2.1040149415396225" PointY="11.108397086667083" />
         <EntityTypeShape EntityType="InventoryModel.AdvanceShippingProductDetail" Width="1.5" PointX="9.3935620195202354" PointY="3.0795192434822765" />
         <EntityTypeShape EntityType="InventoryModel.BrandMaster" Width="1.5" PointX="2.3685987397882151" PointY="17.247808226033957" />
@@ -28,12 +28,12 @@
         <EntityTypeShape EntityType="InventoryModel.SupplierBrand" Width="1.5" PointX="0.79537146575533391" PointY="23.294768076061629" />
         <EntityTypeShape EntityType="InventoryModel.SupplierMaster" Width="1.5" PointX="4.7000963765662611" PointY="27.890125362151363" />
         <EntityTypeShape EntityType="InventoryModel.UOMMaster" Width="1.5" PointX="11.666752036505729" PointY="10.911689122632001" />
-        <AssociationConnector Association="InventoryModel.FK_AdvanceShipping_SupplierMaster" />
         <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" />
         <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrderDetails_ProductMaster" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrder_SupplierMaster" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShipping_SupplierMaster" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
