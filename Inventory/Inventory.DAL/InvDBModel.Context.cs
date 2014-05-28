@@ -28,6 +28,7 @@ namespace Inventory.DAL
         public DbSet<AdvanceShipping> AdvanceShippings { get; set; }
         public DbSet<AdvanceShippingProductDetail> AdvanceShippingProductDetails { get; set; }
         public DbSet<BrandMaster> BrandMasters { get; set; }
+        public DbSet<CartonBarCodeDetail> CartonBarCodeDetails { get; set; }
         public DbSet<Carton> Cartons { get; set; }
         public DbSet<CategoryMaster> CategoryMasters { get; set; }
         public DbSet<CountryMaster> CountryMasters { get; set; }

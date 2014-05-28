@@ -1,32 +1,97 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Web;
-using Inventory.DAL;
-using Inventory.Utility;
+using Inventory.BAL.PurchaseOrdersBO;
 
-namespace Inventory.BAL.PurchaseOrdersBO
+namespace Inventory.DAL.PurchaseOrders
 {
     public class PurchaseOrderLib
     {
-        public List<PurchaseOrder> GetListForDDL(int supplierId, string pOnumber, string startDate, string endDate)
+        public List<PurchaseOrder> GetList(int supplierId, string pOnumber, string startDate, string endDate, bool onPageload, int? startIndex, int? maxRows)
         {
-            DAL.InventoryEntities db = new DAL.InventoryEntities();
+            int skip = startIndex == null ? 0 : startIndex.Value;
+            int take = maxRows == null ? 0 : maxRows.Value;
+            skip = skip * take;
+            using (var db = new InventoryEntities())
+            {
 
-            DateTime dtStartDate = (!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/1901").GetStringToFormatedDate();
-            DateTime dtEndDate = (!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/2101").GetStringToFormatedDate();
-            var objPurchaseOrderList = db.PurchaseOrders.Where(x => x.Status == 1
-                && (supplierId == 0 | x.SupplierID == supplierId)
-                && (string.IsNullOrEmpty(pOnumber) || x.PONumber == pOnumber)
-                && ((string.IsNullOrEmpty(startDate) || x.PODate >= dtStartDate)
-                && (string.IsNullOrEmpty(endDate) || x.PODate <= dtEndDate)
-                )
-                ).ToList();
-            return objPurchaseOrderList;
+                DateTime dtStartDate = Convert.ToDateTime(
+                        DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/1901")
+                            .ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+                DateTime dtEndDate =
+                    Convert.ToDateTime(
+                        DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/2101")
+                            .ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+                if (onPageload)
+                {
+                    var objPurchaseOrderList = db.PurchaseOrders.Where(x => x.Status == 1
+                                                                      && DbFunctions.TruncateTime(x.DateCreated) == DbFunctions.TruncateTime(System.DateTime.Now
+                                                                           )
+                   ).OrderBy(d => d.DateCreated).Skip(skip).Take(take).ToList();
+                    return objPurchaseOrderList;
+                }
+                else
+                {
+                    var objPurchaseOrderList = db.PurchaseOrders.Where(x => x.Status == 1
+                                                                   &&
+                                                                   (supplierId == 0 | x.SupplierID == supplierId)
+                                                                   &&
+                                                                   (string.IsNullOrEmpty(pOnumber) ||
+                                                                    x.PONumber == pOnumber)
+                                                                   &&
+                                                                   ((string.IsNullOrEmpty(startDate) ||
+                                                                     x.PODate >= dtStartDate)
+                                                                    &&
+                                                                    (string.IsNullOrEmpty(endDate) ||
+                                                                     x.PODate <= dtEndDate)
+                                                                       )
+               ).Include(d => d.SupplierMaster).OrderBy(d => d.DateCreated).Skip(skip).Take(take).ToList();
+                    return objPurchaseOrderList;
+                }
 
+
+            }
         }
 
+        public int GetPoCount(int supplierId, string pOnumber, string startDate, string endDate, bool onPageload)
+        {
+            using (var db = new InventoryEntities())
+            {
+                DateTime dtStartDate = Convert.ToDateTime(
+                      DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/1901")
+                          .ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+                DateTime dtEndDate =
+                    Convert.ToDateTime(
+                        DateTime.Parse(!string.IsNullOrEmpty(startDate) ? startDate : "1/jan/2101")
+                            .ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+                if (onPageload)
+                {
+                    return db.PurchaseOrders.Count(x => x.Status == 1
+                                                         && DbFunctions.TruncateTime(x.DateCreated) == DbFunctions.TruncateTime(System.DateTime.Now
+                                                             ));
+
+                }
+                else
+                {
+                    return db.PurchaseOrders.Count(x => x.Status == 1
+                                                         &&
+                                                         (supplierId == 0 | x.SupplierID == supplierId)
+                                                         &&
+                                                         (string.IsNullOrEmpty(pOnumber) ||
+                                                          x.PONumber == pOnumber)
+                                                         &&
+                                                         ((string.IsNullOrEmpty(startDate) ||
+                                                           x.PODate >= dtStartDate)
+                                                          &&
+                                                          (string.IsNullOrEmpty(endDate) ||
+                                                           x.PODate <= dtEndDate)
+                                                             ));
+                }
+            }
+        }
         public string GetPoNumbre()
         {
             int maxvalue = 0;
@@ -116,7 +181,7 @@ namespace Inventory.BAL.PurchaseOrdersBO
                             db.PurchaseOrderDetails.Remove(item);
                         }
                         db.SaveChanges();
-                        result ="update";
+                        result = "update";
                     }
 
                     model.PurchaseOrderItems.ForEach(x => x.PurchaseOrderID = purchaseOrder.PurchaseOrderID);
@@ -129,10 +194,10 @@ namespace Inventory.BAL.PurchaseOrdersBO
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
-            
+
             return result;
         }
 

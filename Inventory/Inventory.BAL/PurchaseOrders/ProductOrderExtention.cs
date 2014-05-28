@@ -69,7 +69,7 @@ namespace Inventory.BAL.PurchaseOrdersBO
         {
             PurchaseOrderItemModel model = new PurchaseOrderItemModel();
             model.PurchaseOrderDetailID = entity.PurchaseOrderDetailID;
-            model.PurchaseOrderID = entity.PurchaseOrderID.ToNullInt();
+            model.PurchaseOrderID = entity.PurchaseOrderID;
             model.ProductID = entity.ProductID.ToNullInt();
             model.Cost = entity.Cost.ToNullDecimal();
             model.Quantity = entity.Quantity.ToNullInt();
@@ -90,7 +90,7 @@ namespace Inventory.BAL.PurchaseOrdersBO
             entity.PONumber = model.PONumber;
             entity.PODate = model.PODate;
             entity.Status = model.Status;
-            entity.TermCondition = model.TermCondition;
+            entity.TradeTerms = model.TermCondition;
             return entity;
         }
 
@@ -100,7 +100,7 @@ namespace Inventory.BAL.PurchaseOrdersBO
             entity.SupplierID = model.SupplierID;
             // entity.PONumber = model.PONumber;
             entity.PODate = model.PODate;
-            entity.TermCondition = model.TermCondition;
+            entity.TradeTerms = model.TermCondition;
             return entity;
         }
 
@@ -110,7 +110,7 @@ namespace Inventory.BAL.PurchaseOrdersBO
             model.PurchaseOrderID = entity.PurchaseOrderID;
             model.SupplierID = entity.SupplierID.ToNullInt();
             // model.PONumber = entity.PONumber;
-            model.TermCondition = entity.TermCondition;
+            model.TermCondition = entity.TradeTerms;
             model.PODate = Convert.ToDateTime(entity.PODate);
 
 

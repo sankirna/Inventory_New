@@ -21,18 +21,24 @@ namespace Inventory.DAL
     
         public int ASNID { get; set; }
         public string PONumber { get; set; }
+        public Nullable<int> PurchaseOrderID { get; set; }
         public Nullable<int> SupplierID { get; set; }
-        public Nullable<System.DateTime> DateOfShipment { get; set; }
+        public Nullable<System.DateTime> ETA { get; set; }
         public string ASNNo { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
+        public string PINo { get; set; }
+        public string InvoiceNo { get; set; }
+        public Nullable<decimal> TotalM3 { get; set; }
+        public Nullable<int> FromCountry { get; set; }
+        public Nullable<int> ToCountry { get; set; }
+        public string ShippingMethod { get; set; }
+        public string TradeTerms { get; set; }
+        public int CreatedBy { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<int> Status { get; set; }
-        public Nullable<int> PurchaseOrderID { get; set; }
     
         public virtual SupplierMaster SupplierMaster { get; set; }
         public virtual ICollection<AdvanceShippingProductDetail> AdvanceShippingProductDetails { get; set; }
-        public virtual PurchaseOrder PurchaseOrder { get; set; }
     }
 }

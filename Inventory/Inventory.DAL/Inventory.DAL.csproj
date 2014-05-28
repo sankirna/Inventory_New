@@ -90,11 +90,12 @@
     <Compile Include="Carton.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CartonBarCodeDetail.cs">
+      <DependentUpon>InvDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CategoryMaster.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Masters\CategoryMasterDAL.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="CountryMaster.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
@@ -110,6 +111,8 @@
     <Compile Include="ExceptionLog.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Masters\CategoryMasterDAL.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="InvDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,14 +140,14 @@
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Masters\SupplierDAL.cs" />
+    <Compile Include="Masters\UOMMasterDAL.cs" />
     <Compile Include="PurchaseOrder.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PurchaseOrderDetail.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Masters\SupplierDAL.cs" />
-    <Compile Include="Masters\UOMMasterDAL.cs" />
     <Compile Include="ReceiveMainDetail.cs">
       <DependentUpon>InvDBModel.tt</DependentUpon>
     </Compile>

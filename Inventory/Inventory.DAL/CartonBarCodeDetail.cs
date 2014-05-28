@@ -12,16 +12,17 @@ namespace Inventory.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class PurchaseOrderDetail
+    public partial class CartonBarCodeDetail
     {
-        public int PurchaseOrderDetailID { get; set; }
-        public int PurchaseOrderID { get; set; }
-        public Nullable<int> ProductID { get; set; }
-        public Nullable<decimal> Cost { get; set; }
+        public int CartonBarCodeDetailsID { get; set; }
+        public Nullable<int> ASNProductDetailsID { get; set; }
+        public string BarCodeNo { get; set; }
+        public string CartonID { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public Nullable<decimal> Amount { get; set; }
-    
-        public virtual ProductMaster ProductMaster { get; set; }
-        public virtual PurchaseOrder PurchaseOrder { get; set; }
+        public string Location { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

@@ -23,6 +23,7 @@ namespace Inventory.DAL
         public Nullable<System.DateTime> MFDate { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
         public Nullable<int> NoofCartons { get; set; }
+        public Nullable<int> QtyPerCarton { get; set; }
         public Nullable<decimal> Rate { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }

@@ -4,15 +4,22 @@
     <EntitySetMapping Name="AdvanceShippings">
       <EntityTypeMapping TypeName="InventoryModel.AdvanceShipping">
         <MappingFragment StoreEntitySet="AdvanceShipping">
-          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
           <ScalarProperty Name="DateModified" ColumnName="DateModified" />
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="TradeTerms" ColumnName="TradeTerms" />
+          <ScalarProperty Name="ShippingMethod" ColumnName="ShippingMethod" />
+          <ScalarProperty Name="ToCountry" ColumnName="ToCountry" />
+          <ScalarProperty Name="FromCountry" ColumnName="FromCountry" />
+          <ScalarProperty Name="TotalM3" ColumnName="TotalM3" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="PINo" ColumnName="PINo" />
           <ScalarProperty Name="ASNNo" ColumnName="ASNNo" />
-          <ScalarProperty Name="DateOfShipment" ColumnName="DateOfShipment" />
+          <ScalarProperty Name="ETA" ColumnName="ETA" />
           <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
           <ScalarProperty Name="PONumber" ColumnName="PONumber" />
           <ScalarProperty Name="ASNID" ColumnName="ASNID" />
         </MappingFragment>
@@ -27,6 +34,7 @@
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="QtyPerCarton" ColumnName="QtyPerCarton" />
           <ScalarProperty Name="NoofCartons" ColumnName="NoofCartons" />
           <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
           <ScalarProperty Name="MFDate" ColumnName="MFDate" />
@@ -49,6 +57,22 @@
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="BrandName" ColumnName="BrandName" />
           <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartonBarCodeDetails">
+      <EntityTypeMapping TypeName="InventoryModel.CartonBarCodeDetail">
+        <MappingFragment StoreEntitySet="CartonBarCodeDetails">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="CartonID" ColumnName="CartonID" />
+          <ScalarProperty Name="BarCodeNo" ColumnName="BarCodeNo" />
+          <ScalarProperty Name="ASNProductDetailsID" ColumnName="ASNProductDetailsID" />
+          <ScalarProperty Name="CartonBarCodeDetailsID" ColumnName="CartonBarCodeDetailsID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -212,12 +236,18 @@
     <EntitySetMapping Name="PurchaseOrders">
       <EntityTypeMapping TypeName="InventoryModel.PurchaseOrder">
         <MappingFragment StoreEntitySet="PurchaseOrder">
-          <ScalarProperty Name="TermCondition" ColumnName="TermCondition" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
           <ScalarProperty Name="DateModified" ColumnName="DateModified" />
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="TradeTerms" ColumnName="TradeTerms" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="ShipTo" ColumnName="ShipTo" />
+          <ScalarProperty Name="ShipFrom" ColumnName="ShipFrom" />
+          <ScalarProperty Name="BuyerName" ColumnName="BuyerName" />
+          <ScalarProperty Name="ShippingMethod" ColumnName="ShippingMethod" />
           <ScalarProperty Name="PODate" ColumnName="PODate" />
           <ScalarProperty Name="PONumber" ColumnName="PONumber" />
           <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />

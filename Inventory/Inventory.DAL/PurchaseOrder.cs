@@ -17,22 +17,26 @@ namespace Inventory.DAL
         public PurchaseOrder()
         {
             this.PurchaseOrderDetails = new HashSet<PurchaseOrderDetail>();
-            this.AdvanceShippings = new HashSet<AdvanceShipping>();
         }
     
         public int PurchaseOrderID { get; set; }
         public Nullable<int> SupplierID { get; set; }
         public string PONumber { get; set; }
         public Nullable<System.DateTime> PODate { get; set; }
+        public string ShippingMethod { get; set; }
+        public string BuyerName { get; set; }
+        public Nullable<int> ShipFrom { get; set; }
+        public Nullable<int> ShipTo { get; set; }
+        public Nullable<decimal> Discount { get; set; }
+        public string TradeTerms { get; set; }
+        public string Remarks { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<int> Status { get; set; }
-        public string TermCondition { get; set; }
     
-        public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
         public virtual SupplierMaster SupplierMaster { get; set; }
-        public virtual ICollection<AdvanceShipping> AdvanceShippings { get; set; }
+        public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
     }
 }

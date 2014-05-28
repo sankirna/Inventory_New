@@ -48,7 +48,7 @@ namespace Inventory.BAL.AdvanceShippingNotify
             entity.ASNID = model.ASNID;
             entity.PONumber = model.PONumber;
             //entity.SupplierID = model.SupplierID;
-            entity.DateOfShipment = model.DateOfShipment;
+            //entity.DateOfShipment = model.DateOfShipment;
             entity.ASNNo = model.ASNNo;
             return entity;
         }
@@ -59,7 +59,7 @@ namespace Inventory.BAL.AdvanceShippingNotify
             model.ASNID = entity.ASNID;
             model.PONumber = entity.PONumber;
             // model.SupplierID = entity.SupplierID;
-            model.DateOfShipment = entity.DateOfShipment;
+          //  model.DateOfShipment = entity.DateOfShipment;
 
             return entity;
         }
@@ -78,7 +78,7 @@ namespace Inventory.BAL.AdvanceShippingNotify
                 //model.p
                 // model.SupplierID = entity.SupplierID;
                 model.SupplierName = supplier.SupplierName;
-                model.DateOfShipment = entity.DateOfShipment;
+                //model.DateOfShipment = entity.DateOfShipment;
                 return model;
             }
         }
