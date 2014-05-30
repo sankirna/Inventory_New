@@ -14,6 +14,11 @@ namespace Inventory.DAL
     
     public partial class AdvanceShippingProductDetail
     {
+        public AdvanceShippingProductDetail()
+        {
+            this.CartonBarCodeDetails = new HashSet<CartonBarCodeDetail>();
+        }
+    
         public int ASNProductDetailsID { get; set; }
         public Nullable<int> ASNID { get; set; }
         public Nullable<int> ProductID { get; set; }
@@ -30,8 +35,11 @@ namespace Inventory.DAL
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> Status { get; set; }
+        public Nullable<int> ProductOrderProductId { get; set; }
     
         public virtual AdvanceShipping AdvanceShipping { get; set; }
         public virtual ProductMaster ProductMaster { get; set; }
+        public virtual ICollection<CartonBarCodeDetail> CartonBarCodeDetails { get; set; }
+        public virtual PurchaseOrderDetail PurchaseOrderDetail { get; set; }
     }
 }

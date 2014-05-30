@@ -25,7 +25,15 @@ namespace Inventory.Utility
 
         public static DateTime GetStringToFormatedDate(this string str)
         {
-            return Convert.ToDateTime(DateTime.Parse(str).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+            try
+            {
+                return Convert.ToDateTime(DateTime.Parse(str).ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+
+            }
+            catch (Exception)
+            {
+                return new DateTime();
+            }
         }
 
         public static string GetForamttedDate(this DateTime dt)

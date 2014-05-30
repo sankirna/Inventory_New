@@ -21,7 +21,7 @@ namespace Inventory.DAL
     
         public int ASNID { get; set; }
         public string PONumber { get; set; }
-        public Nullable<int> PurchaseOrderID { get; set; }
+        public int PurchaseOrderID { get; set; }
         public int SupplierID { get; set; }
         public Nullable<System.DateTime> ETA { get; set; }
         public string ASNNo { get; set; }
@@ -38,7 +38,8 @@ namespace Inventory.DAL
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<int> Status { get; set; }
     
-        public virtual ICollection<AdvanceShippingProductDetail> AdvanceShippingProductDetails { get; set; }
+        public virtual PurchaseOrder PurchaseOrder { get; set; }
         public virtual SupplierMaster SupplierMaster { get; set; }
+        public virtual ICollection<AdvanceShippingProductDetail> AdvanceShippingProductDetails { get; set; }
     }
 }

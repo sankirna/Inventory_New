@@ -16,8 +16,8 @@ namespace Inventory.DAL
     {
         public SupplierMaster()
         {
-            this.PurchaseOrders = new HashSet<PurchaseOrder>();
             this.AdvanceShippings = new HashSet<AdvanceShipping>();
+            this.PurchaseOrders = new HashSet<PurchaseOrder>();
         }
     
         public int SupplierID { get; set; }
@@ -35,7 +35,7 @@ namespace Inventory.DAL
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<int> Status { get; set; }
     
-        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual ICollection<AdvanceShipping> AdvanceShippings { get; set; }
+        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
     }
 }

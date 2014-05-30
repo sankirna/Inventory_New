@@ -11,7 +11,7 @@ namespace Inventory.Utility
         public static DropDownList BindDropDown(this DropDownList drpdown, object dataSouce, string TextField, string valueField)
         {
             drpdown.Items.Clear();
-            drpdown.Items.Add(new ListItem { Text = "Select Value", Selected=true });
+            drpdown.Items.Add(new ListItem { Text = "--Select--", Value = "0", Selected = true });
             drpdown.DataSource = dataSouce;
             drpdown.DataTextField = TextField;
             drpdown.DataValueField = valueField;

@@ -15,7 +15,7 @@ namespace Inventory.DAL
     public partial class CartonBarCodeDetail
     {
         public int CartonBarCodeDetailsID { get; set; }
-        public Nullable<int> ASNProductDetailsID { get; set; }
+        public int ASNProductDetailsID { get; set; }
         public string BarCodeNo { get; set; }
         public string CartonID { get; set; }
         public Nullable<int> Quantity { get; set; }
@@ -24,5 +24,7 @@ namespace Inventory.DAL
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
+    
+        public virtual AdvanceShippingProductDetail AdvanceShippingProductDetail { get; set; }
     }
 }

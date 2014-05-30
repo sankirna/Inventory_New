@@ -5,35 +5,38 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a3aa37e9bc4f42099c7257e09923bf6b" Name="Diagram1" ZoomLevel="46">
-        <EntityTypeShape EntityType="InventoryModel.AdvanceShipping" Width="1.5" PointX="2.1040149415396225" PointY="11.108397086667083" />
-        <EntityTypeShape EntityType="InventoryModel.AdvanceShippingProductDetail" Width="1.5" PointX="9.3935620195202354" PointY="3.0795192434822765" />
-        <EntityTypeShape EntityType="InventoryModel.BrandMaster" Width="1.5" PointX="2.3685987397882151" PointY="17.247808226033957" />
-        <EntityTypeShape EntityType="InventoryModel.CartonBarCodeDetail" Width="1.5" PointX="10.603227959295376" PointY="2.1553631583952173" />
-        <EntityTypeShape EntityType="InventoryModel.Carton" Width="1.5" PointX="0.22688591490820326" PointY="17.9259812915353" />
-        <EntityTypeShape EntityType="InventoryModel.CategoryMaster" Width="1.5" PointX="5.1249436555080781" PointY="2.8526026023796773" />
-        <EntityTypeShape EntityType="InventoryModel.CountryMaster" Width="1.5" PointX="6.8460974781057331" PointY="27.821353195151943" />
-        <EntityTypeShape EntityType="InventoryModel.CurrencyMaster" Width="1.5" PointX="10.880871371776271" PointY="20.92150027534063" />
-        <EntityTypeShape EntityType="InventoryModel.CustomerMaster" Width="1.5" PointX="1.9259336860505554" PointY="26.812164885370137" />
-        <EntityTypeShape EntityType="InventoryModel.CustomerSKU" Width="1.5" PointX="5.18637739549688" PointY="7.2415677342757432" />
-        <EntityTypeShape EntityType="InventoryModel.ExceptionLog" Width="1.5" PointX="9.3394842712858157" PointY="31.46390248810123" />
-        <EntityTypeShape EntityType="InventoryModel.PickingList" Width="1.5" PointX="2.3125984903017982" PointY="11.858673876085632" />
-        <EntityTypeShape EntityType="InventoryModel.ProductMaster" Width="1.5" PointX="10.52028764156638" PointY="14.900795764709262" />
-        <EntityTypeShape EntityType="InventoryModel.PurchaseOrder" Width="1.5" PointX="9.1818633196790991" PointY="17.925957792404088" />
-        <EntityTypeShape EntityType="InventoryModel.PurchaseOrderDetail" Width="1.5" PointX="10.821566668721646" PointY="24.226931464032702" />
-        <EntityTypeShape EntityType="InventoryModel.ReceiveMainDetail" Width="1.5" PointX="1.8197169070223893" PointY="20.942185992813755" />
-        <EntityTypeShape EntityType="InventoryModel.ReceiveProductDetail" Width="1.5" PointX="11.747390281291395" PointY="11.356951540036571" />
-        <EntityTypeShape EntityType="InventoryModel.SalesOrder" Width="1.5" PointX="4.3762791829073242" PointY="7.9103501922964821" />
-        <EntityTypeShape EntityType="InventoryModel.StockMaster" Width="1.5" PointX="4.5511311872634712" PointY="20.048047715820395" />
-        <EntityTypeShape EntityType="InventoryModel.StoreMaster" Width="1.5" PointX="4.4329458551634779" PointY="29.600789560750496" />
-        <EntityTypeShape EntityType="InventoryModel.SupplierBrand" Width="1.5" PointX="0.79537146575533391" PointY="23.294768076061629" />
-        <EntityTypeShape EntityType="InventoryModel.SupplierMaster" Width="1.5" PointX="4.7000963765662611" PointY="27.890125362151363" />
-        <EntityTypeShape EntityType="InventoryModel.UOMMaster" Width="1.5" PointX="11.666752036505729" PointY="10.911689122632001" />
+        <EntityTypeShape EntityType="InventoryModel.AdvanceShipping" Width="1.5" PointX="3.0314119379182403" PointY="9.0043835979906763" />
+        <EntityTypeShape EntityType="InventoryModel.AdvanceShippingProductDetail" Width="1.5" PointX="10.450811186083969" PointY="29.811378030949914" />
+        <EntityTypeShape EntityType="InventoryModel.BrandMaster" Width="1.5" PointX="5.638455047103788" PointY="9.0595691395269569" />
+        <EntityTypeShape EntityType="InventoryModel.CartonBarCodeDetail" Width="1.5" PointX="8.3497669251401749" PointY="13.081097519528631" />
+        <EntityTypeShape EntityType="InventoryModel.Carton" Width="1.5" PointX="7.8566992747861413" PointY="12.812995514279695" />
+        <EntityTypeShape EntityType="InventoryModel.CategoryMaster" Width="1.5" PointX="8.729584927079074" PointY="30.809868797105675" />
+        <EntityTypeShape EntityType="InventoryModel.CountryMaster" Width="1.5" PointX="8.32479596153125" PointY="5.1154938214996335" />
+        <EntityTypeShape EntityType="InventoryModel.CurrencyMaster" Width="1.5" PointX="2.1641350976024452" PointY="5.3534813250198408" />
+        <EntityTypeShape EntityType="InventoryModel.CustomerMaster" Width="1.5" PointX="11.76352034870699" PointY="13.817587709900732" />
+        <EntityTypeShape EntityType="InventoryModel.CustomerSKU" Width="1.5" PointX="5.0239376821666664" PointY="6.2308812319444868" />
+        <EntityTypeShape EntityType="InventoryModel.ExceptionLog" Width="1.5" PointX="10.247611149329511" PointY="13.313716715813483" />
+        <EntityTypeShape EntityType="InventoryModel.PickingList" Width="1.5" PointX="7.9715257659421885" PointY="17.074559055769146" />
+        <EntityTypeShape EntityType="InventoryModel.ProductMaster" Width="1.5" PointX="10.603778080364586" PointY="2.2179291556672793" />
+        <EntityTypeShape EntityType="InventoryModel.PurchaseOrder" Width="1.5" PointX="11.469944787896212" PointY="28.751009164727762" />
+        <EntityTypeShape EntityType="InventoryModel.PurchaseOrderDetail" Width="1.5" PointX="4.5378122816504041" PointY="31.315397217550967" />
+        <EntityTypeShape EntityType="InventoryModel.ReceiveMainDetail" Width="1.5" PointX="10.382371393210427" PointY="15.600524686090893" />
+        <EntityTypeShape EntityType="InventoryModel.ReceiveProductDetail" Width="1.5" PointX="9.4315659037938175" PointY="9.0027523827751885" />
+        <EntityTypeShape EntityType="InventoryModel.SalesOrder" Width="1.5" PointX="5.5010352700487868" PointY="11.396632408442271" />
+        <EntityTypeShape EntityType="InventoryModel.StockMaster" Width="1.5" PointX="11.979092717160979" PointY="25.52008635994051" />
+        <EntityTypeShape EntityType="InventoryModel.StoreMaster" Width="1.5" PointX="4.3608652205955547" PointY="3.7082728611809541" />
+        <EntityTypeShape EntityType="InventoryModel.SupplierBrand" Width="1.5" PointX="8.0406338870714578" PointY="13.03866966675905" />
+        <EntityTypeShape EntityType="InventoryModel.SupplierMaster" Width="1.5" PointX="2.4082023996897983" PointY="24.4679296428654" />
+        <EntityTypeShape EntityType="InventoryModel.UOMMaster" Width="1.5" PointX="10.079512310251367" PointY="0.678504363018323" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShipping_PurchaseOrder" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShipping_SupplierMaster" />
         <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_AdvanceShipping" />
         <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_ProductMaster" />
+        <AssociationConnector Association="InventoryModel.FK_CartonBarCodeDetails_AdvanceShippingProductDetails" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrderDetails_ProductMaster" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrder_SupplierMaster" />
         <AssociationConnector Association="InventoryModel.FK_PurchaseOrderDetails_PurchaseOrder" />
-        <AssociationConnector Association="InventoryModel.FK_AdvanceShipping_SupplierMaster" />
+        <AssociationConnector Association="InventoryModel.FK_AdvanceShippingProductDetails_PurchaseOrderDetails" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

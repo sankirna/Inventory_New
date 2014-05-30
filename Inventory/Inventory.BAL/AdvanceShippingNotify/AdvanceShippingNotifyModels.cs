@@ -12,13 +12,21 @@ namespace Inventory.BAL.AdvanceShippingNotify
             AdvanceShippingProductDetails = new List<AdvanceShippingProductDetailModel>();
         }
         public int ASNID { get; set; }
+        public int PurchaseOrderID { get; set; }
         public string PONumber { get; set; }
         public string PODate { get; set; }
-        public  int PurchaseOrderID { get; set; }
-        public Nullable<int> SupplierID { get; set; }
+
+        public int SupplierID { get; set; }
         public string SupplierName { get; set; }
-        public Nullable<System.DateTime> DateOfShipment { get; set; }
+        public string ETA { get; set; }
         public string ASNNo { get; set; }
+        public string PINo { get; set; }
+        public string InvoiceNo { get; set; }
+        public decimal TotalM3 { get; set; }
+        public int FromCountry { get; set; }
+        public int ToCountry { get; set; }
+        public string ShippingMethod { get; set; }
+        public string TradeTerms { get; set; }
 
         public List<AdvanceShippingProductDetailModel> AdvanceShippingProductDetails { get; set; }
     }
@@ -29,17 +37,29 @@ namespace Inventory.BAL.AdvanceShippingNotify
         {
             Products = new List<ProductAdvanceShipping>();
         }
-        public int ASNProductDetailsID { get; set; }
-        public Nullable<int> ASNID { get; set; }
-        public int ProductID { get; set; }
-        public Nullable<decimal> UnitPrice { get; set; }
-        public Nullable<int> CurrencyID { get; set; }
-        public Nullable<int> Qty { get; set; }
-        public string MFDate { get; set; }
-        public Nullable<System.DateTime> ExpiryDate { get; set; }
-        public Nullable<int> NoofCartons { get; set; }
-        public Nullable<decimal> Rate { get; set; }
 
+        public int ASNID { get; set; }
+        public int AsnProductDetailsId { get; set; }
+        public int CartonStartingNo { get; set; }
+        public int CartonEndingNo { get; set; }
+        public int PurchaseOrderDetailProductId { get; set; }
+        public int ProductId { get; set; }
+        public string ItemCode { get; set; }
+        public string Description { get; set; }
+        public string BarCode { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int Quantity { get; set; }
+        public decimal Amount { get; set; }
+        public int CountryId { get; set; }
+        public string SizeMM { get; set; }
+        public string GWKG { get; set; }
+        public string NWKG { get; set; }
+        public int NoofCartons { get; set; }
+        public string WeightCarton { get; set; }
+        public int QuantityCarton { get; set; }
+        public string MFDate { get; set; }
+
+        public List<CurrencyModel>  CurrencyModels { get; set; }
         public List<ProductAdvanceShipping> Products { get; set; }
     }
 
@@ -56,5 +76,11 @@ namespace Inventory.BAL.AdvanceShippingNotify
 
         public string CurrencyCode { get; set; }
         public int QtyPerCarton { get; set; }
+    }
+
+    public class CurrencyModel
+    {
+        public int CurrencyId { get; set; }
+        public string CurrencyName { get; set; }
     }
 }
