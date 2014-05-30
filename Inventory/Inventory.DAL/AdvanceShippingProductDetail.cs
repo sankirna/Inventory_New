@@ -36,6 +36,10 @@ namespace Inventory.DAL
         public Nullable<System.DateTime> DateModified { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<int> ProductOrderProductId { get; set; }
+        public string SizeMM { get; set; }
+        public string GWKG { get; set; }
+        public string NWKG { get; set; }
+        public string WeightCarton { get; set; }
     
         public virtual AdvanceShipping AdvanceShipping { get; set; }
         public virtual ProductMaster ProductMaster { get; set; }

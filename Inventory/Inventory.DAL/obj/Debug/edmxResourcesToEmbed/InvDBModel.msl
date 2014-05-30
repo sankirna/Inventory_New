@@ -28,6 +28,10 @@
     <EntitySetMapping Name="AdvanceShippingProductDetails">
       <EntityTypeMapping TypeName="InventoryModel.AdvanceShippingProductDetail">
         <MappingFragment StoreEntitySet="AdvanceShippingProductDetails">
+          <ScalarProperty Name="WeightCarton" ColumnName="WeightCarton" />
+          <ScalarProperty Name="NWKG" ColumnName="NWKG" />
+          <ScalarProperty Name="GWKG" ColumnName="GWKG" />
+          <ScalarProperty Name="SizeMM" ColumnName="SizeMM" />
           <ScalarProperty Name="ProductOrderProductId" ColumnName="ProductOrderProductId" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="DateModified" ColumnName="DateModified" />

@@ -112,6 +112,10 @@
     <NavigationProperty Name="CartonBarCodeDetails" Relationship="InventoryModel.FK_CartonBarCodeDetails_AdvanceShippingProductDetails" FromRole="AdvanceShippingProductDetail" ToRole="CartonBarCodeDetail" />
     <Property Type="Int32" Name="ProductOrderProductId" />
     <NavigationProperty Name="PurchaseOrderDetail" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_PurchaseOrderDetails" FromRole="AdvanceShippingProductDetail" ToRole="PurchaseOrderDetail" />
+    <Property Type="String" Name="SizeMM" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="GWKG" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NWKG" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WeightCarton" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="BrandMaster">
     <Key>

@@ -130,11 +130,15 @@ namespace Inventory.BAL.AdvanceShippingNotify
                         entity.ExpiryDate = advanceShippingProductDetailModel.MFDate.GetStringToFormatedDate().AddYears(1);
                         entity.NoofCartons = advanceShippingProductDetailModel.NoofCartons;
                         entity.Rate = advanceShippingProductDetailModel.Amount;
+                        entity.SizeMM = advanceShippingProductDetailModel.SizeMM;
+                        entity.GWKG = advanceShippingProductDetailModel.GWKG;
+                        entity.NWKG = advanceShippingProductDetailModel.NWKG;
+                        entity.WeightCarton = advanceShippingProductDetailModel.WeightCarton;
                         entity.Status = 1;
                         db.AdvanceShippingProductDetails.Add(entity);
                         db.SaveChanges();
 
-                        for (int i = advanceShippingProductDetailModel.CartonStartingNo; i < advanceShippingProductDetailModel.CartonEndingNo; i++)
+                        for (int i = 1; i <= entity.NoofCartons; i++)
                         {
                             CartonBarCodeDetail cartonBarCodeDetails = new CartonBarCodeDetail();
                             cartonBarCodeDetails.ASNProductDetailsID = entity.ASNProductDetailsID;

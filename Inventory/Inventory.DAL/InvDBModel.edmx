@@ -110,6 +110,10 @@
           <Property Name="DateModified" Type="datetime" />
           <Property Name="Status" Type="int" />
           <Property Name="ProductOrderProductId" Type="int" />
+          <Property Name="SizeMM" Type="nvarchar" MaxLength="50" />
+          <Property Name="GWKG" Type="nvarchar" MaxLength="50" />
+          <Property Name="NWKG" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeightCarton" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="BrandMaster">
           <Key>
@@ -663,6 +667,10 @@
           <NavigationProperty Name="CartonBarCodeDetails" Relationship="InventoryModel.FK_CartonBarCodeDetails_AdvanceShippingProductDetails" FromRole="AdvanceShippingProductDetail" ToRole="CartonBarCodeDetail" />
           <Property Type="Int32" Name="ProductOrderProductId" />
           <NavigationProperty Name="PurchaseOrderDetail" Relationship="InventoryModel.FK_AdvanceShippingProductDetails_PurchaseOrderDetails" FromRole="AdvanceShippingProductDetail" ToRole="PurchaseOrderDetail" />
+          <Property Type="String" Name="SizeMM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GWKG" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NWKG" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="WeightCarton" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="BrandMaster">
           <Key>
@@ -1144,6 +1152,10 @@
           <EntitySetMapping Name="AdvanceShippingProductDetails">
             <EntityTypeMapping TypeName="InventoryModel.AdvanceShippingProductDetail">
               <MappingFragment StoreEntitySet="AdvanceShippingProductDetails">
+                <ScalarProperty Name="WeightCarton" ColumnName="WeightCarton" />
+                <ScalarProperty Name="NWKG" ColumnName="NWKG" />
+                <ScalarProperty Name="GWKG" ColumnName="GWKG" />
+                <ScalarProperty Name="SizeMM" ColumnName="SizeMM" />
                 <ScalarProperty Name="ProductOrderProductId" ColumnName="ProductOrderProductId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="DateModified" ColumnName="DateModified" />
