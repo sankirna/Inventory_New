@@ -42,25 +42,25 @@ $(function () {
         var barcodeObj = $(trpobj).find(".po-barcode");
         var costObj = $(trpobj).find(".po-cost");
         var currencyObj = $(trpobj).find(".currecy");
-        if (j != 0) {
-            for (var i = 0 ; i < jsonpurchseItemobject.length; i++) {
-                var obj = jsonpurchseItemobject[i];
-                if (obj.ProductID == $(drpObj).val()) {
-                    $(descObj).html(obj.Description);
-                    $(barcodeObj).html(obj.BarCode);
-                    $(costObj).html(obj.Cost);
-                    //     $(quapercerObj).html(obj.QtyPerCarton);
-                    $(currencyObj).html(obj.CurrencyCode);
-                }
-                else {
-                    //   $(drpObj).val("0");
-                    //$(descObj).html("");
-                    //$(barcodeObj).html("");
-                    //$(costObj).html("");
+        //if (j != 0) {
+        //    for (var i = 0 ; i < jsonpurchseItemobject.length; i++) {
+        //        var obj = jsonpurchseItemobject[i];
+        //        if (obj.ProductID == $(drpObj).val()) {
+        //            $(descObj).html(obj.Description);
+        //            $(barcodeObj).html(obj.BarCode);
+        //            $(costObj).html(obj.Cost);
+        //            //     $(quapercerObj).html(obj.QtyPerCarton);
+        //            $(currencyObj).html(obj.CurrencyCode);
+        //        }
+        //        else {
+        //            //   $(drpObj).val("0");
+        //            //$(descObj).html("");
+        //            //$(barcodeObj).html("");
+        //            //$(costObj).html("");
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
     });
 });
 
@@ -77,37 +77,37 @@ function SetGridItem(obj) {
     var quaObj = $(trpobj).find(".po-qua");
     var amtObj = $(trpobj).find(".po-amt");
     var currencyObj = $(trpobj).find(".currecy");
-    //quapercer
-    for (var i = 0 ; i < jsonpurchseItemobject.length; i++) {
-        var obj = jsonpurchseItemobject[i];
-        if (obj.ProductID == $(drpObj).val()) {
-            $(descObj).html(obj.Description);
-            $(barcodeObj).html(obj.BarCode);
-            $(costObj).html(obj.Cost);
-            //$(quapercerObj).html(obj.QtyPerCarton);
-            $(costeditObj).val(obj.Cost);
-            $(quaObj).val(obj.Quantity);
-            $(amtObj).val(obj.Amount);
-            $(currencyObj).html(obj.CurrencyCode);
-            break;
-        }
-        else {
-            //$(drpObj).val("0");
-            $(descObj).html("");
-            $(barcodeObj).html("");
-            $(costObj).html("");
-            // $(quapercerObj).html("");
-            $(costeditObj).val("0");
-            $(quaObj).val("0");
-            $(amtObj).val("0");
-            // $(quapercerObj).html("");
-            $(currencyObj).html("");
-        }
-        $(quaObj).blur();
-    }
-    if (checkNumenric(costeditObj) && checkNumenric(quaObj)) {
-        $(amtObj).val(parseFloat($(costeditObj).val()) * parseFloat($(quaObj).val()));
-    }
+    ////quapercer
+    //for (var i = 0 ; i < jsonpurchseItemobject.length; i++) {
+    //    var obj = jsonpurchseItemobject[i];
+    //    if (obj.ProductID == $(drpObj).val()) {
+    //        $(descObj).html(obj.Description);
+    //        $(barcodeObj).html(obj.BarCode);
+    //        $(costObj).html(obj.Cost);
+    //        //$(quapercerObj).html(obj.QtyPerCarton);
+    //        $(costeditObj).val(obj.Cost);
+    //        $(quaObj).val(obj.Quantity);
+    //        $(amtObj).val(obj.Amount);
+    //        $(currencyObj).html(obj.CurrencyCode);
+    //        break;
+    //    }
+    //    else {
+    //        //$(drpObj).val("0");
+    //        $(descObj).html("");
+    //        $(barcodeObj).html("");
+    //        $(costObj).html("");
+    //        // $(quapercerObj).html("");
+    //        $(costeditObj).val("0");
+    //        $(quaObj).val("0");
+    //        $(amtObj).val("0");
+    //        // $(quapercerObj).html("");
+    //        $(currencyObj).html("");
+    //    }
+    //    $(quaObj).blur();
+    //}
+    //if (checkNumenric(costeditObj) && checkNumenric(quaObj)) {
+    //    $(amtObj).val(parseFloat($(costeditObj).val()) * parseFloat($(quaObj).val()));
+    //}
 }
 
 function checkNumenric(obj) {

@@ -114,14 +114,14 @@ namespace Inventory.BAL.AdvanceShippingNotify
                     }
 
                     model.AdvanceShippingProductDetails.ForEach(x => x.ASNID = advanceShipping.ASNID);
-                    List<AdvanceShippingProductDetailModel> filtermodel = model.AdvanceShippingProductDetails.Where(x => x.PurchaseOrderDetailProductId > 0 && x.MFDate.GetStringToFormatedDate() != new DateTime() && x.Amount >= 0).ToList();
+                    List<AdvanceShippingProductDetailModel> filtermodel = model.AdvanceShippingProductDetails.Where(x =>  x.MFDate.GetStringToFormatedDate() != new DateTime() && x.Amount >= 0).ToList();
                     foreach (AdvanceShippingProductDetailModel advanceShippingProductDetailModel in filtermodel)
                     {
                         // Save Adv Shiping Detail
                         AdvanceShippingProductDetail entity = new AdvanceShippingProductDetail();
                         //  entity.ASNProductDetailsID = advanceShippingProductDetailModel.AsnProductDetailsId;
                         entity.ASNID = advanceShippingProductDetailModel.ASNID;
-                        entity.ProductOrderProductId = advanceShippingProductDetailModel.PurchaseOrderDetailProductId;
+                        entity.ProductOrderProductId = advanceShippingProductDetailModel.PurchaseOrderDetailProductId > 0 ? advanceShippingProductDetailModel.PurchaseOrderDetailProductId : (int?)null;
                         entity.ProductID = advanceShippingProductDetailModel.ProductId;
                         entity.UnitPrice = advanceShippingProductDetailModel.UnitPrice;
                         entity.CurrencyID = advanceShippingProductDetailModel.CountryId;

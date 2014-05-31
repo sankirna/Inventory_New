@@ -337,6 +337,33 @@ namespace Inventory.Web.Purchase {
         protected global::System.Web.UI.WebControls.GridView grdPackingList;
         
         /// <summary>
+        /// drpProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpProduct;
+        
+        /// <summary>
+        /// btnAddGift control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddGift;
+        
+        /// <summary>
+        /// grdGiftList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdGiftList;
+        
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>

@@ -8,13 +8,18 @@ using System.Web.UI.WebControls;
 using Inventory.BAL.AdvanceShippingNotify;
 using Inventory.Utility;
 using balModel = Inventory.BAL;
+using Inventory.DAL.PurchaseOrders;
+using Inventory.BAL.PurchaseOrdersBO;
 
 namespace Inventory.Web.Purchase
 {
     public partial class AdvanceShippingNotify : System.Web.UI.Page
     {
+        PurchaseOrderLib purchaseOrderLib = new PurchaseOrderLib();
         AdvanceShippingNotifyLib _advanceShippingNotifyLib = new AdvanceShippingNotifyLib();
         private AdvanceShippingNotifyModels model = new AdvanceShippingNotifyModels();
+
+        private List<AdvanceShippingProductDetailModel> advanceShippingProductDetailGirModels = new List<AdvanceShippingProductDetailModel>();
 
         private int _purchaseOrderId
         {
@@ -24,6 +29,7 @@ namespace Inventory.Web.Purchase
             }
         }
 
+        #region MainGrid
 
         private AdvanceShippingProductDetailModel AddAdvanceShippingProductDetailModel(GridViewRow row)
         {
@@ -83,7 +89,8 @@ namespace Inventory.Web.Purchase
 
             ddlCountryTo.BindDropDown(currencyModels, "CurrencyName", "CurrencyId");
             ddlCountryFrom.BindDropDown(currencyModels, "CurrencyName", "CurrencyId");
-
+            drpProduct.BindDropDown(purchaseOrderLib.GetProdutPruchaseOrder(), "Code", "ProductID");
+            drpProduct.Items.RemoveAt(0);
 
             model = _advanceShippingNotifyLib.GetAdvanceShippingNotify(_purchaseOrderId);
 
@@ -128,7 +135,16 @@ namespace Inventory.Web.Purchase
                     model.AdvanceShippingProductDetails.Add(AddAdvanceShippingProductDetailModel(row));
                 }
             }
+            foreach (GridViewRow row in grdGiftList.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    model.AdvanceShippingProductDetails.Add(AddAdvanceShippingProductDetailModel(row));
+                }
+            }
         }
+
+        #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -153,11 +169,35 @@ namespace Inventory.Web.Purchase
             }
         }
 
+        protected void btnAddGift_click(object sender, EventArgs e)
+        {
+            List<CurrencyModel> currencyModels = _advanceShippingNotifyLib.GetCurrencyMasters();
+            foreach (GridViewRow row in grdGiftList.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    advanceShippingProductDetailGirModels.Add(AddAdvanceShippingProductDetailModel(row));
+                }
+            }
 
+            ProductPurchaseOrderModel productPurchaseOrderModel =purchaseOrderLib.GetProductDetailbyId(drpProduct.SelectedValue.ToIntFromString());
 
+            // Set Add Model
+            AdvanceShippingProductDetailModel  advanceShippingProductDetailModel=new AdvanceShippingProductDetailModel();
+            advanceShippingProductDetailModel.ProductId = productPurchaseOrderModel.ProductID;
+            advanceShippingProductDetailModel.ItemCode = productPurchaseOrderModel.Code;
+            advanceShippingProductDetailModel.BarCode = productPurchaseOrderModel.BarCode;
+            advanceShippingProductDetailModel.Description = productPurchaseOrderModel.Description;
+            advanceShippingProductDetailModel.UnitPrice = productPurchaseOrderModel.Cost.ToNullDecimal();
+            advanceShippingProductDetailModel.Quantity = productPurchaseOrderModel.QtyPerCarton;
+            advanceShippingProductDetailModel.Amount = advanceShippingProductDetailModel.UnitPrice*
+                                                       advanceShippingProductDetailModel.Quantity;
 
-
-
+            advanceShippingProductDetailGirModels.Add(advanceShippingProductDetailModel);
+            advanceShippingProductDetailGirModels.ForEach(x => x.CurrencyModels = currencyModels);
+            grdGiftList.DataSource = advanceShippingProductDetailGirModels;
+            grdGiftList.DataBind();
+        }
 
     }
 }

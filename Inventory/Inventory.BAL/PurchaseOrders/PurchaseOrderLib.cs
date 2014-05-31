@@ -133,6 +133,16 @@ namespace Inventory.DAL.PurchaseOrders
             }
         }
 
+        public ProductPurchaseOrderModel GetProductDetailbyId(int id)
+        {
+            using (var db = new DAL.InventoryEntities())
+            {
+                ProductMaster productMaster = db.ProductMasters.FirstOrDefault(x => x.ProductID == id) ??
+                                              new ProductMaster();
+                return productMaster.ToModel();
+            }
+        }
+
         public List<ProductPurchaseOrderModel> GetProdutPruchaseOrder()
         {
             using (var db = new DAL.InventoryEntities())
