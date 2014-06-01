@@ -18,13 +18,6 @@ namespace Inventory.BAL.Model
         public string MfgDate { get; set; }
         public string ExpiryDate { get; set; }
     }
-    public class AdvanceShippingModel
-    {
-        public string PODate { get; set; }
-        public string ASNNO { get; set; }
-        public string ETA { get; set; }
-        public string Supplier { get; set; }
-        public string PONumber { get; set; }
-        }
+  
         
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using Inventory.DAL;
 using Inventory.Utility;
 using entity = Inventory.DAL;
 
@@ -210,6 +211,34 @@ namespace Inventory.BAL.AdvanceShippingNotify
 
 
             return model;
+        }
+
+   
+
+        #endregion
+
+
+        #region Adv shipping List model
+
+        public static AdvanceShippingModel ToModel(this entity.AdvanceShipping entity)
+        {
+            using (var db = new DAL.InventoryEntities())
+            {
+                AdvanceShippingModel model = new AdvanceShippingModel();
+
+                model.ASNID = entity.ASNID;
+                model.PurchaseOrderID = entity.PurchaseOrderID;
+                model.ASNNo = entity.ASNNo;
+                model.ETA = entity.ETA.ToStringFromObject();
+                model.PONumber = entity.PONumber;
+
+                PurchaseOrder po = entity.PurchaseOrder ?? new PurchaseOrder();
+                SupplierMaster sm = entity.SupplierMaster ?? new SupplierMaster();
+                model.PODate = po.PODate.ToStringFromObject();
+                model.SupplierName = sm.SupplierName;
+
+                return model;
+            }
         }
 
         #endregion

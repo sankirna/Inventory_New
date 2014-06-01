@@ -181,5 +181,7 @@ namespace Inventory.BAL.AdvanceShippingNotify
                 return advanceShippingProductDetail;
             }
         }
+
+       
     }
 }

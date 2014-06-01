@@ -35,27 +35,27 @@ namespace Inventory.BAL
         }
         
     }
-    public class AdvanceShipping
-    {
-        public List<AdvanceShippingModel> GetList()
-        {
-            string[] names = new string[] { "Tracy", "Adrian", "Angel", "Regina", "Mae", "Sharon", "Bernard", "Brian", "Enedina", "Loretta" };
-            List<AdvanceShippingModel> lstAdvanceShippingNotificationModel = new List<AdvanceShippingModel>();
+    //public class AdvanceShipping
+    //{
+    //    public List<AdvanceShippingModel> GetList()
+    //    {
+    //        string[] names = new string[] { "Tracy", "Adrian", "Angel", "Regina", "Mae", "Sharon", "Bernard", "Brian", "Enedina", "Loretta" };
+    //        List<AdvanceShippingModel> lstAdvanceShippingNotificationModel = new List<AdvanceShippingModel>();
 
-            for (int i = 0; i < 10; i++)
-            {
-                lstAdvanceShippingNotificationModel.Add(new AdvanceShippingModel()
-                {
-                  Supplier=names[i],
-                  PONumber= "DEPO20141405",
-                  PODate="14-May-2015",
-                  ASNNO="ASN0001"
+    //        for (int i = 0; i < 10; i++)
+    //        {
+    //            lstAdvanceShippingNotificationModel.Add(new AdvanceShippingModel()
+    //            {
+    //              Supplier=names[i],
+    //              PONumber= "DEPO20141405",
+    //              PODate="14-May-2015",
+    //              ASNNO="ASN0001"
 
-                });
-            }
+    //            });
+    //        }
 
-            return lstAdvanceShippingNotificationModel;
-        }
+    //        return lstAdvanceShippingNotificationModel;
+    //    }
        
-        }
+    //    }
 }

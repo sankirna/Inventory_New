@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inventory.Master" AutoEventWireup="true" CodeBehind="AdvanceShippingList.aspx.cs" Inherits="Inventory.Web.Purchase.AdvanceShippingList" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register TagPrefix="uc1" TagName="PagerControls" Src="~/UserControl/PagerControl.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     
 </asp:Content>
@@ -32,8 +33,8 @@
         <asp:GridView runat="server" ID="grdAdvanceShipp" AutoGenerateColumns="false" CssClass="dataGrid" Width="100%">
             <Columns>
                 <asp:BoundField DataField="ASNNo" HeaderText="ASN No" />
-                <asp:BoundField DataField="Supplier" HeaderText="Supplier" />
-                <asp:BoundField DataField="PoNumber" HeaderText="PO No" />
+                <asp:BoundField DataField="SupplierName" HeaderText="Supplier" />
+                <asp:BoundField DataField="PONumber" HeaderText="PO No" />
                 <asp:BoundField DataField="PODate" HeaderText="PO Date" />
                 <asp:BoundField DataField="ETA" HeaderText="ETA" />
                  <asp:TemplateField HeaderText="Print BarCode">
@@ -58,8 +59,8 @@
                  </asp:TemplateField>
                <asp:TemplateField HeaderText="Edit" HeaderStyle-Width="20px" ControlStyle-Width="20px">
                          <ItemTemplate>
-                         <asp:ImageButton  ID="imgEdit" runat="server" ImageUrl="~/Images/edit.png" Width="20px" Height="15px"
-                           />
+                         <a href='<%# string.Format( "AdvanceShippingNotify.aspx?POID={0}&ASNID={1}",Eval("PurchaseOrderID"),Eval("ASNID"))%>'><img src="../Images/edit.png" /> </a>
+                       
                           </ItemTemplate>
                           </asp:TemplateField>
                        <asp:TemplateField HeaderText="Delete" HeaderStyle-Width="20px" ControlStyle-Width="20px">
@@ -69,8 +70,26 @@
                        </asp:TemplateField>
                 </Columns>
         </asp:GridView>
+    
+      <div id="divPager" class="pagerbox" runat="server">
+                <span class="pbleft">
+                    <asp:Label ID="lblNoRecords" runat="server" Text="" SkinID="Warningred"></asp:Label>
+                </span>
+                <span class="pbcenter">
+                    <asp:Label ID="CurrentPageNo" runat="server"></asp:Label>
+                </span>
+                <span class="pbright">
+                    <uc1:PagerControls ID="Pager" runat="server" />
+                </span>
+                <div class="clear">
+                </div>
+            </div>
+    <asp:HiddenField ID="hdnPageSize" runat="server" Value="" />
+    <asp:HiddenField ID="hdnPageButtonCount" runat="server" Value="" />
+    <asp:HiddenField ID="hdnTotalRecords" runat="server" Value="" />
+    <asp:HiddenField ID="hdnCurrentPageIndex" runat="server" Value="" />
+
     </div>
-     <div class="btn-set">
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click" />
-    </div>
+    
+
 </asp:Content>

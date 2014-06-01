@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvanceShippingNotification.cs" />
+    <Compile Include="AdvanceShippingNotify\AdvanceShippingLib.cs" />
     <Compile Include="AdvanceShippingNotify\AdvanceShippingNotifyExtension.cs" />
     <Compile Include="AdvanceShippingNotify\AdvanceShippingNotifyLib.cs" />
     <Compile Include="AdvanceShippingNotify\AdvanceShippingNotifyModels.cs" />

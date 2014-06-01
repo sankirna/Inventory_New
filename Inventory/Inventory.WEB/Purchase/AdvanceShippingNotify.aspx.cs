@@ -165,7 +165,7 @@ namespace Inventory.Web.Purchase
             }
             else
             {
-                Response.Redirect("~/PurchaseOrder/PurchaseOrderList.aspx");
+                Response.Redirect("~/Purchase/AdvanceShippingList.aspx");
             }
         }
 

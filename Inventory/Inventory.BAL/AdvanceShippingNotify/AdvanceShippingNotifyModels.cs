@@ -5,6 +5,19 @@ using System.Web;
 
 namespace Inventory.BAL.AdvanceShippingNotify
 {
+
+    public class AdvanceShippingModel
+    {
+        public int ASNID { get; set; }
+        public int PurchaseOrderID { get; set; }
+
+        public string ASNNo { get; set; }
+        public string PODate { get; set; }
+        public string ETA { get; set; }
+        public string SupplierName { get; set; }
+        public string PONumber { get; set; }
+    }
+
     public class AdvanceShippingNotifyModels
     {
         public AdvanceShippingNotifyModels()

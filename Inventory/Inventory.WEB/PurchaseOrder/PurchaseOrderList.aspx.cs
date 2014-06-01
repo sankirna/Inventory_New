@@ -18,11 +18,8 @@ namespace Inventory.Web.PurchaseOrder
 {
     public partial class PurchaseOrderList : System.Web.UI.Page
     {
-        balmodel.SupplierPurchaseOrder InvSupplierPurchaseOrder = new balmodel.SupplierPurchaseOrder();
-        balmodel.PurchaseOrderItem objPurchaseOrderItemt = new balmodel.PurchaseOrderItem();
         SupplierDTO supplierLib = new SupplierDTO();
 
-        PurchaseOrderLib purchaseOrderLib = new PurchaseOrderLib();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -65,7 +62,7 @@ namespace Inventory.Web.PurchaseOrder
         void BindGrid(bool onPageload, int supplierId, string pONumber, string fromDate, string tODate,int pageIndex)
 
         {
-            List<DAL.PurchaseOrder> lstPonumberList = balmodel.PurchaseOrdersBO.PurchaseOrdersBO.GetList(supplierId,
+            List<DAL.PurchaseOrder> lstPonumberList = PurchaseOrdersBO.GetList(supplierId,
                 pONumber, fromDate, tODate, onPageload, pageIndex, hdnPageSize.Value.ToIntFromString());
             if (lstPonumberList != null && lstPonumberList.Count > 0)
             {
