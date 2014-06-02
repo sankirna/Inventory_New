@@ -28,6 +28,14 @@ namespace Inventory.Web.Purchase
                 return Request.QueryString["POID"].ToIntFromString();
             }
         }
+        //ASNID
+        private int _asnId
+        {
+            get
+            {
+                return Request.QueryString["ASNID"].ToIntFromString();
+            }
+        }
 
         #region MainGrid
 
@@ -92,7 +100,7 @@ namespace Inventory.Web.Purchase
             drpProduct.BindDropDown(purchaseOrderLib.GetProdutPruchaseOrder(), "Code", "ProductID");
             drpProduct.Items.RemoveAt(0);
 
-            model = _advanceShippingNotifyLib.GetAdvanceShippingNotify(_purchaseOrderId);
+            model = _advanceShippingNotifyLib.GetAdvanceShippingNotify(_purchaseOrderId,_asnId);
 
             hdnSupplierId.Value = model.SupplierID.ToStringFromInt();
             txtSupplier.Text = model.SupplierName;
@@ -114,6 +122,7 @@ namespace Inventory.Web.Purchase
 
         public void SetModel()
         {
+            model.ASNID = _asnId;
             model.SupplierID = hdnSupplierId.Value.ToIntFromString();
             model.SupplierName = txtSupplier.Text;
             model.PurchaseOrderID = hdPoId.Value.ToIntFromString();
@@ -152,6 +161,7 @@ namespace Inventory.Web.Purchase
             if (!IsPostBack)
             {
                 LoadControls();
+                pnlEdit.Visible = _asnId <= 0;
             }
         }
 

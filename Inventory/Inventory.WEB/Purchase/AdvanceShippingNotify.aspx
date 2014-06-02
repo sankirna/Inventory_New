@@ -6,8 +6,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false"></asp:ToolkitScriptManager>
-<%--    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>--%>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
             <h1 class="title">INVOICE /PACKING LIST</h1>
             <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
             <table class="formGrid" width="100%" cellpadding="0" cellspacing="0">
@@ -146,7 +146,9 @@
                     </td>
 
                 </tr>
+                
             </table>
+            <asp:Panel ID="pnlEdit" runat="server">
             <div id="divGridView">
                 <asp:GridView ID="grdPackingList" runat="server" class="dataGrid" AutoGenerateColumns="False"
                     Width="100%" CellPadding="0" CellSpacing="0" Style="margin-top: 0px;">
@@ -261,8 +263,6 @@
 
 
             </div>
-
-
             <br />
             <table class="formGrid" width="50%" cellpadding="0" cellspacing="0">
                 <tr>
@@ -389,9 +389,10 @@
 
 
             </div>
+                </asp:Panel>
             <div class="btn-set">
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click" />
             </div>
-    <%--    </ContentTemplate>
-    </asp:UpdatePanel>--%>
+        </ContentTemplate>
+    </asp:UpdatePanel>s
 </asp:Content>
