@@ -394,5 +394,5 @@
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click" />
             </div>
         </ContentTemplate>
-    </asp:UpdatePanel>s
+    </asp:UpdatePanel>
 </asp:Content>
