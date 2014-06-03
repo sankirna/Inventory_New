@@ -137,11 +137,11 @@ namespace Inventory.BAL.AdvanceShippingNotify
                     model.AdvanceShippingProductDetails.ForEach(x => x.ASNID = advanceShipping.ASNID);
                     List<AdvanceShippingProductDetailModel> filtermodel =
                         model.AdvanceShippingProductDetails.Where(
-                            x => x.MFDate.GetStringToFormatedDate() != new DateTime() && x.Amount >= 0).ToList();
+                            x => x.MFDate.GetStringToFormatedDate() != new DateTime() && x.Amount > 0 && x.Quantity > 0).ToList();
                     foreach (AdvanceShippingProductDetailModel advanceShippingProductDetailModel in filtermodel)
                     {
                         // Save Adv Shiping Detail
-                        AdvanceShippingProductDetail entity = new AdvanceShippingProductDetail();
+                        AdvanceShippingProductDetail entity = db.AdvanceShippingProductDetails.FirstOrDefault(x => x.ASNProductDetailsID == advanceShippingProductDetailModel.AsnProductDetailsId) ?? new AdvanceShippingProductDetail();
                         //  entity.ASNProductDetailsID = advanceShippingProductDetailModel.AsnProductDetailsId;
                         entity.ASNID = advanceShippingProductDetailModel.ASNID;
                         entity.ProductOrderProductId =
@@ -162,7 +162,17 @@ namespace Inventory.BAL.AdvanceShippingNotify
                         entity.NWKG = advanceShippingProductDetailModel.NWKG;
                         entity.WeightCarton = advanceShippingProductDetailModel.WeightCarton;
                         entity.Status = 1;
-                        db.AdvanceShippingProductDetails.Add(entity);
+                        if (advanceShippingProductDetailModel.AsnProductDetailsId == 0)
+                        {
+                            db.AdvanceShippingProductDetails.Add(entity);
+                        }
+                        else
+                        {
+                            foreach (CartonBarCodeDetail cartonBarCodeDetails in entity.CartonBarCodeDetails)
+                            {
+                                db.CartonBarCodeDetails.Remove(cartonBarCodeDetails);
+                            }
+                        }
                         db.SaveChanges();
 
                         for (int i = 1; i <= entity.NoofCartons; i++)

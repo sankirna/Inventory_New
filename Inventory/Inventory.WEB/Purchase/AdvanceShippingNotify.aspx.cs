@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Inventory.BAL.AdvanceShippingNotify;
+using Inventory.DAL;
 using Inventory.Utility;
 using balModel = Inventory.BAL;
 using Inventory.DAL.PurchaseOrders;
@@ -100,7 +101,7 @@ namespace Inventory.Web.Purchase
             drpProduct.BindDropDown(purchaseOrderLib.GetProdutPruchaseOrder(), "Code", "ProductID");
             drpProduct.Items.RemoveAt(0);
 
-            model = _advanceShippingNotifyLib.GetAdvanceShippingNotify(_purchaseOrderId,_asnId);
+            model = _advanceShippingNotifyLib.GetAdvanceShippingNotify(_purchaseOrderId, _asnId);
 
             hdnSupplierId.Value = model.SupplierID.ToStringFromInt();
             txtSupplier.Text = model.SupplierName;
@@ -116,7 +117,7 @@ namespace Inventory.Web.Purchase
             ddlShippingMethod.SelectedValue = model.ShippingMethod;
             txtTotalM3.Text = model.TotalM3.ToStringFromObject();
 
-            grdPackingList.DataSource = model.AdvanceShippingProductDetails.Where(x=>x.PurchaseOrderDetailProductId!=0);
+            grdPackingList.DataSource = model.AdvanceShippingProductDetails.Where(x => x.PurchaseOrderDetailProductId != 0);
             grdPackingList.DataBind();
 
 
@@ -141,20 +142,44 @@ namespace Inventory.Web.Purchase
             model.ShippingMethod = ddlShippingMethod.SelectedValue;
             model.TotalM3 = txtTotalM3.Text.ToDecimalFromString();
 
+            foreach (AdvanceShippingProductDetailModel advanceShippingProductDetail in SetPickingListFromGrid())
+            {
+                model.AdvanceShippingProductDetails.Add(advanceShippingProductDetail);
+            }
+            foreach (AdvanceShippingProductDetailModel advanceShippingProductDetail in SetGiftListFromGrid())
+            {
+                model.AdvanceShippingProductDetails.Add(advanceShippingProductDetail);
+            }
+        }
+
+        #endregion
+
+        #region Set List From Grid
+
+        public List<AdvanceShippingProductDetailModel> SetPickingListFromGrid()
+        {
+            List<AdvanceShippingProductDetailModel> AdvanceShippingProductDetailModels = new List<AdvanceShippingProductDetailModel>();
             foreach (GridViewRow row in grdPackingList.Rows)
             {
                 if (row.RowType == DataControlRowType.DataRow)
                 {
-                    model.AdvanceShippingProductDetails.Add(AddAdvanceShippingProductDetailModel(row));
+                    AdvanceShippingProductDetailModels.Add(AddAdvanceShippingProductDetailModel(row));
                 }
             }
+            return AdvanceShippingProductDetailModels;
+        }
+
+        public List<AdvanceShippingProductDetailModel> SetGiftListFromGrid()
+        {
+            List<AdvanceShippingProductDetailModel> AdvanceShippingProductDetailModels = new List<AdvanceShippingProductDetailModel>();
             foreach (GridViewRow row in grdGiftList.Rows)
             {
                 if (row.RowType == DataControlRowType.DataRow)
                 {
-                    model.AdvanceShippingProductDetails.Add(AddAdvanceShippingProductDetailModel(row));
+                    AdvanceShippingProductDetailModels.Add(AddAdvanceShippingProductDetailModel(row));
                 }
             }
+            return AdvanceShippingProductDetailModels;
         }
 
         #endregion
@@ -168,6 +193,41 @@ namespace Inventory.Web.Purchase
                 //pnlEdit.Visible = _asnId <= 0;
             }
         }
+
+        #region Delete Actions
+
+        protected void btnPickingListDelete_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton imageButton = (ImageButton)sender;
+            int productId = imageButton.CommandArgument.ToIntFromString();
+
+            List<AdvanceShippingProductDetailModel> advanceShippingProductDetailModels = SetPickingListFromGrid();
+            AdvanceShippingProductDetailModel advanceShippingProductDetailModel =
+                advanceShippingProductDetailModels.FirstOrDefault(x => x.ProductId == productId);
+            if (advanceShippingProductDetailModel != null)
+            {
+                advanceShippingProductDetailModels.Remove(advanceShippingProductDetailModel);
+            }
+            grdPackingList.DataSource = advanceShippingProductDetailModels;
+            grdPackingList.DataBind();
+        }
+
+        protected void btnGiftListDelete_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton imageButton = (ImageButton)sender;
+            int productId = imageButton.CommandArgument.ToIntFromString();
+
+            List<AdvanceShippingProductDetailModel> advanceShippingProductDetailModels = SetGiftListFromGrid();
+            AdvanceShippingProductDetailModel advanceShippingProductDetailModel =
+                advanceShippingProductDetailModels.FirstOrDefault(x => x.ProductId == productId);
+            if (advanceShippingProductDetailModel != null)
+            {
+                advanceShippingProductDetailModels.Remove(advanceShippingProductDetailModel);
+            }
+            grdGiftList.DataSource = advanceShippingProductDetailModels;
+            grdGiftList.DataBind();
+        }
+        #endregion
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -186,25 +246,26 @@ namespace Inventory.Web.Purchase
         protected void btnAddGift_click(object sender, EventArgs e)
         {
             List<CurrencyModel> currencyModels = _advanceShippingNotifyLib.GetCurrencyMasters();
-            foreach (GridViewRow row in grdGiftList.Rows)
-            {
-                if (row.RowType == DataControlRowType.DataRow)
-                {
-                    advanceShippingProductDetailGirModels.Add(AddAdvanceShippingProductDetailModel(row));
-                }
-            }
+            //foreach (GridViewRow row in grdGiftList.Rows)
+            //{
+            //    if (row.RowType == DataControlRowType.DataRow)
+            //    {
+            //        advanceShippingProductDetailGirModels.Add(AddAdvanceShippingProductDetailModel(row));
+            //    }
+            //}
+            advanceShippingProductDetailGirModels = SetGiftListFromGrid();
 
-            ProductPurchaseOrderModel productPurchaseOrderModel =purchaseOrderLib.GetProductDetailbyId(drpProduct.SelectedValue.ToIntFromString());
+            ProductPurchaseOrderModel productPurchaseOrderModel = purchaseOrderLib.GetProductDetailbyId(drpProduct.SelectedValue.ToIntFromString());
 
             // Set Add Model
-            AdvanceShippingProductDetailModel  advanceShippingProductDetailModel=new AdvanceShippingProductDetailModel();
+            AdvanceShippingProductDetailModel advanceShippingProductDetailModel = new AdvanceShippingProductDetailModel();
             advanceShippingProductDetailModel.ProductId = productPurchaseOrderModel.ProductID;
             advanceShippingProductDetailModel.ItemCode = productPurchaseOrderModel.Code;
             advanceShippingProductDetailModel.BarCode = productPurchaseOrderModel.BarCode;
             advanceShippingProductDetailModel.Description = productPurchaseOrderModel.Description;
             advanceShippingProductDetailModel.UnitPrice = productPurchaseOrderModel.Cost.ToNullDecimal();
             advanceShippingProductDetailModel.Quantity = productPurchaseOrderModel.QtyPerCarton;
-            advanceShippingProductDetailModel.Amount = advanceShippingProductDetailModel.UnitPrice*
+            advanceShippingProductDetailModel.Amount = advanceShippingProductDetailModel.UnitPrice *
                                                        advanceShippingProductDetailModel.Quantity;
 
             advanceShippingProductDetailGirModels.Add(advanceShippingProductDetailModel);
@@ -212,6 +273,7 @@ namespace Inventory.Web.Purchase
             grdGiftList.DataSource = advanceShippingProductDetailGirModels;
             grdGiftList.DataBind();
         }
+
 
     }
 }

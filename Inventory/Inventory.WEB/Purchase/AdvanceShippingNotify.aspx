@@ -146,250 +146,260 @@
                     </td>
 
                 </tr>
-                
+
             </table>
             <asp:Panel ID="pnlEdit" runat="server">
-            <div id="divGridView">
-                <asp:GridView ID="grdPackingList" runat="server" class="dataGrid" AutoGenerateColumns="False"
-                    Width="100%" CellPadding="0" CellSpacing="0" Style="margin-top: 0px;">
-                    <Columns>
+                <div id="divGridView">
+                    <asp:GridView ID="grdPackingList" runat="server" class="dataGrid" AutoGenerateColumns="False"
+                        Width="100%" CellPadding="0" CellSpacing="0" Style="margin-top: 0px;">
+                        <Columns>
+                               <asp:TemplateField HeaderText="Delete" HeaderStyle-Width="20px" ControlStyle-Width="20px">
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="btnDelete" runat="server"  ImageUrl="~/Images/delete.png"  OnClick="btnPickingListDelete_Click"
+                                        CommandArgument='<%# Eval("ProductId") %>' CausesValidation="False"></asp:ImageButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Serial No.
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblSRNO" runat="server"
+                                        Text='<%#Container.DataItemIndex+1 %>'></asp:Label>
+                                    <asp:HiddenField ID="hdASNID" runat="server" Value='<%# Eval("ASNID") %>' />
+                                    <asp:HiddenField ID="hdPurchaseOrderDetailProductId" runat="server" Value='<%# Eval("PurchaseOrderDetailProductId") %>' />
+                                    <asp:HiddenField ID="hdAsnProductDetailsId" runat="server" Value='<%# Eval("AsnProductDetailsId") %>' />
+                                    <asp:HiddenField ID="hdProductId" runat="server" Value='<%# Eval("ProductId") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Carton Starting No">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="20px" ID="txtStartinNo" CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Carton Ending No">
+                                <ItemTemplate>
+                                    <asp:TextBox Width="20px" runat="server" ID="txtEndNo" CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Item Code">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<%#Eval("ItemCode") %>' Width="50px" ID="lblItemCode"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Description">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<%#Eval("Description") %>' Width="50px" ID="lblDescription"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="BarCode">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<%#Eval("BarCode") %>' Width="50px" ID="lblBarCode"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField>
-                            <HeaderTemplate>
-                                Serial No.
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="lblSRNO" runat="server"
-                                    Text='<%#Container.DataItemIndex+1 %>'></asp:Label>
-                                <asp:HiddenField ID="hdASNID" runat="server" Value='<%# Eval("ASNID") %>' />
-                                <asp:HiddenField ID="hdPurchaseOrderDetailProductId" runat="server" Value='<%# Eval("PurchaseOrderDetailProductId") %>' />
-                                <asp:HiddenField ID="hdAsnProductDetailsId" runat="server" Value='<%# Eval("AsnProductDetailsId") %>' />
-                                <asp:HiddenField ID="hdProductId" runat="server" Value='<%# Eval("ProductId") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Carton Starting No">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="20px" ID="txtStartinNo" CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Carton Ending No">
-                            <ItemTemplate>
-                                <asp:TextBox Width="20px" runat="server" ID="txtEndNo" CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Item Code">
-                            <ItemTemplate>
-                                <asp:Label runat="server" Text='<%#Eval("ItemCode") %>' Width="50px" ID="lblItemCode"></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Description">
-                            <ItemTemplate>
-                                <asp:Label runat="server" Text='<%#Eval("Description") %>' Width="50px" ID="lblDescription"></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="BarCode">
-                            <ItemTemplate>
-                                <asp:Label runat="server" Text='<%#Eval("BarCode") %>' Width="50px" ID="lblBarCode"></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Unit Price">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" value='<%#Eval("UnitPrice") %>' Width="50px" ID="lblPurchaseCost" CssClass="number po-costedit"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Quantity">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" value='<%#Eval("Quantity") %>' Width="50px" ID="txtQty" CssClass="number  po-qua"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Amount (S$)">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" value='<%#Eval("Amount") %>' ID="txtAmount" CssClass="number po-amt "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Country">
+                                <ItemTemplate>
+                                    <asp:DropDownList runat="server" Width="80px" ID="ddlCountry" DataSource='<%# Eval("CurrencyModels") %>'
+                                        DataTextField="CurrencyName" DataValueField="CurrencyId" SelectValue='<%# Eval("CountryId") %>'>
+                                    </asp:DropDownList>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Unit Price">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" value='<%#Eval("UnitPrice") %>' Width="50px" ID="lblPurchaseCost" CssClass="number po-costedit"></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Quantity">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" value='<%#Eval("Quantity") %>' Width="50px" ID="txtQty" CssClass="number  po-qua"></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Amount (S$)">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" value='<%#Eval("Amount") %>' ID="txtAmount" CssClass="number po-amt "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Country">
-                            <ItemTemplate>
-                                <asp:DropDownList runat="server" Width="80px" ID="ddlCountry" DataSource='<%# Eval("CurrencyModels") %>'
-                                    DataTextField="CurrencyName" DataValueField="CurrencyId" SelectValue='<%# Eval("CountryId") %>'>
-                                </asp:DropDownList>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Size/MM">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" ID="txtSize" value='<%#Eval("SizeMM") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="G/W@KG">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" ID="txtGrossWeight" value='<%#Eval("GWKG") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Size/MM">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" ID="txtSize" value='<%#Eval("SizeMM") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="G/W@KG">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" ID="txtGrossWeight" value='<%#Eval("GWKG") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="N/W@KG">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" ID="txtNetWeight" value='<%#Eval("NWKG") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="No of Cartons">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtNofofCartons" value='<%#Eval("NoofCartons") %>' CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Weight/Carton">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtWeightperCarton" value='<%#Eval("WeightCarton") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="N/W@KG">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" ID="txtNetWeight" value='<%#Eval("NWKG") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="No of Cartons">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtNofofCartons" value='<%#Eval("NoofCartons") %>' CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Weight/Carton">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtWeightperCarton" value='<%#Eval("WeightCarton") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Quantity/Carton">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtQtyperCarton" value='<%#Eval("QuantityCarton") %>' CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-
-                        <asp:TemplateField HeaderText="MF Date">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtMFDate" value='<%#Eval("MFDate") %>' CssClass="NonEntry calender"></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Quantity/Carton">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtQtyperCarton" value='<%#Eval("QuantityCarton") %>' CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
 
-                    </Columns>
+                            <asp:TemplateField HeaderText="MF Date">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtMFDate" value='<%#Eval("MFDate") %>' CssClass="NonEntry calender"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                </asp:GridView>
+
+                        </Columns>
+
+                    </asp:GridView>
 
 
-            </div>
-            <br />
-            <table class="formGrid" width="50%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td>Select Product:
+                </div>
+                <br />
+                <table class="formGrid" width="50%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>Select Product:
                         <asp:DropDownList ID="drpProduct" runat="server"></asp:DropDownList>
-                    </td>
-                    <td>
-                        <asp:Button ID="btnAddGift" runat="server" Text="Add Gift" CssClass="button" OnClick="btnAddGift_click" CausesValidation="False" />
-                    </td>
+                        </td>
+                        <td>
+                            <asp:Button ID="btnAddGift" runat="server" Text="Add Gift" CssClass="button" OnClick="btnAddGift_click" CausesValidation="False" />
+                        </td>
 
-                </tr>
-            </table>
-            <div id="div1">
-                <asp:GridView ID="grdGiftList" runat="server" class="dataGrid" AutoGenerateColumns="False"
-                    Width="100%" CellPadding="0" CellSpacing="0" Style="margin-top: 0px;">
-                    <Columns>
+                    </tr>
+                </table>
+                <div id="div1">
+                    <asp:GridView ID="grdGiftList" runat="server" class="dataGrid" AutoGenerateColumns="False"
+                        Width="100%" CellPadding="0" CellSpacing="0" Style="margin-top: 0px;">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Delete" HeaderStyle-Width="20px" ControlStyle-Width="20px">
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="btnDelete" runat="server"  ImageUrl="~/Images/delete.png"  OnClick="btnGiftListDelete_Click"
+                                        CommandArgument='<%# Eval("ProductId") %>' CausesValidation="False"></asp:ImageButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Serial No.
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblSRNO" runat="server"
+                                        Text='<%#Container.DataItemIndex+1 %>'></asp:Label>
+                                    <asp:HiddenField ID="hdASNID" runat="server" Value='<%# Eval("ASNID") %>' />
+                                    <asp:HiddenField ID="hdPurchaseOrderDetailProductId" runat="server" Value='<%# Eval("PurchaseOrderDetailProductId") %>' />
+                                    <asp:HiddenField ID="hdAsnProductDetailsId" runat="server" Value='<%# Eval("AsnProductDetailsId") %>' />
+                                    <asp:HiddenField ID="hdProductId" runat="server" Value='<%# Eval("ProductId") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Carton Starting No">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="20px" ID="txtStartinNo" CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Carton Ending No">
+                                <ItemTemplate>
+                                    <asp:TextBox Width="20px" runat="server" ID="txtEndNo" CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Item Code">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<%#Eval("ItemCode") %>' Width="50px" ID="lblItemCode"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Description">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<%#Eval("Description") %>' Width="50px" ID="lblDescription"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="BarCode">
+                                <ItemTemplate>
+                                    <asp:Label runat="server" Text='<%#Eval("BarCode") %>' Width="50px" ID="lblBarCode"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField>
-                            <HeaderTemplate>
-                                Serial No.
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="lblSRNO" runat="server"
-                                    Text='<%#Container.DataItemIndex+1 %>'></asp:Label>
-                                <asp:HiddenField ID="hdASNID" runat="server" Value='<%# Eval("ASNID") %>' />
-                                <asp:HiddenField ID="hdPurchaseOrderDetailProductId" runat="server" Value='<%# Eval("PurchaseOrderDetailProductId") %>' />
-                                <asp:HiddenField ID="hdAsnProductDetailsId" runat="server" Value='<%# Eval("AsnProductDetailsId") %>' />
-                                <asp:HiddenField ID="hdProductId" runat="server" Value='<%# Eval("ProductId") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Carton Starting No">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="20px" ID="txtStartinNo" CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Carton Ending No">
-                            <ItemTemplate>
-                                <asp:TextBox Width="20px" runat="server" ID="txtEndNo" CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Item Code">
-                            <ItemTemplate>
-                                <asp:Label runat="server" Text='<%#Eval("ItemCode") %>' Width="50px" ID="lblItemCode"></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Description">
-                            <ItemTemplate>
-                                <asp:Label runat="server" Text='<%#Eval("Description") %>' Width="50px" ID="lblDescription"></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="BarCode">
-                            <ItemTemplate>
-                                <asp:Label runat="server" Text='<%#Eval("BarCode") %>' Width="50px" ID="lblBarCode"></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Unit Price">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" value='<%#Eval("UnitPrice") %>' Width="50px" ID="lblPurchaseCost" CssClass="number po-costedit"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Quantity">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" value='<%#Eval("Quantity") %>' Width="50px" ID="txtQty" CssClass="number  po-qua"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Amount (S$)">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" value='<%#Eval("Amount") %>' ID="txtAmount" CssClass="number po-amt "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Country">
+                                <ItemTemplate>
+                                    <asp:DropDownList runat="server" Width="80px" ID="ddlCountry" DataSource='<%# Eval("CurrencyModels") %>'
+                                        DataTextField="CurrencyName" DataValueField="CurrencyId" SelectValue='<%# Eval("CountryId") %>'>
+                                    </asp:DropDownList>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Unit Price">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" value='<%#Eval("UnitPrice") %>' Width="50px" ID="lblPurchaseCost" CssClass="number po-costedit"></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Quantity">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" value='<%#Eval("Quantity") %>' Width="50px" ID="txtQty" CssClass="number  po-qua"></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Amount (S$)">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" value='<%#Eval("Amount") %>' ID="txtAmount" CssClass="number po-amt "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Country">
-                            <ItemTemplate>
-                                <asp:DropDownList runat="server" Width="80px" ID="ddlCountry" DataSource='<%# Eval("CurrencyModels") %>'
-                                    DataTextField="CurrencyName" DataValueField="CurrencyId" SelectValue='<%# Eval("CountryId") %>'>
-                                </asp:DropDownList>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Size/MM">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" ID="txtSize" value='<%#Eval("SizeMM") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="G/W@KG">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" ID="txtGrossWeight" value='<%#Eval("GWKG") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Size/MM">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" ID="txtSize" value='<%#Eval("SizeMM") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="G/W@KG">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" ID="txtGrossWeight" value='<%#Eval("GWKG") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="N/W@KG">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="80px" ID="txtNetWeight" value='<%#Eval("NWKG") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="No of Cartons">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtNofofCartons" value='<%#Eval("NoofCartons") %>' CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Weight/Carton">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtWeightperCarton" value='<%#Eval("WeightCarton") %>'></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="N/W@KG">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="80px" ID="txtNetWeight" value='<%#Eval("NWKG") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="No of Cartons">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtNofofCartons" value='<%#Eval("NoofCartons") %>' CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Weight/Carton">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtWeightperCarton" value='<%#Eval("WeightCarton") %>'></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Quantity/Carton">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtQtyperCarton" value='<%#Eval("QuantityCarton") %>' CssClass="number "></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-
-                        <asp:TemplateField HeaderText="MF Date">
-                            <ItemTemplate>
-                                <asp:TextBox runat="server" Width="50px" ID="txtMFDate" value='<%#Eval("MFDate") %>' CssClass="NonEntry calender"></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Quantity/Carton">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtQtyperCarton" value='<%#Eval("QuantityCarton") %>' CssClass="number "></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
 
-                    </Columns>
+                            <asp:TemplateField HeaderText="MF Date">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Width="50px" ID="txtMFDate" value='<%#Eval("MFDate") %>' CssClass="NonEntry calender"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                </asp:GridView>
+
+                        </Columns>
+
+                    </asp:GridView>
 
 
-            </div>
-                </asp:Panel>
+                </div>
+            </asp:Panel>
             <div class="btn-set">
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="button" OnClick="btnSubmit_Click" />
             </div>
