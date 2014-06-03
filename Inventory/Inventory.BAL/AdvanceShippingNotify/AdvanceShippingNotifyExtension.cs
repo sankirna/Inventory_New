@@ -213,7 +213,36 @@ namespace Inventory.BAL.AdvanceShippingNotify
             return model;
         }
 
-   
+
+        public static AdvanceShippingProductDetailModel ToModel(this entity.AdvanceShippingProductDetail dbEntity)
+        {
+            AdvanceShippingProductDetailModel model = new AdvanceShippingProductDetailModel();
+
+            entity.ProductMaster productMaster = dbEntity.ProductMaster ?? new entity.ProductMaster();
+
+            model.ASNID = dbEntity.ASNID.ToNullInt();
+            model.AsnProductDetailsId = dbEntity.ASNProductDetailsID;
+            model.ProductId = dbEntity.ProductID.ToNullInt();
+            model.PurchaseOrderDetailProductId = dbEntity.ProductOrderProductId.ToNullInt();
+            model.ItemCode = productMaster.ItemCode;
+            model.Description = productMaster.Description;
+            model.BarCode = productMaster.MFBarcode;
+            model.UnitPrice = dbEntity.UnitPrice.ToNullDecimal();
+            model.Quantity = dbEntity.Qty.ToNullInt();
+            model.Amount = dbEntity.Rate.ToNullDecimal();
+            model.CountryId = dbEntity.CurrencyID.ToNullInt();
+            model.SizeMM = dbEntity.SizeMM;
+            model.GWKG = dbEntity.GWKG;
+            model.NWKG = dbEntity.NWKG;
+            model.NoofCartons = dbEntity.NoofCartons.ToNullInt();
+            model.WeightCarton = dbEntity.WeightCarton;
+            //    model.QuantityCarton = dbEntity.QuantityCarton.;
+            model.MFDate = Convert.ToDateTime(dbEntity.MFDate).GetForamttedDate();
+
+
+            return model;
+        }
+
 
         #endregion
 

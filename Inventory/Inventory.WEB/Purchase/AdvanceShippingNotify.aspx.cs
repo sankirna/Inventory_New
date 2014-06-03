@@ -116,8 +116,12 @@ namespace Inventory.Web.Purchase
             ddlShippingMethod.SelectedValue = model.ShippingMethod;
             txtTotalM3.Text = model.TotalM3.ToStringFromObject();
 
-            grdPackingList.DataSource = model.AdvanceShippingProductDetails;
+            grdPackingList.DataSource = model.AdvanceShippingProductDetails.Where(x=>x.PurchaseOrderDetailProductId!=0);
             grdPackingList.DataBind();
+
+
+            grdGiftList.DataSource = model.AdvanceShippingProductDetails.Where(x => x.PurchaseOrderDetailProductId == 0);
+            grdGiftList.DataBind();
         }
 
         public void SetModel()
@@ -161,7 +165,7 @@ namespace Inventory.Web.Purchase
             if (!IsPostBack)
             {
                 LoadControls();
-                pnlEdit.Visible = _asnId <= 0;
+                //pnlEdit.Visible = _asnId <= 0;
             }
         }
 

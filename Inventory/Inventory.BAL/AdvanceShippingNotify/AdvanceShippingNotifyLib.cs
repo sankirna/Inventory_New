@@ -35,7 +35,7 @@ namespace Inventory.BAL.AdvanceShippingNotify
 
 
 
-        public AdvanceShippingNotifyModels GetAdvanceShippingNotify(int purchaseOrderId,int asnId=0)
+        public AdvanceShippingNotifyModels GetAdvanceShippingNotify(int purchaseOrderId, int asnId = 0)
         {
             using (var db = new DAL.InventoryEntities())
             {
@@ -63,6 +63,15 @@ namespace Inventory.BAL.AdvanceShippingNotify
                     {
                         advanceShippingProductDetailModel.AdvanceShippingProductDetails.Add(
                             purchaseOrderDetail.ToAdvanceShippingProductDetailModel());
+                    }
+                }
+                else
+                {
+                    foreach (
+                       AdvanceShippingProductDetail advanceShippingProductDetail in advanceShipping.AdvanceShippingProductDetails)
+                    {
+                        advanceShippingProductDetailModel.AdvanceShippingProductDetails.Add(
+                            advanceShippingProductDetail.ToModel());
                     }
                 }
 
@@ -100,66 +109,72 @@ namespace Inventory.BAL.AdvanceShippingNotify
                         advanceShipping = db.AdvanceShippings.FirstOrDefault(x => x.ASNID == model.ASNID);
                         advanceShipping = model.ToEntity(advanceShipping);
                         db.SaveChanges();
-                        //// Delete EXitsing Order
-                        //int[] extingIds = advanceShipping.AdvanceShippingProductDetails.ToList().Select(x => x.ASNProductDetailsID).ToArray();
-                        //int[] detailIds = model.AdvanceShippingProductDetails.Where(x => x.ProductId > 0 && x.Rate > 0).Select(x => x.AsnProductDetailsId).ToArray();
+                        // Delete EXitsing Order
+                        int[] extingIds = advanceShipping.AdvanceShippingProductDetails.ToList().Select(x => x.ASNProductDetailsID).ToArray();
+                        int[] detailIds = model.AdvanceShippingProductDetails.Where(x => x.ProductId > 0 && x.Amount > 0).Select(x => x.AsnProductDetailsId).ToArray();
 
-                        //int[] deleteIds = extingIds.Except(detailIds).ToArray();
-                        //List<AdvanceShippingProductDetail> advanceShippingProductDetails = advanceShipping.AdvanceShippingProductDetails.Where(x => !deleteIds.Contains(x.ASNProductDetailsID)).ToList();
+                        int[] deleteIds = extingIds.Except(detailIds).ToArray();
+                        List<AdvanceShippingProductDetail> advanceShippingProductDetails = advanceShipping.AdvanceShippingProductDetails.Where(x => !deleteIds.Contains(x.ASNProductDetailsID)).ToList();
 
-                        //foreach (AdvanceShippingProductDetail item in advanceShippingProductDetails)
-                        //{
-                        //    db.AdvanceShippingProductDetails.Remove(item);
-                        //}
-                        //db.SaveChanges();
+                        foreach (AdvanceShippingProductDetail item in advanceShippingProductDetails)
+                        {
+                            //Delete barcode Detail
+                            foreach (CartonBarCodeDetail cartonBarCodeDetail in item.CartonBarCodeDetails)
+                            {
+                                db.CartonBarCodeDetails.Remove(cartonBarCodeDetail);
+                            }
+
+                            db.AdvanceShippingProductDetails.Remove(item);
+                        }
+                        db.SaveChanges();
+
+
+
                         //result = "update";
                     }
 
-                    // TODO SetLogic here while update record
-                    if (model.ASNID > 0)
-                    {
-                        model.AdvanceShippingProductDetails.ForEach(x => x.ASNID = advanceShipping.ASNID);
-                        List<AdvanceShippingProductDetailModel> filtermodel =
-                            model.AdvanceShippingProductDetails.Where(
-                                x => x.MFDate.GetStringToFormatedDate() != new DateTime() && x.Amount >= 0).ToList();
-                        foreach (AdvanceShippingProductDetailModel advanceShippingProductDetailModel in filtermodel)
-                        {
-                            // Save Adv Shiping Detail
-                            AdvanceShippingProductDetail entity = new AdvanceShippingProductDetail();
-                            //  entity.ASNProductDetailsID = advanceShippingProductDetailModel.AsnProductDetailsId;
-                            entity.ASNID = advanceShippingProductDetailModel.ASNID;
-                            entity.ProductOrderProductId =
-                                advanceShippingProductDetailModel.PurchaseOrderDetailProductId > 0
-                                    ? advanceShippingProductDetailModel.PurchaseOrderDetailProductId
-                                    : (int?) null;
-                            entity.ProductID = advanceShippingProductDetailModel.ProductId;
-                            entity.UnitPrice = advanceShippingProductDetailModel.UnitPrice;
-                            entity.CurrencyID = advanceShippingProductDetailModel.CountryId;
-                            entity.Qty = advanceShippingProductDetailModel.Quantity;
-                            entity.MFDate = advanceShippingProductDetailModel.MFDate.GetStringToFormatedDate();
-                            entity.ExpiryDate =
-                                advanceShippingProductDetailModel.MFDate.GetStringToFormatedDate().AddYears(1);
-                            entity.NoofCartons = advanceShippingProductDetailModel.NoofCartons;
-                            entity.Rate = advanceShippingProductDetailModel.Amount;
-                            entity.SizeMM = advanceShippingProductDetailModel.SizeMM;
-                            entity.GWKG = advanceShippingProductDetailModel.GWKG;
-                            entity.NWKG = advanceShippingProductDetailModel.NWKG;
-                            entity.WeightCarton = advanceShippingProductDetailModel.WeightCarton;
-                            entity.Status = 1;
-                            db.AdvanceShippingProductDetails.Add(entity);
-                            db.SaveChanges();
 
-                            for (int i = 1; i <= entity.NoofCartons; i++)
-                            {
-                                CartonBarCodeDetail cartonBarCodeDetails = new CartonBarCodeDetail();
-                                cartonBarCodeDetails.ASNProductDetailsID = entity.ASNProductDetailsID;
-                                cartonBarCodeDetails.BarCodeNo = string.Format("BR{0}", entity.ASNProductDetailsID);
-                                cartonBarCodeDetails.CartonID = string.Format("CR{0}", i);
-                                cartonBarCodeDetails.Quantity = advanceShippingProductDetailModel.QuantityCarton;
-                                db.CartonBarCodeDetails.Add(cartonBarCodeDetails);
-                            }
-                            db.SaveChanges();
+                    model.AdvanceShippingProductDetails.ForEach(x => x.ASNID = advanceShipping.ASNID);
+                    List<AdvanceShippingProductDetailModel> filtermodel =
+                        model.AdvanceShippingProductDetails.Where(
+                            x => x.MFDate.GetStringToFormatedDate() != new DateTime() && x.Amount >= 0).ToList();
+                    foreach (AdvanceShippingProductDetailModel advanceShippingProductDetailModel in filtermodel)
+                    {
+                        // Save Adv Shiping Detail
+                        AdvanceShippingProductDetail entity = new AdvanceShippingProductDetail();
+                        //  entity.ASNProductDetailsID = advanceShippingProductDetailModel.AsnProductDetailsId;
+                        entity.ASNID = advanceShippingProductDetailModel.ASNID;
+                        entity.ProductOrderProductId =
+                            advanceShippingProductDetailModel.PurchaseOrderDetailProductId > 0
+                                ? advanceShippingProductDetailModel.PurchaseOrderDetailProductId
+                                : (int?)null;
+                        entity.ProductID = advanceShippingProductDetailModel.ProductId;
+                        entity.UnitPrice = advanceShippingProductDetailModel.UnitPrice;
+                        entity.CurrencyID = advanceShippingProductDetailModel.CountryId;
+                        entity.Qty = advanceShippingProductDetailModel.Quantity;
+                        entity.MFDate = advanceShippingProductDetailModel.MFDate.GetStringToFormatedDate();
+                        entity.ExpiryDate =
+                            advanceShippingProductDetailModel.MFDate.GetStringToFormatedDate().AddYears(1);
+                        entity.NoofCartons = advanceShippingProductDetailModel.NoofCartons;
+                        entity.Rate = advanceShippingProductDetailModel.Amount;
+                        entity.SizeMM = advanceShippingProductDetailModel.SizeMM;
+                        entity.GWKG = advanceShippingProductDetailModel.GWKG;
+                        entity.NWKG = advanceShippingProductDetailModel.NWKG;
+                        entity.WeightCarton = advanceShippingProductDetailModel.WeightCarton;
+                        entity.Status = 1;
+                        db.AdvanceShippingProductDetails.Add(entity);
+                        db.SaveChanges();
+
+                        for (int i = 1; i <= entity.NoofCartons; i++)
+                        {
+                            CartonBarCodeDetail cartonBarCodeDetails = new CartonBarCodeDetail();
+                            cartonBarCodeDetails.ASNProductDetailsID = entity.ASNProductDetailsID;
+                            cartonBarCodeDetails.BarCodeNo = string.Format("BR{0}", entity.ASNProductDetailsID);
+                            cartonBarCodeDetails.CartonID = string.Format("CR{0}", i);
+                            cartonBarCodeDetails.Quantity = advanceShippingProductDetailModel.QuantityCarton;
+                            db.CartonBarCodeDetails.Add(cartonBarCodeDetails);
                         }
+                        db.SaveChanges();
                     }
                     transaction.Complete();
                 }
@@ -194,6 +209,6 @@ namespace Inventory.BAL.AdvanceShippingNotify
             }
         }
 
-       
+
     }
 }
