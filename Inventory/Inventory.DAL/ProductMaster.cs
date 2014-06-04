@@ -38,7 +38,7 @@ namespace Inventory.DAL
         public Nullable<decimal> BasicPC { get; set; }
         public Nullable<int> CurrencyID { get; set; }
         public Nullable<decimal> SRP { get; set; }
-        public Nullable<int> ShelfLife { get; set; }
+        public Nullable<decimal> ShelfLife { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public System.DateTime DateCreated { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }

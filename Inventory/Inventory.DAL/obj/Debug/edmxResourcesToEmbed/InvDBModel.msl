@@ -208,36 +208,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProductMasters">
-      <EntityTypeMapping TypeName="InventoryModel.ProductMaster">
-        <MappingFragment StoreEntitySet="ProductMaster">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
-          <ScalarProperty Name="SRP" ColumnName="SRP" />
-          <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
-          <ScalarProperty Name="BasicPC" ColumnName="BasicPC" />
-          <ScalarProperty Name="QPC" ColumnName="QPC" />
-          <ScalarProperty Name="SpWeight" ColumnName="SpWeight" />
-          <ScalarProperty Name="SpHeight" ColumnName="SpHeight" />
-          <ScalarProperty Name="SpBreadth" ColumnName="SpBreadth" />
-          <ScalarProperty Name="SpLength" ColumnName="SpLength" />
-          <ScalarProperty Name="DiWeight" ColumnName="DiWeight" />
-          <ScalarProperty Name="DiHeight" ColumnName="DiHeight" />
-          <ScalarProperty Name="DiBreadth" ColumnName="DiBreadth" />
-          <ScalarProperty Name="DiLength" ColumnName="DiLength" />
-          <ScalarProperty Name="UOMID" ColumnName="UOMID" />
-          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-          <ScalarProperty Name="MFBarcode" ColumnName="MFBarcode" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PurchaseOrders">
       <EntityTypeMapping TypeName="InventoryModel.PurchaseOrder">
         <MappingFragment StoreEntitySet="PurchaseOrder">
@@ -398,6 +368,36 @@
           <ScalarProperty Name="UomCode" ColumnName="UomCode" />
           <ScalarProperty Name="UomName" ColumnName="UomName" />
           <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductMasters">
+      <EntityTypeMapping TypeName="InventoryModel.ProductMaster">
+        <MappingFragment StoreEntitySet="ProductMaster">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
+          <ScalarProperty Name="SRP" ColumnName="SRP" />
+          <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+          <ScalarProperty Name="BasicPC" ColumnName="BasicPC" />
+          <ScalarProperty Name="QPC" ColumnName="QPC" />
+          <ScalarProperty Name="SpWeight" ColumnName="SpWeight" />
+          <ScalarProperty Name="SpHeight" ColumnName="SpHeight" />
+          <ScalarProperty Name="SpBreadth" ColumnName="SpBreadth" />
+          <ScalarProperty Name="SpLength" ColumnName="SpLength" />
+          <ScalarProperty Name="DiWeight" ColumnName="DiWeight" />
+          <ScalarProperty Name="DiHeight" ColumnName="DiHeight" />
+          <ScalarProperty Name="DiBreadth" ColumnName="DiBreadth" />
+          <ScalarProperty Name="DiLength" ColumnName="DiLength" />
+          <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="MFBarcode" ColumnName="MFBarcode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

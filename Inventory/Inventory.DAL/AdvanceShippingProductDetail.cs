@@ -42,8 +42,8 @@ namespace Inventory.DAL
         public string WeightCarton { get; set; }
     
         public virtual AdvanceShipping AdvanceShipping { get; set; }
-        public virtual ProductMaster ProductMaster { get; set; }
         public virtual ICollection<CartonBarCodeDetail> CartonBarCodeDetails { get; set; }
         public virtual PurchaseOrderDetail PurchaseOrderDetail { get; set; }
+        public virtual ProductMaster ProductMaster { get; set; }
     }
 }

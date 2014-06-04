@@ -37,7 +37,6 @@ namespace Inventory.DAL
         public DbSet<CustomerSKU> CustomerSKUs { get; set; }
         public DbSet<ExceptionLog> ExceptionLogs { get; set; }
         public DbSet<PickingList> PickingLists { get; set; }
-        public DbSet<ProductMaster> ProductMasters { get; set; }
         public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public DbSet<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
         public DbSet<ReceiveMainDetail> ReceiveMainDetails { get; set; }
@@ -48,5 +47,6 @@ namespace Inventory.DAL
         public DbSet<SupplierBrand> SupplierBrands { get; set; }
         public DbSet<SupplierMaster> SupplierMasters { get; set; }
         public DbSet<UOMMaster> UOMMasters { get; set; }
+        public DbSet<ProductMaster> ProductMasters { get; set; }
     }
 }

@@ -278,7 +278,7 @@
     <Property Name="BasicPC" Type="decimal" />
     <Property Name="CurrencyID" Type="int" />
     <Property Name="SRP" Type="decimal" />
-    <Property Name="ShelfLife" Type="int" />
+    <Property Name="ShelfLife" Type="decimal" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="DateCreated" Type="datetime" Nullable="false" />
     <Property Name="DateModified" Type="datetime" />

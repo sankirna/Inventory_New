@@ -26,8 +26,8 @@ namespace Inventory.DAL
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> Amount { get; set; }
     
-        public virtual ProductMaster ProductMaster { get; set; }
         public virtual PurchaseOrder PurchaseOrder { get; set; }
         public virtual ICollection<AdvanceShippingProductDetail> AdvanceShippingProductDetails { get; set; }
+        public virtual ProductMaster ProductMaster { get; set; }
     }
 }
