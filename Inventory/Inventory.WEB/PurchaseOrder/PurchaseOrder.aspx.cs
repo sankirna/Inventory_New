@@ -83,7 +83,7 @@ namespace Inventory.Web.PurchaseOrder
                 purchaseOrderModel.PurchaseOrderID = Request.QueryString["POID"].ToIntFromString();
             }
             purchaseOrderModel.SupplierID = ddSupplier.SelectedValue.ToIntFromString();
-            purchaseOrderModel.PODate = Convert.ToDateTime(txtPODate.Text.Trim());
+            purchaseOrderModel.PODate = txtPODate.Text.Trim().GetStringToFormatedDate();
             purchaseOrderModel.PurchaseOrderItems = SetListItemModel();
             purchaseOrderModel.TermCondition = txtTermcondition.Text;
             return purchaseOrderModel;

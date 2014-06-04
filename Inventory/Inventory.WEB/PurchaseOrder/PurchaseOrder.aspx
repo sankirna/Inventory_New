@@ -9,7 +9,7 @@
            });
 
            function SetDatePicker() {
-               $("#<%=txtPODate.ClientID%>").datepicker({ dateFormat: 'dd-mm-yy' });
+               $("#<%=txtPODate.ClientID%>").datepicker({ dateFormat: 'dd-MM-yy' });
         }
 
         $(function () {

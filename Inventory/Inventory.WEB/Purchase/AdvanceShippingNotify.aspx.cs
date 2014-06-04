@@ -107,9 +107,10 @@ namespace Inventory.Web.Purchase
             txtSupplier.Text = model.SupplierName;
             hdPoId.Value = model.PurchaseOrderID.ToStringFromInt();
             txtPONo.Text = model.PONumber;
-            txtPODate.Text = model.PODate;
 
+            txtPODate.Text = model.PODate;
             txtETD.Text = model.ETA;
+
             txtPINo.Text = model.PINo;
             txtInvoiceNo.Text = model.InvoiceNo;
             ddlCountryFrom.SelectedValue = model.FromCountry.ToStringFromInt();

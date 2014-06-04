@@ -116,15 +116,18 @@ namespace Inventory.BAL.AdvanceShippingNotify
                         int[] deleteIds = extingIds.Except(detailIds).ToArray();
                         List<AdvanceShippingProductDetail> advanceShippingProductDetails = advanceShipping.AdvanceShippingProductDetails.Where(x => !deleteIds.Contains(x.ASNProductDetailsID)).ToList();
 
+                        List<AdvanceShippingProductDetail> tempCollectionList = advanceShippingProductDetails;
+
                         foreach (AdvanceShippingProductDetail item in advanceShippingProductDetails)
                         {
+                            List<CartonBarCodeDetail> listdeBarCodeDetails = item.CartonBarCodeDetails.ToList();
                             //Delete barcode Detail
-                            foreach (CartonBarCodeDetail cartonBarCodeDetail in item.CartonBarCodeDetails)
+                            foreach (CartonBarCodeDetail cartonBarCodeDetail in listdeBarCodeDetails)
                             {
                                 db.CartonBarCodeDetails.Remove(cartonBarCodeDetail);
                             }
 
-                            db.AdvanceShippingProductDetails.Remove(item);
+                           // db.AdvanceShippingProductDetails.Remove(item);
                         }
                         db.SaveChanges();
 
@@ -141,7 +144,11 @@ namespace Inventory.BAL.AdvanceShippingNotify
                     foreach (AdvanceShippingProductDetailModel advanceShippingProductDetailModel in filtermodel)
                     {
                         // Save Adv Shiping Detail
-                        AdvanceShippingProductDetail entity = db.AdvanceShippingProductDetails.FirstOrDefault(x => x.ASNProductDetailsID == advanceShippingProductDetailModel.AsnProductDetailsId) ?? new AdvanceShippingProductDetail();
+                        AdvanceShippingProductDetail entity = db.AdvanceShippingProductDetails.FirstOrDefault(x => x.ASNProductDetailsID == advanceShippingProductDetailModel.AsnProductDetailsId) ;
+                        if (entity==null)
+                        {
+                            entity = new AdvanceShippingProductDetail();
+                        }
                         //  entity.ASNProductDetailsID = advanceShippingProductDetailModel.AsnProductDetailsId;
                         entity.ASNID = advanceShippingProductDetailModel.ASNID;
                         entity.ProductOrderProductId =

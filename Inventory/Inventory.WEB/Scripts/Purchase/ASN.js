@@ -1,6 +1,6 @@
 ﻿var jsonpurchseItemobject;
 $(function () {
-    $(".calender").datepicker({ dateFormat: 'dd-M-yy' });
+    $(".calender").datepicker({ dateFormat: 'dd-MM-yy' });
     $(".number").keydown(function (e) {
 
         var keyCode = e.which; // Capture the event

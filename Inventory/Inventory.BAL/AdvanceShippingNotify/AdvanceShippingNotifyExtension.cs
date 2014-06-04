@@ -83,7 +83,7 @@ namespace Inventory.BAL.AdvanceShippingNotify
             entity.PurchaseOrderID = model.PurchaseOrderID;
             entity.SupplierID = model.SupplierID;
             entity.ETA = model.ETA.GetStringToFormatedDate();
-            entity.ASNNo = model.ASNNo;
+         //   entity.ASNNo = model.ASNNo;
             entity.PINo = model.PINo;
             entity.InvoiceNo = model.InvoiceNo;
             entity.TotalM3 = model.TotalM3;
@@ -258,12 +258,12 @@ namespace Inventory.BAL.AdvanceShippingNotify
                 model.ASNID = entity.ASNID;
                 model.PurchaseOrderID = entity.PurchaseOrderID;
                 model.ASNNo = entity.ASNNo;
-                model.ETA = entity.ETA.ToStringFromObject();
+                model.ETA = Convert.ToDateTime(entity.ETA).GetForamttedDate();
                 model.PONumber = entity.PONumber;
 
                 PurchaseOrder po = entity.PurchaseOrder ?? new PurchaseOrder();
                 SupplierMaster sm = entity.SupplierMaster ?? new SupplierMaster();
-                model.PODate = po.PODate.ToStringFromObject();
+                model.PODate = Convert.ToDateTime(po.PODate).GetForamttedDate(); //po.PODate.ToStringFromObject();
                 model.SupplierName = sm.SupplierName;
 
                 return model;

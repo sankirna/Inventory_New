@@ -10,8 +10,8 @@
           });
 
           function SetDatePicker() {
-              $("#<%=txtPODateFrom.ClientID%>").datepicker({ dateFormat: 'dd-M-yy' });
-               $("#<%=txtPODateTo.ClientID%>").datepicker({ dateFormat: 'dd-M-yy' });
+              $("#<%=txtPODateFrom.ClientID%>").datepicker({ dateFormat: 'dd-MM-yy' });
+               $("#<%=txtPODateTo.ClientID%>").datepicker({ dateFormat: 'dd-MM-yy' });
            }
     </script>
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false"></asp:ToolkitScriptManager>
